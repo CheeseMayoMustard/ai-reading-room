@@ -1,0 +1,12 @@
+.teaching-picture{display:block}
+.teaching-plate,.teaching-live{display:block;width:100%;height:auto;max-width:620px}
+.teaching-live{position:relative;margin:14px 0;background:#fff;border:1px solid #d9e1e3}
+.teaching-live>svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.course-desk .course-figure{background:#fff;border:1px solid #d9e1e3;padding:clamp(12px,2vw,25px);margin:22px 0}
+.course-figure .teaching-plate{margin-inline:auto}
+.course-figure figcaption{color:#53636f}
+.decision-lab .trial-prices{display:flex;gap:22px;flex-wrap:wrap;margin:8px 0;color:#fff}
+.trial-prices strong{padding-inline-start:5px}
+.fd-lab .teaching-live{grid-column:1/-1;margin-bottom:0}
+#demo-surface .demo-plate{width:100%;max-width:600px;border:1px solid #d9e1e3;background:#fff;margin:16px 0}
+.demo-plate svg,.demo-plate img{width:100%;display:block;height:auto}

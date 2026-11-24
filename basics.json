@@ -1,0 +1,1144 @@
+{
+  "reviewed": "2026-11-05",
+  "terms": [
+    {
+      "id": "ai",
+      "name": "AI / machine learning / deep learning",
+      "group": "Foundations",
+      "definition": "AI is the broad field; machine learning learns patterns from data; deep learning uses neural networks with many layers.",
+      "example": "Sorting messages by learned patterns is machine learning. A modern language model is a deep-learning system.",
+      "trap": "These labels describe overlapping levels of a field, not three competing products.",
+      "source": "fundamentals",
+      "paper": null
+    },
+    {
+      "id": "model",
+      "name": "Model vs application",
+      "group": "Foundations",
+      "definition": "A model performs learned computation. An application adds an interface, files, tools and rules around one or more models.",
+      "example": "A chat app may search the web using a separate tool, then ask a model to write the answer.",
+      "trap": "A product feature is not necessarily a capability inside the model weights.",
+      "source": "llms",
+      "paper": null
+    },
+    {
+      "id": "llm",
+      "name": "LLM — large language model",
+      "group": "Foundations",
+      "definition": "A language model with many learned parameters that models token sequences and can generate text.",
+      "example": "The same model can draft a letter, explain a paragraph or translate a sentence.",
+      "trap": "Fluent output is not a guarantee of correct facts or sound reasoning.",
+      "source": "llms",
+      "paper": null
+    },
+    {
+      "id": "token",
+      "name": "Token",
+      "group": "Foundations",
+      "definition": "A unit processed by a model; text tokens can be words, word fragments, characters or other pieces.",
+      "example": "A long technical word may use several tokens even though you count it as one word.",
+      "trap": "There is no universal tokens-per-word ratio across languages and tokenizers.",
+      "source": "tokens",
+      "paper": null
+    },
+    {
+      "id": "tokenizer",
+      "name": "Tokenizer",
+      "group": "Foundations",
+      "definition": "The system that converts input into the token IDs a model processes.",
+      "example": "Two models can split the same supplier specification differently.",
+      "trap": "Token counts can differ even when the visible text is identical.",
+      "source": "tokens",
+      "paper": null
+    },
+    {
+      "id": "parameters",
+      "name": "Parameters / weights",
+      "group": "Foundations",
+      "definition": "Learned numerical settings that shape how a neural network processes inputs. A parameter count describes how many such values it has.",
+      "example": "An 8B model has roughly eight billion parameters.",
+      "trap": "More parameters do not automatically mean a better result on your task.",
+      "source": "settings",
+      "paper": null
+    },
+    {
+      "id": "embedding",
+      "name": "Embedding",
+      "group": "Foundations",
+      "definition": "A numerical representation of an item, such as a token or document, useful for comparing or processing meaning-related patterns.",
+      "example": "A document search system compares a question’s representation with representations of stored passages.",
+      "trap": "Similar representations do not prove that two statements are equally true.",
+      "source": "llms",
+      "paper": null
+    },
+    {
+      "id": "attention",
+      "name": "Attention",
+      "group": "Foundations",
+      "definition": "A learned mechanism that weights and combines relevant representations.",
+      "example": "To interpret “it,” useful context may include a noun mentioned earlier in the sentence.",
+      "trap": "Attention weights are not a complete explanation of a model’s decision.",
+      "source": "attention",
+      "paper": "transformer"
+    },
+    {
+      "id": "transformer",
+      "name": "Transformer",
+      "group": "Foundations",
+      "definition": "A neural-network architecture using attention and other layers to process sequences.",
+      "example": "Many later language models adapt this architecture for understanding or generating text.",
+      "trap": "A shared architecture name does not mean all models use the same training data or design.",
+      "source": "attention",
+      "paper": "transformer"
+    },
+    {
+      "id": "multimodal",
+      "name": "Multimodal",
+      "group": "Foundations",
+      "definition": "Able to process or generate more than one type of information, such as text, images, audio or video.",
+      "example": "A model reads a chart image and answers a written question about it.",
+      "trap": "Supported input types and tool access differ between particular models and products.",
+      "source": "llms",
+      "paper": "kimi25"
+    },
+    {
+      "id": "pretraining",
+      "name": "Pre-training",
+      "group": "Learning",
+      "definition": "The broad initial training stage that learns reusable patterns from data.",
+      "example": "A model develops general language capabilities before being adapted for a narrower role.",
+      "trap": "Pre-training is not the same as opening your document during a conversation.",
+      "source": "llms",
+      "paper": "bert"
+    },
+    {
+      "id": "finetuning",
+      "name": "Fine-tuning",
+      "group": "Learning",
+      "definition": "Further training that updates a pre-trained model or trainable additions using selected examples.",
+      "example": "Train on examples of well-written inspection reports to improve a consistent report style.",
+      "trap": "It is not a reliable substitute for retrieving a changing inventory database.",
+      "source": "llms",
+      "paper": "lora"
+    },
+    {
+      "id": "posttraining",
+      "name": "Post-training",
+      "group": "Learning",
+      "definition": "Training stages after broad pre-training, often used to improve instruction following, preferences or task behavior.",
+      "example": "A model learns to answer requests in a more useful format.",
+      "trap": "The label covers different methods; it does not identify a single recipe.",
+      "source": "rlhf",
+      "paper": "instruct"
+    },
+    {
+      "id": "inference",
+      "name": "Inference",
+      "group": "Learning",
+      "definition": "Running a trained model to produce outputs from new inputs.",
+      "example": "You submit a question and receive a generated answer.",
+      "trap": "Ordinary inference does not necessarily change the model’s weights.",
+      "source": "serving",
+      "paper": null
+    },
+    {
+      "id": "loss",
+      "name": "Loss",
+      "group": "Learning",
+      "definition": "A numerical training objective that measures how poorly a model performs according to a chosen rule.",
+      "example": "Training adjusts weights to reduce prediction error on examples.",
+      "trap": "Lower training loss does not guarantee better real-world usefulness.",
+      "source": "fundamentals",
+      "paper": "scaling"
+    },
+    {
+      "id": "rlhf",
+      "name": "RLHF — reinforcement learning from human feedback",
+      "group": "Learning",
+      "definition": "Uses human feedback, often comparisons of outputs, to help train model behavior through reinforcement learning.",
+      "example": "People prefer one answer to another, helping shape a training signal.",
+      "trap": "Preferred answers are not always factually correct.",
+      "source": "rlhf",
+      "paper": "instruct"
+    },
+    {
+      "id": "distillation",
+      "name": "Distillation",
+      "group": "Learning",
+      "definition": "Training a student model using outputs or signals from a teacher model.",
+      "example": "A smaller model learns from examples produced by a stronger model.",
+      "trap": "The student need not preserve all of the teacher’s abilities or limitations in the same way.",
+      "source": "llms",
+      "paper": "deepseekr1"
+    },
+    {
+      "id": "lora",
+      "name": "LoRA / adapters",
+      "group": "Learning",
+      "definition": "Parameter-efficient adaptation that trains small additions or low-rank updates while much of the base model remains fixed.",
+      "example": "Customize a general model without updating every original parameter.",
+      "trap": "Training fewer parameters does not eliminate the need to run or store the base model.",
+      "source": "quant",
+      "paper": "lora"
+    },
+    {
+      "id": "prompt",
+      "name": "Prompt",
+      "group": "Using models",
+      "definition": "The input instructions and context supplied to a model.",
+      "example": "Ask for a comparison table and provide the quotations to compare.",
+      "trap": "Better wording cannot supply missing evidence by itself.",
+      "source": "llms",
+      "paper": null
+    },
+    {
+      "id": "context",
+      "name": "Context window",
+      "group": "Using models",
+      "definition": "The amount of token-based context a model can handle within its supported request limits.",
+      "example": "A request includes instructions, conversation history and excerpts from a paper.",
+      "trap": "A large advertised limit does not guarantee perfect retrieval of every detail.",
+      "source": "llms",
+      "paper": null
+    },
+    {
+      "id": "rag",
+      "name": "RAG — retrieval-augmented generation",
+      "group": "Using models",
+      "definition": "Retrieves relevant external material and supplies it to a model when generating an answer.",
+      "example": "Find passages in an equipment manual before answering a maintenance question.",
+      "trap": "Bad retrieval or unsupported generation can still produce a wrong answer.",
+      "source": "rag",
+      "paper": "rag"
+    },
+    {
+      "id": "hallucination",
+      "name": "Hallucination",
+      "group": "Using models",
+      "definition": "Generated content that is incorrect or unsupported, sometimes presented convincingly.",
+      "example": "A plausible-looking research citation turns out not to exist.",
+      "trap": "Confidence, detail and good formatting do not establish truth.",
+      "source": "llms",
+      "paper": null
+    },
+    {
+      "id": "reasoning",
+      "name": "Reasoning tokens / test-time compute",
+      "group": "Using models",
+      "definition": "Extra computation used while answering, sometimes involving additional generated tokens, attempts or tool calls.",
+      "example": "A difficult problem receives more work before the final answer is returned.",
+      "trap": "More computation can cost more and still lead to an incorrect answer.",
+      "source": "cot",
+      "paper": "cot"
+    },
+    {
+      "id": "temperature",
+      "name": "Temperature",
+      "group": "Using models",
+      "definition": "A sampling setting that changes how sharply a model’s next-token probabilities are favored.",
+      "example": "Lower settings often produce more repeatable wording; higher settings can increase variation.",
+      "trap": "It is not a truthfulness control, and not every model exposes it.",
+      "source": "llms",
+      "paper": null
+    },
+    {
+      "id": "agent",
+      "name": "Agent",
+      "group": "Tools & work",
+      "definition": "A system in which a model helps choose actions and use tools over multiple steps toward a goal.",
+      "example": "Read files, run a calculation, inspect the result and revise a report.",
+      "trap": "The term is used loosely; ask which actions and checks the system actually performs.",
+      "source": "agents",
+      "paper": "react"
+    },
+    {
+      "id": "workflow",
+      "name": "Workflow vs agent",
+      "group": "Tools & work",
+      "definition": "A workflow follows a more predefined sequence; an agent chooses more of its next steps dynamically.",
+      "example": "A fixed invoice extraction pipeline differs from an assistant investigating why numbers disagree.",
+      "trap": "An agent is not automatically the best choice for a predictable, simple task.",
+      "source": "agents",
+      "paper": null
+    },
+    {
+      "id": "tool",
+      "name": "Tool / API",
+      "group": "Tools & work",
+      "definition": "A tool performs an external action or returns information. An API is a defined way for software to request such operations.",
+      "example": "A spreadsheet tool calculates totals; a search tool retrieves pages.",
+      "trap": "Writing “I sent the email” is different from a successful email tool action.",
+      "source": "agents",
+      "paper": null
+    },
+    {
+      "id": "harness",
+      "name": "Harness / orchestration",
+      "group": "Tools & work",
+      "definition": "The surrounding system that supplies tools, manages context and runs the model’s work loop.",
+      "example": "The same model can perform differently with different search tools and retry rules.",
+      "trap": "A benchmark result may reflect the whole setup, not just the underlying model.",
+      "source": "evaluation",
+      "paper": null
+    },
+    {
+      "id": "verification",
+      "name": "Verification",
+      "group": "Tools & work",
+      "definition": "Checking outputs against evidence, tests, constraints or observed results.",
+      "example": "Reconcile the extracted quotation total with the original document and a calculation.",
+      "trap": "A second generated opinion is not independent verification by itself.",
+      "source": "agents",
+      "paper": null
+    },
+    {
+      "id": "gpu",
+      "name": "GPU / accelerator",
+      "group": "Efficiency",
+      "definition": "Hardware designed to execute many numerical operations in parallel, widely used to train and run neural networks.",
+      "example": "A server uses accelerators for model computation while other software manages files and requests.",
+      "trap": "Chip count alone does not describe usable performance; memory, networking and software also matter.",
+      "source": "serving",
+      "paper": null
+    },
+    {
+      "id": "memory",
+      "name": "VRAM / HBM / model memory",
+      "group": "Efficiency",
+      "definition": "VRAM is device memory; HBM is a high-bandwidth memory technology used by many accelerators. Running models needs memory for weights and other state.",
+      "example": "A model may need space for stored parameters, conversation caches and temporary calculations.",
+      "trap": "A weights-only size estimate is not a full hardware requirement.",
+      "source": "serving",
+      "paper": null
+    },
+    {
+      "id": "quantization",
+      "name": "Quantization",
+      "group": "Efficiency",
+      "definition": "Represents some numerical values with fewer bits to reduce storage or computation costs.",
+      "example": "A lower-bit representation can reduce the memory occupied by model weights.",
+      "trap": "Quality and speed depend on the method and hardware; fewer bits are not a universal speed guarantee.",
+      "source": "quant",
+      "paper": "qlora"
+    },
+    {
+      "id": "moe",
+      "name": "MoE — mixture of experts",
+      "group": "Efficiency",
+      "definition": "A network that selects particular expert subnetworks for each input rather than activating all experts every time.",
+      "example": "A router sends a token through a small subset of available experts.",
+      "trap": "Experts are learned subnetworks, not necessarily human-readable subject departments.",
+      "source": "moe",
+      "paper": "switch"
+    },
+    {
+      "id": "active",
+      "name": "Total vs active parameters",
+      "group": "Efficiency",
+      "definition": "Total parameters describe stored capacity; active parameters describe the portion used for a particular computation under the model’s definition.",
+      "example": "A sparse model may store many experts but use only a subset for a token.",
+      "trap": "The active count is not the amount of memory needed to store the whole model.",
+      "source": "moe",
+      "paper": "switch"
+    },
+    {
+      "id": "kvcache",
+      "name": "KV cache",
+      "group": "Efficiency",
+      "definition": "Stored attention information from earlier tokens, reused during later generation steps.",
+      "example": "An ongoing conversation reuses information rather than recomputing every previous step from scratch.",
+      "trap": "This working state is not the same thing as permanent personal memory.",
+      "source": "cache",
+      "paper": "vllm"
+    },
+    {
+      "id": "prefill",
+      "name": "Prefill vs decode",
+      "group": "Efficiency",
+      "definition": "Prefill processes supplied input; decode generates new output tokens in successive steps.",
+      "example": "You first wait for an answer to start, then watch it stream.",
+      "trap": "Long input and long output stress a serving system differently.",
+      "source": "serving",
+      "paper": null
+    },
+    {
+      "id": "latency",
+      "name": "Latency / TTFT",
+      "group": "Efficiency",
+      "definition": "Latency is waiting time; time to first token measures how long it takes until generation begins.",
+      "example": "A reply can start quickly yet take a long time to finish.",
+      "trap": "One waiting-time metric does not describe the entire experience.",
+      "source": "serving",
+      "paper": null
+    },
+    {
+      "id": "throughput",
+      "name": "Throughput / batching",
+      "group": "Efficiency",
+      "definition": "Throughput measures work completed per time; batching processes requests together to improve resource use.",
+      "example": "A server handles many users concurrently rather than dedicating a whole accelerator to each one.",
+      "trap": "Higher total throughput does not necessarily mean a shorter wait for each user.",
+      "source": "serving",
+      "paper": null
+    },
+    {
+      "id": "benchmark",
+      "name": "Benchmark",
+      "group": "Evidence & industry",
+      "definition": "A defined set of evaluation tasks and scoring rules.",
+      "example": "A coding benchmark checks solutions under a particular set of tools, budgets and tests.",
+      "trap": "One leaderboard score is not a universal measure of intelligence or business value.",
+      "source": "evaluation",
+      "paper": null
+    },
+    {
+      "id": "ablation",
+      "name": "Ablation",
+      "group": "Evidence & industry",
+      "definition": "An experiment that changes or removes a component to study its contribution.",
+      "example": "Compare the same training setup with and without a new attention mechanism.",
+      "trap": "Several simultaneous changes make it harder to identify which change caused a gain.",
+      "source": "evaluation",
+      "paper": "attnres"
+    },
+    {
+      "id": "checkpoint",
+      "name": "Checkpoint / model weights",
+      "group": "Evidence & industry",
+      "definition": "A saved model state that can be loaded for further training or inference.",
+      "example": "A research team releases a downloadable version of its trained model.",
+      "trap": "A checkpoint alone may not include training data, full training code or deployment software.",
+      "source": "licenses",
+      "paper": null
+    },
+    {
+      "id": "openweights",
+      "name": "Open weights / open source",
+      "group": "Evidence & industry",
+      "definition": "Open weights make model parameters available under stated terms. Open-source claims require checking what materials and permissions are actually provided.",
+      "example": "A downloadable model may still have a custom license or restricted uses.",
+      "trap": "Availability, permission to use commercially, and reproducibility are separate questions.",
+      "source": "licenses",
+      "paper": null
+    },
+    {
+      "id": "preprint",
+      "name": "Preprint / technical report / announcement",
+      "group": "Evidence & industry",
+      "definition": "These formats publish different kinds of information: research findings, technical documentation or product claims.",
+      "example": "A release blog can establish an announcement date without providing a complete reproducible experiment.",
+      "trap": "Public availability does not by itself establish peer review or independent replication.",
+      "source": "evaluation",
+      "paper": null
+    },
+    {
+      "id": "flops",
+      "name": "FLOPs / compute budget",
+      "group": "Efficiency",
+      "definition": "FLOPs count floating-point operations; a compute budget describes the computational work available or used.",
+      "example": "Two training runs may allocate a fixed budget differently between model size and training data.",
+      "trap": "An operation count is not a direct measurement of wall-clock time or money.",
+      "source": "serving",
+      "paper": "chinchilla"
+    },
+    {
+      "id": "gradient",
+      "name": "Gradient",
+      "group": "Optimization",
+      "definition": "A vector of partial derivatives giving the local sensitivity of a scalar objective to its parameters.",
+      "example": "For L=(x²+3y²)/2, the gradient is (x,3y). At (1,1), a small change in y has three times the first-order effect of the same change in x.",
+      "trap": "The gradient uses local information. Curvature determines how far a linear prediction stays accurate.",
+      "source": "descent",
+      "paper": null
+    },
+    {
+      "id": "descent",
+      "name": "Gradient descent",
+      "group": "Optimization",
+      "definition": "Update a parameter vector by subtracting a multiple of the gradient of the loss.",
+      "example": "At (1,1), subtracting 0.1(1,3) gives (0.9,0.7). Inspect the orange path in the loss-surface model.",
+      "trap": "Large steps can overshoot a minimum even with the correct gradient.",
+      "source": "descent",
+      "paper": null
+    },
+    {
+      "id": "rate",
+      "name": "Learning rate",
+      "group": "Optimization",
+      "definition": "The multiplier that converts a gradient into a parameter update.",
+      "example": "With gradient 4, a learning rate of 0.05 makes a step of magnitude 0.2.",
+      "trap": "A single learning rate produces different step lengths as gradient magnitudes change.",
+      "source": "descent",
+      "paper": null
+    },
+    {
+      "id": "curvature",
+      "name": "Curvature and Hessian",
+      "group": "Optimization",
+      "definition": "The Hessian contains second partial derivatives. Its eigenvalues describe directional curvature at a point for a smooth scalar loss.",
+      "example": "For (x²+3y²)/2 the Hessian is diagonal with entries 1 and 3. The bowl is steeper along y.",
+      "trap": "For a positive-definite quadratic, constant-step gradient descent converges for 0 < η < 2/λmax. A general neural loss can have different local geometry.",
+      "source": "descent",
+      "paper": null
+    },
+    {
+      "id": "sgd",
+      "name": "Stochastic gradient descent",
+      "group": "Optimization",
+      "definition": "Estimate the loss gradient using sampled training examples and update the weights using that estimate.",
+      "example": "Use 32 examples to estimate the direction for one training step.",
+      "trap": "The sampled direction can differ from the full-data gradient at the same weights.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "minibatch",
+      "name": "Mini-batch",
+      "group": "Optimization",
+      "definition": "A group of examples used together to estimate a training update.",
+      "example": "A batch of eight equally weighted losses contributes their mean to a simple objective.",
+      "trap": "Gradient accumulation can combine several small batches before one update.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "epoch",
+      "name": "Epoch",
+      "group": "Optimization",
+      "definition": "One pass through the training dataset under a specified sampling scheme.",
+      "example": "With 1,000 examples and batches of 50, one full pass has 20 batches.",
+      "trap": "For a data stream, reporting training tokens or steps can be clearer than reporting epochs.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "backprop",
+      "name": "Backpropagation",
+      "group": "Optimization",
+      "definition": "Apply the chain rule backward through a computation to obtain gradients.",
+      "example": "If u=wx and L=u²/2, then ∂L/∂w=u·x.",
+      "trap": "The optimizer uses these derivatives to choose an update.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "regularize",
+      "name": "Regularization",
+      "group": "Optimization",
+      "definition": "Discourage some forms of model complexity during fitting to improve generalization.",
+      "example": "Adding λ‖w‖² to the data loss penalizes large weights.",
+      "trap": "Excessive regularization can also hurt performance on unseen data.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "vector",
+      "name": "Vector",
+      "group": "Geometry",
+      "definition": "An ordered collection of components in a coordinate system.",
+      "example": "The toy point (2,1,0) has three coordinates. A learned embedding may have hundreds or thousands.",
+      "trap": "Feature scales affect distance comparisons between points.",
+      "source": "similarity",
+      "paper": null
+    },
+    {
+      "id": "norm",
+      "name": "Euclidean norm",
+      "group": "Geometry",
+      "definition": "The length of a vector, computed as the square root of the sum of its squared coordinates.",
+      "example": "The vector (3,4) has length 5. Dividing it by 5 gives a unit vector.",
+      "trap": "Normalizing a zero vector requires special handling.",
+      "source": "similarity",
+      "paper": null
+    },
+    {
+      "id": "dotproduct",
+      "name": "Dot product",
+      "group": "Geometry",
+      "definition": "Multiply matching components and sum them. The result depends on both direction and length.",
+      "example": "(1,2)·(3,4)=11. Multiplying one vector by two doubles the dot product.",
+      "trap": "High vector norms can dominate scores even when directions differ.",
+      "source": "similarity",
+      "paper": null
+    },
+    {
+      "id": "cosine",
+      "name": "Cosine similarity",
+      "group": "Geometry",
+      "definition": "Measure the angle between two nonzero vectors by dividing their dot product by their lengths.",
+      "example": "(1,0) and (5,0) have cosine similarity 1. Turn one through 90° and the score becomes 0.",
+      "trap": "Similarity depends on the representation learned for the task.",
+      "source": "similarity",
+      "paper": null
+    },
+    {
+      "id": "euclidean",
+      "name": "Euclidean distance",
+      "group": "Geometry",
+      "definition": "Measure straight-line separation as the norm of the difference of two vectors.",
+      "example": "Between (1,2) and (4,6), the difference is (3,4) and the distance is 5.",
+      "trap": "On unit vectors, squared distance equals 2−2 cos θ. With varying lengths, rankings can change.",
+      "source": "similarity",
+      "paper": null
+    },
+    {
+      "id": "softmax",
+      "name": "Softmax",
+      "group": "Geometry",
+      "definition": "Convert real-valued scores into positive weights that sum to one using exponentials and normalization.",
+      "example": "Three equal scores each receive weight 1/3. Adding the same constant to all scores preserves every weight.",
+      "trap": "A normalized score can still be a poor estimate of real-world probability.",
+      "source": "attention",
+      "paper": "transformer"
+    },
+    {
+      "id": "mask",
+      "name": "Causal mask",
+      "group": "Geometry",
+      "definition": "Restrict attention at a sequence position to allowed positions, typically itself and earlier tokens.",
+      "example": "At token four, block scores for positions five and later before normalizing attention weights.",
+      "trap": "The mask enforces an information boundary even when training positions are processed together.",
+      "source": "attention",
+      "paper": "transformer"
+    },
+    {
+      "id": "position",
+      "name": "Positional encoding",
+      "group": "Geometry",
+      "definition": "Give a sequence model information about token order or relative position.",
+      "example": "The original Transformer adds sinusoidal signals at multiple frequencies to token embeddings.",
+      "trap": "Later architectures encode position in other ways, so check the paper’s actual mechanism.",
+      "source": "attention",
+      "paper": "transformer"
+    },
+    {
+      "id": "split",
+      "name": "Train, validation and test splits",
+      "group": "Evaluation",
+      "definition": "Use separate examples to fit weights, select a design and estimate final performance.",
+      "example": "Tune a retrieval threshold on validation queries, then evaluate once on held-out test queries.",
+      "trap": "Repeatedly tuning against the test set compromises its independence.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "overfit",
+      "name": "Overfitting",
+      "group": "Evaluation",
+      "definition": "Fit patterns specific to training examples that fail to generalize to new cases.",
+      "example": "Training error keeps falling while validation error begins to climb.",
+      "trap": "Check distribution shifts and label quality when interpreting a train–validation gap.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "precision",
+      "name": "Precision",
+      "group": "Evaluation",
+      "definition": "Among items predicted positive, the fraction that are truly positive.",
+      "example": "If 8 of 10 retrieved pages are relevant, retrieval precision is 8/10.",
+      "trap": "Precision alone omits relevant items the system missed.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "recall",
+      "name": "Recall",
+      "group": "Evaluation",
+      "definition": "Among all truly positive items, the fraction successfully found.",
+      "example": "If the collection contains 20 relevant pages and retrieval returns 8, recall is 8/20.",
+      "trap": "Computing recall requires knowing or estimating how many relevant items exist.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "baseline",
+      "name": "Baseline",
+      "group": "Evaluation",
+      "definition": "A reference method used to measure what a new design adds.",
+      "example": "Compare a retrieval assistant with the same generator receiving no retrieved passages.",
+      "trap": "Match evaluation tasks, budgets and scoring rules for a meaningful comparison.",
+      "source": "evaluation",
+      "paper": null
+    },
+    {
+      "id": "leakage",
+      "name": "Data leakage",
+      "group": "Evaluation",
+      "definition": "Information unavailable at the intended prediction time enters training or evaluation inputs.",
+      "example": "A classifier predicting late deliveries accidentally sees the final arrival date.",
+      "trap": "Leakage can inflate measured performance even when the model code is correct.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "calibration",
+      "name": "Calibration",
+      "group": "Evaluation",
+      "definition": "Agreement between predicted probabilities and observed outcome frequencies across comparable cases.",
+      "example": "Among many predictions assigned about 80% confidence, roughly 80% should be correct for good calibration in that range.",
+      "trap": "Calibration can change when the deployment population changes.",
+      "source": "ml",
+      "paper": null
+    },
+    {
+      "id": "state",
+      "name": "State-space model",
+      "group": "Geometry",
+      "definition": "A system whose evolving internal state summarizes past inputs and determines its output.",
+      "example": "For dh/dt = −ah + 1, h(0)=0, the response approaches 1/a with time constant 1/a.",
+      "trap": "This scalar illustration has fixed coefficients. Selective sequence models can change their dynamics with the input.",
+      "source": "ssm",
+      "paper": "mamba"
+    }
+  ],
+  "facts": [
+    {
+      "id": "stack",
+      "title": "The AI industry has several layers",
+      "fact": "Hardware, model development, hosting, tools and applications create different kinds of value. One company may operate at several layers.",
+      "example": "A faster chip, a new model and a better document workflow solve different problems.",
+      "ask": "Which layer improved, and does that improvement reach the user’s actual task?",
+      "sources": [
+        "serving",
+        "agents"
+      ]
+    },
+    {
+      "id": "product",
+      "title": "A model release is not a complete product",
+      "fact": "Useful products add retrieval, software integration, context management, permissions and checks.",
+      "example": "A model may describe a spreadsheet edit; an application needs tools to perform and verify it.",
+      "ask": "Are we evaluating the model alone or the full system?",
+      "sources": [
+        "agents"
+      ]
+    },
+    {
+      "id": "parameters",
+      "title": "A bigger parameter count is not a complete ranking",
+      "fact": "Capability depends on training, data, architecture, tools and task. Sparse models also distinguish total from active parameters.",
+      "example": "Two models with similar counts may differ on document extraction or long-running work.",
+      "ask": "What was tested under comparable conditions?",
+      "sources": [
+        "moe",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "memory",
+      "title": "Weights are only part of serving memory",
+      "fact": "A running system also needs cache and temporary state. Quantization can change some of these costs differently.",
+      "example": "An 8B model at 16 bits uses about 16 GB for raw weights alone in a simple estimate.",
+      "ask": "Does the memory number include caches, runtime overhead and concurrency?",
+      "sources": [
+        "quant",
+        "cache"
+      ]
+    },
+    {
+      "id": "taskcost",
+      "title": "Cheap tokens do not guarantee cheap finished work",
+      "fact": "Input, output, cached context, tool use and repeated attempts can all affect the cost of a workflow.",
+      "example": "An agent that retries many times can cost more than a pricier model that finishes promptly.",
+      "ask": "What is the cost per accepted result, including checks and retries?",
+      "sources": [
+        "agents",
+        "serving"
+      ]
+    },
+    {
+      "id": "speed",
+      "title": "Speed is more than one number",
+      "fact": "Time to first token, output speed, total completion time and shared-server throughput describe different things.",
+      "example": "An answer may start fast but finish slowly; a busy server may process many requests with longer queues.",
+      "ask": "Which speed measure was reported, for what input/output lengths and load?",
+      "sources": [
+        "serving"
+      ]
+    },
+    {
+      "id": "scores",
+      "title": "Read the evaluation setup before comparing scores",
+      "fact": "Task versions, tools, prompts, effort, budgets and scoring rules affect measured results.",
+      "example": "Two scores on similarly named benchmarks may come from different task versions or execution environments.",
+      "ask": "Were the tasks and adaptation conditions standardized?",
+      "sources": [
+        "evaluation"
+      ]
+    },
+    {
+      "id": "context",
+      "title": "Context size is capacity, not guaranteed recall",
+      "fact": "A context window states an input-related limit; it does not demonstrate perfect use of all the information inside it.",
+      "example": "A model can accept a long manual yet overlook an exception buried near the end.",
+      "ask": "Was performance tested on the kind of long-document question you need?",
+      "sources": [
+        "llms",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "knowledge",
+      "title": "Retrieval and fine-tuning have different jobs",
+      "fact": "Retrieval supplies external information during use; fine-tuning changes learned behavior through additional training.",
+      "example": "Retrieve current stock figures; use training examples to improve a consistent report style.",
+      "ask": "Do you need fresh evidence, a changed behavior, or both?",
+      "sources": [
+        "rag",
+        "llms"
+      ]
+    },
+    {
+      "id": "openness",
+      "title": "Downloadable does not mean unrestricted or reproducible",
+      "fact": "Read the specific license and release materials. Weights, source code, data and commercial permissions are distinct.",
+      "example": "A release may include weights while leaving important training details unavailable.",
+      "ask": "What exactly is provided, and under what terms?",
+      "sources": [
+        "licenses"
+      ]
+    },
+    {
+      "id": "disclosure",
+      "title": "Product performance does not reveal an undisclosed architecture",
+      "fact": "Observed results alone cannot establish the internal parameter count, data mix or training method of a closed model.",
+      "example": "A coding improvement could reflect training, tools or serving changes.",
+      "ask": "Which technical details were actually disclosed?",
+      "sources": [
+        "evaluation",
+        "agents"
+      ]
+    },
+    {
+      "id": "sources",
+      "title": "Announcement, experiment and replication are different evidence",
+      "fact": "A company can document a release and report experiments. Independent reproduction adds another kind of evidence.",
+      "example": "A demonstration shows that a task happened in that setup; it does not measure a general success rate.",
+      "ask": "What is the claim, who measured it, and can the conditions be inspected?",
+      "sources": [
+        "evaluation"
+      ]
+    },
+    {
+      "id": "actions",
+      "title": "More autonomy increases the importance of visible checks",
+      "fact": "An agent’s tools and permissions determine which real actions it can take. A plan or generated statement is not proof of completion.",
+      "example": "Before accepting a changed report, inspect the actual file and reconcile important figures.",
+      "ask": "What evidence shows the intended action completed correctly?",
+      "sources": [
+        "agents"
+      ]
+    },
+    {
+      "id": "bottleneck",
+      "title": "The limiting resource changes with the workload",
+      "fact": "Compute, memory capacity, memory bandwidth and communication can each become the bottleneck. Software and workload shape the result.",
+      "example": "A change that saves attention memory may help long documents more than short replies.",
+      "ask": "Which resource limits this particular workload?",
+      "sources": [
+        "serving",
+        "cache"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "id": "quotes",
+      "title": "Compare supplier quotations",
+      "goal": "Produce a comparable table from three PDF offers.",
+      "flow": [
+        "Retrieve the actual quotations.",
+        "Extract product, quantity, currency, unit and delivery terms.",
+        "Calculate comparable totals with a calculation tool.",
+        "Check each important value against its source page."
+      ],
+      "terms": [
+        "model",
+        "rag",
+        "tool",
+        "verification"
+      ],
+      "lesson": "The model helps interpret text; retrieval supplies evidence and calculation tools handle arithmetic. A polished comparison can still contain a currency or unit mistake.",
+      "paper": "rag"
+    },
+    {
+      "id": "manual",
+      "title": "Ask about an equipment manual",
+      "goal": "Find the procedure that applies to a specific model and condition.",
+      "flow": [
+        "Identify the manual version and equipment.",
+        "Retrieve the relevant instructions and exceptions.",
+        "Answer with source pages and state missing information.",
+        "Have a responsible person check the applicable procedure."
+      ],
+      "terms": [
+        "context",
+        "rag",
+        "hallucination",
+        "verification"
+      ],
+      "lesson": "A large context window helps supply material, but it does not guarantee that every exception is applied. Source-specific retrieval can make checking easier.",
+      "paper": "rag"
+    },
+    {
+      "id": "paper",
+      "title": "Understand a new research paper",
+      "goal": "Explain the main contribution without reading every equation first.",
+      "flow": [
+        "Read the problem and main result.",
+        "Look up unfamiliar terms.",
+        "Compare the new component with the baseline.",
+        "Check the experiment and limitations before generalizing."
+      ],
+      "terms": [
+        "attention",
+        "ablation",
+        "benchmark",
+        "preprint"
+      ],
+      "lesson": "Ask what changed, what stayed fixed and what was actually measured. A strong result on one benchmark is not proof of improvement everywhere.",
+      "paper": "transformer"
+    },
+    {
+      "id": "report",
+      "title": "Build a weekly operations report",
+      "goal": "Turn logs and tables into a concise, traceable update.",
+      "flow": [
+        "Gather the week’s authorized records.",
+        "Separate recorded facts from plans and missing data.",
+        "Calculate totals consistently.",
+        "Draft the report and reconcile its figures with the inputs."
+      ],
+      "terms": [
+        "workflow",
+        "tool",
+        "verification",
+        "harness"
+      ],
+      "lesson": "A predictable workflow may be enough. The value often comes from reliable integration and checking, not from adding more autonomous agents.",
+      "paper": "react"
+    },
+    {
+      "id": "style",
+      "title": "Create a consistent technical writing style",
+      "goal": "Produce reports with stable terminology and structure.",
+      "flow": [
+        "Start with a clear template and examples in the prompt.",
+        "Keep frequently changing facts in external records.",
+        "Evaluate representative outputs.",
+        "Consider fine-tuning only if simpler methods do not meet the need."
+      ],
+      "terms": [
+        "prompt",
+        "finetuning",
+        "lora",
+        "rag"
+      ],
+      "lesson": "Behavior and current knowledge are separate requirements. Training is not automatically necessary to get consistent formatting.",
+      "paper": "lora"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "You need answers from a frequently changing inventory table. What should supply the current figures?",
+      "options": [
+        "Retrieve or query the current table.",
+        "Assume fine-tuning permanently keeps the figures current.",
+        "Choose the model with the largest parameter count."
+      ],
+      "correct": 0,
+      "explanation": "Current evidence should come from the current records. Fine-tuning changes a model, but does not automatically synchronize a database.",
+      "terms": [
+        "rag",
+        "finetuning"
+      ]
+    },
+    {
+      "question": "A sparse model reports 100B total parameters and 10B active per token. Which statement follows?",
+      "options": [
+        "Only 10B parameters need to be stored in every deployment.",
+        "Some computation uses a subset; the total storage requirement is a separate question.",
+        "It must be ten times faster than a 100B dense model."
+      ],
+      "correct": 1,
+      "explanation": "Active computation and stored capacity are different. Hardware, communication and other work also affect speed.",
+      "terms": [
+        "moe",
+        "active"
+      ]
+    },
+    {
+      "question": "An app says “I updated the file.” What is the strongest check?",
+      "options": [
+        "The answer sounds confident.",
+        "Another model agrees that an update sounds plausible.",
+        "Inspect the saved file and validate the requested changes."
+      ],
+      "correct": 2,
+      "explanation": "Completion needs evidence from the actual artifact or action, rather than only a statement about it.",
+      "terms": [
+        "tool",
+        "verification"
+      ]
+    },
+    {
+      "question": "Model A scores higher than B on a chart. What should you check first?",
+      "options": [
+        "Whether tasks, versions, tools and budgets are comparable.",
+        "Whether A has the more impressive name.",
+        "Whether the chart uses a larger font for A."
+      ],
+      "correct": 0,
+      "explanation": "Evaluation conditions affect the meaning of a score. Compare the setup as well as the number.",
+      "terms": [
+        "benchmark",
+        "harness"
+      ]
+    },
+    {
+      "question": "An 8B model at 16 bits has a raw-weights estimate of roughly 16 GB. What does that number leave out?",
+      "options": [
+        "Nothing; it is a complete deployment requirement.",
+        "Caches, temporary state and other serving overhead.",
+        "The number of parameters."
+      ],
+      "correct": 1,
+      "explanation": "The calculator estimates raw weight storage only. Actual serving memory also depends on workload and implementation.",
+      "terms": [
+        "memory",
+        "kvcache"
+      ]
+    },
+    {
+      "question": "A model accepts a very long document. What can you conclude?",
+      "options": [
+        "Every detail will be recalled and applied correctly.",
+        "The model must have trained on that exact document.",
+        "The input fits the supported limit; task accuracy still needs checking."
+      ],
+      "correct": 2,
+      "explanation": "Context capacity is useful, but the model can still miss details or make unsupported connections.",
+      "terms": [
+        "context",
+        "hallucination"
+      ]
+    }
+  ],
+  "paths": [
+    [
+      "The essentials",
+      "model",
+      "llm",
+      "token",
+      "parameters",
+      "context"
+    ],
+    [
+      "How models change",
+      "pretraining",
+      "finetuning",
+      "inference",
+      "rlhf",
+      "distillation"
+    ],
+    [
+      "From answers to work",
+      "rag",
+      "agent",
+      "workflow",
+      "tool",
+      "verification"
+    ],
+    [
+      "Understand the numbers",
+      "active",
+      "memory",
+      "quantization",
+      "latency",
+      "benchmark"
+    ]
+  ],
+  "sources": {
+    "fundamentals": {
+      "title": "Google: ML fundamentals glossary",
+      "url": "https://developers.google.com/machine-learning/glossary/fundamentals"
+    },
+    "llms": {
+      "title": "Google: introduction to large language models",
+      "url": "https://developers.google.com/machine-learning/crash-course/llm"
+    },
+    "networks": {
+      "title": "Google: neural networks",
+      "url": "https://developers.google.com/machine-learning/crash-course/neural-networks"
+    },
+    "settings": {
+      "title": "Google: nodes, layers and parameters",
+      "url": "https://developers.google.com/machine-learning/crash-course/neural-networks/nodes-hidden-layers"
+    },
+    "tokens": {
+      "title": "Hugging Face: tokenizers",
+      "url": "https://huggingface.co/learn/llm-course/chapter2/4"
+    },
+    "agents": {
+      "title": "Anthropic: building effective agents",
+      "url": "https://www.anthropic.com/research/building-effective-agents"
+    },
+    "serving": {
+      "title": "NVIDIA: how inference and benchmarking work",
+      "url": "https://docs.nvidia.com/nim/benchmarking/llm/overview"
+    },
+    "licenses": {
+      "title": "Hugging Face: model repository licenses",
+      "url": "https://huggingface.co/docs/hub/repositories-licenses"
+    },
+    "evaluation": {
+      "title": "Stanford CRFM: holistic model evaluation",
+      "url": "https://crfm.stanford.edu/2022/11/17/helm.html"
+    },
+    "quant": {
+      "title": "QLoRA: quantized adaptation",
+      "url": "https://arxiv.org/abs/2305.14314"
+    },
+    "cache": {
+      "title": "PagedAttention: cache management",
+      "url": "https://arxiv.org/abs/2309.06180"
+    },
+    "rag": {
+      "title": "Retrieval-Augmented Generation",
+      "url": "https://arxiv.org/abs/2005.11401"
+    },
+    "cot": {
+      "title": "Chain-of-thought prompting",
+      "url": "https://arxiv.org/abs/2201.11903"
+    },
+    "rlhf": {
+      "title": "Learning from human feedback",
+      "url": "https://arxiv.org/abs/2203.02155"
+    },
+    "moe": {
+      "title": "Switch Transformers: sparse experts",
+      "url": "https://arxiv.org/abs/2101.03961"
+    },
+    "attention": {
+      "title": "Attention Is All You Need",
+      "url": "https://arxiv.org/abs/1706.03762"
+    },
+    "descent": {
+      "title": "Dive into Deep Learning · Gradient Descent",
+      "url": "https://d2l.ai/chapter_optimization/gd.html"
+    },
+    "ml": {
+      "title": "Google · Machine Learning Glossary",
+      "url": "https://developers.google.com/machine-learning/glossary"
+    },
+    "similarity": {
+      "title": "Google · Measuring similarity from embeddings",
+      "url": "https://developers.google.com/machine-learning/clustering/dnn-clustering/supervised-similarity"
+    },
+    "ssm": {
+      "title": "Mamba · selective state-space models",
+      "url": "https://arxiv.org/abs/2312.00752"
+    }
+  }
+}

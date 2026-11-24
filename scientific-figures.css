@@ -1,0 +1,52 @@
+.concept-figure {
+  margin: 18px 0;
+  padding: clamp(14px, 3vw, 24px);
+  background: var(--surface,white);
+  border: 1px solid var(--line,#d9e1e3);
+  border-radius: 4px;
+}
+.concept-figure figcaption {
+  margin-bottom: 16px;
+  color: var(--ink,#182933);
+  font: 600 clamp(16px,1.45vw,20px)/1.35 Arial,sans-serif;
+}
+.concept-figure .cf-plate,.concept-figure .method-plot,.concept-figure .cf-drawing svg,.field-board svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 640px;
+  max-height: none;
+  margin-inline: auto;
+  background: #fff;
+  border-radius: 0;
+  color: #182933;
+}
+.concept-figure .plate-zh,.field-board .field-zh,html:lang(zh) .concept-figure .plate-en,html:lang(zh) .field-board .field-en{display:none}
+html:lang(zh) .concept-figure .plate-zh,html:lang(zh) .field-board .field-zh{display:block}
+.concept-figure .cf-controls{
+  border-top:1px solid var(--line,#d9e1e3);
+  margin-top:16px;padding-top:12px;gap:12px 18px;
+}
+.concept-figure .cf-controls label{min-width:84px;font-size:13px}
+.concept-figure .cf-controls output{font-variant-numeric:tabular-nums;font-weight:600}
+.concept-figure .cf-controls input{accent-color:#176c74}
+.concept-figure p,.lp-terms .concept-figure p{font:14px/1.6 Arial,sans-serif;max-width:68ch;margin:14px auto 0}
+.field-board,.atlas-cover>.field-board{padding:0;background:white;border-radius:2px}
+.math-note .formula{font-family:Georgia,'Times New Roman',serif;font-variant-numeric:lining-nums;font-size:clamp(16px,1.5vw,21px);letter-spacing:.015em;background:var(--surface,white);border-left:2px solid #176c74;border-radius:0}
+.atlas-cover.second>svg {background:white}
+@media(max-width:560px){.atlas-cover>.field-board{display:block}.atlas-cover:has(.field-board)>.field-board{max-width:260px}.cf-controls input{min-height:28px}}
+
+.math-note:has(.math-notation){background:transparent;border:0;padding:0}
+.math-note .math-notation{border-block:1px solid var(--line,#d9e1e3);padding:10px 0}
+.math-notation summary{font:600 14px/1.55 Arial,sans-serif;cursor:pointer;color:var(--ink,#182933)}
+
+.concept-figure figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.concept-figure .cf-enlarge,.cf-dialog .cf-close{display:block;border:1px solid var(--line,#ccd6d8);border-radius:3px;background:var(--surface,white);color:var(--ink,#182933);padding:5px 8px;font:500 12px/1.4 Arial,sans-serif;white-space:nowrap;cursor:pointer}
+.cf-enlarge .field-zh,.cf-close .field-zh,html:lang(zh) .cf-enlarge .field-en,html:lang(zh) .cf-close .field-en{display:none}
+html:lang(zh) .cf-enlarge .field-zh,html:lang(zh) .cf-close .field-zh{display:inline}
+.cf-dialog{width:min(840px,calc(100vw - 24px));max-height:calc(100dvh - 24px);box-sizing:border-box;padding:12px;margin:auto;border:1px solid var(--line,#d9e1e3);border-radius:6px;background:var(--surface,white);color:var(--ink,#182933);overflow:auto}
+.cf-dialog::backdrop{background:rgb(9 18 27 / .7)}
+.cf-dialog .cf-close{margin-left:auto}
+.cf-dialog .concept-figure{border:0;margin:0;padding:clamp(4px,2vw,18px)}
+.cf-dialog .cf-enlarge{display:none}
+.cf-dialog .concept-figure .cf-plate,.cf-dialog .concept-figure .method-plot,.cf-dialog .concept-figure .cf-drawing svg{max-width:100%;max-height:65dvh}

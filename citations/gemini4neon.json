@@ -1,0 +1,117 @@
+{
+  "paper": "gemini4neon",
+  "references": {
+    "carbon": {
+      "key": "carbon",
+      "page": 3,
+      "inlineSource": true,
+      "targetYOffset": 0.143775,
+      "raw": "Gemini 4 Carbon Model Card",
+      "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Carbon-Model-Card.pdf",
+      "title": "Gemini 4 Carbon Model Card",
+      "significance": "Carbon is the parent model from which Neon was adapted. Its card documents the starting architecture, data and infrastructure.",
+      "connection": "DeepMind points to the parent card for architecture. Read Neon’s own results when assessing the adapted model.",
+      "coverage": "editorial"
+    },
+    "method": {
+      "key": "method",
+      "page": 4,
+      "inlineSource": true,
+      "targetYOffset": 0.702901,
+      "raw": "Gemini 4 Neon evaluation methodology",
+      "url": "https://deepmind.com/models/evals-methodology/gemini-4-neon",
+      "title": "Gemini 4 Neon evaluation methodology",
+      "significance": "The methodology records the conditions under which the reported benchmarks were run.",
+      "connection": "Before comparing two scores, check how each model was prompted, which tools it could use and how success was measured.",
+      "coverage": "editorial"
+    }
+  },
+  "occurrences": [
+    {
+      "key": "carbon",
+      "page": 3,
+      "rect": [
+        0.608077,
+        0.143775,
+        0.096773,
+        0.017389
+      ],
+      "marker": "model card",
+      "excerpt": "For more information about the model architecture for Gemini 4 Neon, see the Gemini 4 Carbon model card.",
+      "role": "Model lineage",
+      "rationale": "DeepMind points to the parent card for architecture. Read Neon’s own results when assessing the adapted model."
+    },
+    {
+      "key": "carbon",
+      "page": 3,
+      "rect": [
+        0.568285,
+        0.321908,
+        0.096773,
+        0.017389
+      ],
+      "marker": "model card",
+      "excerpt": "For more information about the training dataset for Gemini 4 Neon, see the Gemini 4 Carbon model card.",
+      "role": "Model lineage",
+      "rationale": "DeepMind points to the parent card for training dataset. Read Neon’s own results when assessing the adapted model."
+    },
+    {
+      "key": "carbon",
+      "page": 3,
+      "rect": [
+        0.640272,
+        0.426337,
+        0.096773,
+        0.017389
+      ],
+      "marker": "model card",
+      "excerpt": "For more information about the training data processing for Gemini 4 Neon, see the Gemini 4 Carbon model card.",
+      "role": "Model lineage",
+      "rationale": "DeepMind points to the parent card for data processing. Read Neon’s own results when assessing the adapted model."
+    },
+    {
+      "key": "carbon",
+      "page": 3,
+      "rect": [
+        0.299761,
+        0.637094,
+        0.096773,
+        0.017389
+      ],
+      "marker": "model card",
+      "excerpt": "For more information about the hardware for Gemini 4 Neon and our continued commitment to operate sustainably, see the Gemini 4 Carbon model card.",
+      "role": "Model lineage",
+      "rationale": "DeepMind points to the parent card for training hardware. Read Neon’s own results when assessing the adapted model."
+    },
+    {
+      "key": "carbon",
+      "page": 3,
+      "rect": [
+        0.577929,
+        0.741522,
+        0.096773,
+        0.017389
+      ],
+      "marker": "model card",
+      "excerpt": "For more information about the software for Gemini 4 Neon, see the Gemini 4 Carbon model card.",
+      "role": "Model lineage",
+      "rationale": "DeepMind points to the parent card for software. Read Neon’s own results when assessing the adapted model."
+    },
+    {
+      "key": "method",
+      "page": 4,
+      "rect": [
+        0.198479,
+        0.702901,
+        0.496597,
+        0.017389
+      ],
+      "marker": "deepmind.com/models/evals-methodology/gemini-4-neon",
+      "excerpt": "Additional benchmarks and details on approach, results and their methodologies can be found at: deepmind.com/models/evals-methodology/gemini-4-neon.",
+      "role": "Evaluation method",
+      "rationale": "Before comparing two scores, check how each model was prompted, which tools it could use and how success was measured."
+    }
+  ],
+  "referenceCount": 2,
+  "detailedReferences": 2
+}

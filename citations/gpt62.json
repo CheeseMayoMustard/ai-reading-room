@@ -1,0 +1,123 @@
+{
+  "paper": "gpt62",
+  "references": {
+    "ref11": {
+      "key": "ref11",
+      "page": 118,
+      "targetYOffset": 0.498555,
+      "raw": "MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering",
+      "url": "https://arxiv.org/abs/2410.07095",
+      "title": "MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering",
+      "significance": "MLE-bench uses competition-style problems to test the steps involved in completing a machine-learning task.",
+      "connection": "The revised benchmark retains some earlier tasks and swaps others. Comparisons across versions need to account for that change.",
+      "coverage": "editorial"
+    },
+    "ref17": {
+      "key": "ref17",
+      "page": 118,
+      "targetYOffset": 0.798948,
+      "raw": "HealthBench Professional: Evaluating Large Language Models on Real Clinician Chats",
+      "url": "https://arxiv.org/abs/2604.27470",
+      "title": "HealthBench Professional: Evaluating Large Language Models on Real Clinician Chats",
+      "significance": "HealthBench Professional evaluates assistance with expert clinical tasks using scoring criteria developed with clinicians.",
+      "connection": "The system card uses this benchmark to evaluate assistance on difficult clinical tasks. The grader and task mix help determine what a score measures.",
+      "coverage": "editorial"
+    },
+    "ref18": {
+      "key": "ref18",
+      "page": 118,
+      "targetYOffset": 0.864411,
+      "raw": "HealthBench: Evaluating Large Language Models Towards Improved Human Health",
+      "url": "https://arxiv.org/abs/2505.08775",
+      "title": "HealthBench: Evaluating Large Language Models Towards Improved Human Health",
+      "significance": "HealthBench evaluates health-related conversations using explicit criteria for the quality of the response.",
+      "connection": "The card explains its move to HealthBench Professional. The earlier test had become less informative for distinguishing recent models.",
+      "coverage": "editorial"
+    },
+    "ref22": {
+      "key": "ref22",
+      "page": 119,
+      "targetYOffset": 0.238975,
+      "raw": "Predicting LLM Safety Before Release by Simulating Deployment",
+      "url": "https://arxiv.org/abs/2607.07184",
+      "title": "Predicting LLM Safety Before Release by Simulating Deployment",
+      "significance": "Simulated deployment allows researchers to examine a model’s behavior on a sample of realistic work before wider use.",
+      "connection": "The report uses this approach to label model actions on selected work tasks. The frequency of those labels depends on the tasks included.",
+      "coverage": "editorial"
+    }
+  },
+  "occurrences": [
+    {
+      "key": "ref11",
+      "page": 36,
+      "rect": [
+        0.491242,
+        0.877291,
+        0.030468,
+        0.013774
+      ],
+      "marker": "[11]",
+      "excerpt": "tasksfromtheoriginalMLE-Bench[11],whichOpenAIpublishedin2024,",
+      "role": "Benchmark lineage",
+      "rationale": "The revised benchmark retains some earlier tasks and swaps others. Comparisons across versions need to account for that change."
+    },
+    {
+      "key": "ref17",
+      "page": 74,
+      "rect": [
+        0.424369,
+        0.128278,
+        0.030502,
+        0.013774
+      ],
+      "marker": "[17]",
+      "excerpt": "HealthBench Professional [17] is an open-access OpenAI benchmark of",
+      "role": "Evaluation method",
+      "rationale": "The system card uses this benchmark to evaluate assistance on difficult clinical tasks. The grader and task mix help determine what a score measures."
+    },
+    {
+      "key": "ref17",
+      "page": 74,
+      "rect": [
+        0.507374,
+        0.303517,
+        0.030268,
+        0.013774
+      ],
+      "marker": "[17]",
+      "excerpt": "theirprompts. Thebenchmarkpaper[17]describesthemethod.",
+      "role": "Evaluation method",
+      "rationale": "The authors point to the original methodology to explain how they correct for a possible advantage from giving longer responses."
+    },
+    {
+      "key": "ref18",
+      "page": 74,
+      "rect": [
+        0.678451,
+        0.16523,
+        0.030503,
+        0.013774
+      ],
+      "marker": "[18]",
+      "excerpt": "icians. We report it in place of the original HealthBench [18], which has",
+      "role": "Earlier benchmark",
+      "rationale": "The card explains its move to HealthBench Professional. The earlier test had become less informative for distinguishing recent models."
+    },
+    {
+      "key": "ref22",
+      "page": 93,
+      "rect": [
+        0.324725,
+        0.630872,
+        0.030502,
+        0.013774
+      ],
+      "marker": "[22]",
+      "excerpt": "within OpenAI [22] and labeled the resulting trajectories for misaligned",
+      "role": "Evaluation method",
+      "rationale": "The report uses this approach to label model actions on selected work tasks. The frequency of those labels depends on the tasks included."
+    }
+  ],
+  "referenceCount": 4,
+  "detailedReferences": 4
+}

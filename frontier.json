@@ -1,0 +1,626 @@
+{
+  "reviewed": "2026-11-20",
+  "cutoff": "2026-11-20",
+  "sources": {
+    "a-fable": {
+      "id": "a-fable",
+      "title": "Claude Fable 5.1 and Mythos 5.1",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "date": "2026-09-15",
+      "kind": "Official announcement"
+    },
+    "a-haiku": {
+      "id": "a-haiku",
+      "title": "Claude Haiku 5.5",
+      "url": "https://www.anthropic.com/claude-haiku-5-5",
+      "date": "2026-10-07",
+      "kind": "Official announcement"
+    },
+    "a-bio": {
+      "id": "a-bio",
+      "title": "How Claude is uplifting biomolecular modeling",
+      "url": "https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling",
+      "date": "2026-09-17",
+      "kind": "Official research report"
+    },
+    "a-safety": {
+      "id": "a-safety",
+      "title": "Investigating unintended model actions",
+      "url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+      "date": "2026-10-09",
+      "kind": "Official research commentary"
+    },
+    "o-sol": {
+      "id": "o-sol",
+      "title": "Introducing GPT-6.1 Sol",
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "date": "2026-09-29",
+      "kind": "Official announcement"
+    },
+    "o-log": {
+      "id": "o-log",
+      "title": "OpenAI API changelog: October 2026",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "date": "2026-10-30",
+      "kind": "Official release notes"
+    },
+    "o-cost": {
+      "id": "o-cost",
+      "title": "GPT-6 Sol and Luna: inference and caching",
+      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "date": "2026-09-22",
+      "kind": "Official announcement"
+    },
+    "k25": {
+      "id": "k25",
+      "title": "Kimi K2.5: Visual Agentic Intelligence",
+      "url": "https://arxiv.org/abs/2602.02276",
+      "date": "2026-02-02",
+      "kind": "Technical preprint"
+    },
+    "attnres": {
+      "id": "attnres",
+      "title": "Attention Residuals",
+      "url": "https://arxiv.org/abs/2603.15031",
+      "date": "2026-03-16",
+      "kind": "Technical preprint"
+    },
+    "k3": {
+      "id": "k3",
+      "title": "Kimi K3 official repository",
+      "url": "https://github.com/MoonshotAI/Kimi-K3",
+      "date": "2026-07-16",
+      "kind": "Official model repository"
+    },
+    "k3-blog": {
+      "id": "k3-blog",
+      "title": "Kimi K3: Open Frontier Intelligence",
+      "url": "https://www.kimi.com/en/blog/kimi-k3",
+      "date": "2026-07-16",
+      "kind": "Official technical commentary"
+    },
+    "k31": {
+      "id": "k31",
+      "title": "K3.1 Pro release in Kimi Code",
+      "url": "https://www.kimi.com/code/docs/en/kimi-code/whats-new.html#k3-1-pro-series-is-live-october-23-2026",
+      "date": "2026-10-23",
+      "kind": "Official release notes"
+    },
+    "k31-blog": {
+      "id": "k31-blog",
+      "title": "Kimi K3.1 Pro: Advancing Open Intelligence",
+      "url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+      "date": "2026-10-23",
+      "kind": "Official technical commentary"
+    },
+    "engram": {
+      "id": "engram",
+      "title": "Conditional Memory via Scalable Lookup",
+      "url": "https://arxiv.org/abs/2601.07372",
+      "date": "2026-01-12",
+      "kind": "Technical preprint"
+    },
+    "engram-repo": {
+      "id": "engram-repo",
+      "title": "DeepSeek Engram official implementation",
+      "url": "https://github.com/deepseek-ai/Engram",
+      "date": "2026-01-12",
+      "kind": "Official research repository"
+    },
+    "d-log": {
+      "id": "d-log",
+      "title": "DeepSeek changelog: V4.1 Flash and October update",
+      "url": "https://api-docs.deepseek.com/updates/",
+      "date": "2026-10-17",
+      "kind": "Official release notes"
+    },
+    "glm5": {
+      "id": "glm5",
+      "title": "GLM-5: from Vibe Coding to Agentic Engineering",
+      "url": "https://arxiv.org/abs/2602.15763",
+      "date": "2026-02-17",
+      "kind": "Technical preprint"
+    },
+    "glm-launch": {
+      "id": "glm-launch",
+      "title": "GLM-5 launch announcement",
+      "url": "https://z.ai/blog/glm-5",
+      "date": "2026-02-12",
+      "kind": "Official announcement"
+    },
+    "glm-flash": {
+      "id": "glm-flash",
+      "title": "GLM-5.3-Flash: More Intelligence with Less Compute",
+      "url": "https://autoclaw.z.ai/blog/model/glm-5.3-flash/",
+      "date": "2026-08-27",
+      "kind": "Official technical commentary"
+    },
+    "glm-infra": {
+      "id": "glm-infra",
+      "title": "How GLM built its inference infrastructure",
+      "url": "https://z.ai/blog/glm-built-its-inference-infrastructure",
+      "date": "2026-09-17",
+      "kind": "Official engineering case study"
+    },
+    "zcode": {
+      "id": "zcode",
+      "title": "ZCode release notes: 3.16.3",
+      "url": "https://zcode.z.ai/en/changelog",
+      "date": "2026-10-23",
+      "kind": "Official product release notes"
+    },
+    "openai-nov17": {
+      "id": "openai-nov17",
+      "title": "GPT-6.2 Astra and Sol · 17 November release notes",
+      "url": "https://help.openai.com/en/articles/9624314-model-release-notes",
+      "date": "2026-11-17",
+      "kind": "Official release notes"
+    },
+    "claudefable52": {
+      "id": "claudefable52",
+      "title": "Claude Fable 5.2 & Claude Mythos 5.2 · System card",
+      "url": "https://www.anthropic.com/claude-fable-5-2-mythos-5-2-system-card",
+      "date": "2026-11-09",
+      "kind": "System card"
+    },
+    "gpt62": {
+      "id": "gpt62",
+      "title": "GPT-6.2 Astra and Sol · System card",
+      "url": "https://deploymentsafety.openai.com/gpt-6-2-astra-sol",
+      "date": "2026-11-17",
+      "kind": "System card"
+    },
+    "gemini4neon": {
+      "id": "gemini4neon",
+      "title": "Gemini 4 Neon · Model card",
+      "url": "https://deepmind.google/models/model-cards/gemini-4-neon/",
+      "date": "2026-11-18",
+      "kind": "Model card"
+    }
+  },
+  "updates": [
+    {
+      "id": "engram-2026",
+      "date": "2026-01-12",
+      "company": "DeepSeek",
+      "title": "Engram: lookup as a modeling primitive",
+      "branch": "Efficiency",
+      "what": "The authors introduce conditional memory alongside conditional computation, and test how to allocate capacity between them.",
+      "why": "Some recurring patterns may be cheaper to look up than repeatedly reconstruct through neural computation.",
+      "limit": "Controlled research results do not establish that memory lookup replaces reasoning or that every released model uses this module.",
+      "sources": [
+        "engram",
+        "engram-repo"
+      ],
+      "paper": "engram"
+    },
+    {
+      "id": "kimi25-2026",
+      "date": "2026-02-02",
+      "company": "Moonshot",
+      "title": "Kimi K2.5: visual agents and parallel work",
+      "branch": "Agents",
+      "what": "The report combines text-vision training with Agent Swarm, which decomposes some tasks into concurrent subtasks.",
+      "why": "Progress can come from coordinating work as well as improving an individual model.",
+      "limit": "Parallel speedups depend on task independence, resources and the chosen baseline.",
+      "sources": [
+        "k25"
+      ],
+      "paper": "kimi25"
+    },
+    {
+      "id": "glm5-2026",
+      "date": "2026-02-17",
+      "company": "GLM / Z.ai",
+      "title": "GLM-5: training for agentic engineering",
+      "branch": "Reasoning",
+      "what": "The report describes sparse attention and asynchronous reinforcement learning for complex interactions. The model announcement preceded the paper on 12 February.",
+      "why": "The training infrastructure and task environment become part of the explanation for better agents.",
+      "limit": "Paper and release dates differ; benchmark performance does not guarantee unattended project completion.",
+      "sources": [
+        "glm5",
+        "glm-launch"
+      ],
+      "paper": "glm5"
+    },
+    {
+      "id": "attnres-2026",
+      "date": "2026-03-16",
+      "company": "Moonshot",
+      "title": "Attention Residuals: selection across depth",
+      "branch": "Efficiency",
+      "what": "AttnRes replaces uniform accumulation of earlier layer outputs with learned attention across depth; a block variant reduces overhead.",
+      "why": "Attention can help choose earlier representations across layers as well as across words.",
+      "limit": "This is distinct from token attention. Scaling findings depend on the architectures and experiments tested.",
+      "sources": [
+        "attnres"
+      ],
+      "paper": "attnres"
+    },
+    {
+      "id": "kimi3-2026",
+      "date": "2026-07-16",
+      "company": "Moonshot",
+      "title": "Kimi K3: connecting architecture to agents",
+      "branch": "Agents",
+      "what": "Moonshot describes K3 as combining KDA, Attention Residuals, sparse experts and native vision, with a million-token context window.",
+      "why": "This is a documented connection from architecture research to a released model, rather than a guessed family tree.",
+      "limit": "Open weights have a specific license. Context capacity and vendor demonstrations do not guarantee reliable use of every token.",
+      "sources": [
+        "k3",
+        "k3-blog"
+      ],
+      "paper": null
+    },
+    {
+      "id": "glmflash-2026",
+      "date": "2026-08-27",
+      "company": "GLM / Z.ai",
+      "title": "GLM-5.3-Flash: hybrid attention and multimodality",
+      "branch": "Efficiency",
+      "what": "The official article describes linear plus sparse attention, native multimodal training and a smaller active parameter budget.",
+      "why": "Useful capability can improve through selective computation and cache efficiency, alongside scale.",
+      "limit": "The reported efficiency comparisons use specific baselines and configurations; they are not a universal speed ranking.",
+      "sources": [
+        "glm-flash"
+      ],
+      "paper": null
+    },
+    {
+      "id": "fable-2026",
+      "date": "2026-09-15",
+      "company": "Anthropic",
+      "title": "Fable 5.1 / Mythos 5.1: capability and deployment",
+      "branch": "Reasoning",
+      "what": "Anthropic describes the same underlying model with different safeguards and access arrangements, alongside coding and research evaluations.",
+      "why": "Deployment policy and tool access can affect usable capability even when model weights are shared.",
+      "limit": "These are company evaluations. Different harnesses, effort settings and safeguard interventions affect comparisons.",
+      "sources": [
+        "a-fable"
+      ],
+      "paper": null
+    },
+    {
+      "id": "bioscience-2026",
+      "date": "2026-09-17",
+      "company": "Anthropic",
+      "title": "Claude-assisted biomolecular model optimization",
+      "branch": "Agents",
+      "what": "Anthropic reports accelerating and reducing the memory use of existing biomolecular models with human supervision.",
+      "why": "AI may improve the scientific tools used by researchers, as well as help read or write research.",
+      "limit": "Compute improvements and in-silico results are not evidence of a clinically validated discovery. Precision and hardware settings matter.",
+      "sources": [
+        "a-bio"
+      ],
+      "paper": null
+    },
+    {
+      "id": "glm-infra-2026",
+      "date": "2026-09-17",
+      "company": "GLM / Z.ai",
+      "title": "An agent helps build inference infrastructure",
+      "branch": "Agents",
+      "what": "Z.ai describes using GLM in a feedback loop to adapt and optimize serving infrastructure.",
+      "why": "Agents that improve software infrastructure can indirectly make later AI use more efficient.",
+      "limit": "This is a company engineering case study. It does not establish autonomous, open-ended recursive self-improvement.",
+      "sources": [
+        "glm-infra"
+      ],
+      "paper": null
+    },
+    {
+      "id": "openai-cost-2026",
+      "date": "2026-09-22",
+      "company": "OpenAI",
+      "title": "GPT-6 Sol / Luna: capability at different costs",
+      "branch": "Efficiency",
+      "what": "OpenAI emphasizes cheaper inference, context caching and models aimed at different workload budgets.",
+      "why": "Cost per useful completed task matters alongside peak capability; reusable context can reduce repeated processing.",
+      "limit": "Token-price changes are different from total workflow savings. Reported comparisons depend on settings and tools.",
+      "sources": [
+        "o-cost"
+      ],
+      "paper": null
+    },
+    {
+      "id": "sol61-2026",
+      "date": "2026-09-29",
+      "company": "OpenAI",
+      "title": "GPT-6.1 Sol: models inside agent workflows",
+      "branch": "Agents",
+      "what": "The release and documentation emphasize coding, professional work and tool-based execution.",
+      "why": "The practical unit of progress increasingly includes the model, its tools and the system that manages its work.",
+      "limit": "A product release does not disclose every architectural or training detail, and evaluations are not guarantees.",
+      "sources": [
+        "o-sol"
+      ],
+      "paper": null
+    },
+    {
+      "id": "haiku-2026",
+      "date": "2026-10-07",
+      "company": "Anthropic",
+      "title": "Haiku 5.5: economical helpers for larger workflows",
+      "branch": "Efficiency",
+      "what": "Anthropic positions Haiku 5.5 for high-volume tasks, summaries, browser work and subagent roles, with adjustable effort.",
+      "why": "A smaller helper can handle bounded work while a stronger model coordinates a complex task.",
+      "limit": "Small-model capability and cost claims remain workload-dependent. Cheap calls can still accumulate in long agent runs.",
+      "sources": [
+        "a-haiku"
+      ],
+      "paper": null
+    },
+    {
+      "id": "alignment-2026",
+      "date": "2026-10-09",
+      "company": "Anthropic",
+      "title": "Official reporting on unintended agent actions",
+      "branch": "Reasoning",
+      "what": "Anthropic reports unwanted actions observed in evaluations and internal use, beyond its launch system cards.",
+      "why": "Agent progress includes staying within instructions and permissions, not only completing more steps.",
+      "limit": "This is evidence about observed failure cases, not an estimate of typical failure rates.",
+      "sources": [
+        "a-safety"
+      ],
+      "paper": null
+    },
+    {
+      "id": "deepseek-oct-2026",
+      "date": "2026-10-17",
+      "company": "DeepSeek",
+      "title": "V4.1-Flash update and Search / Fetch",
+      "branch": "Agents",
+      "what": "After September’s native-vision V4.1-Flash release, the October update reports shorter runtimes and outputs, and opens an in-house Search / Fetch API.",
+      "why": "Search, visual input and lower execution costs expand the ingredients available for end-to-end agents.",
+      "limit": "These are vendor-reported results. Benchmark versions and agent frameworks vary, so scores should not be pooled into one league table.",
+      "sources": [
+        "d-log"
+      ],
+      "paper": null
+    },
+    {
+      "id": "kimi31-2026",
+      "date": "2026-10-23",
+      "company": "Moonshot",
+      "title": "K3.1 Pro: longer work and a faster serving option",
+      "branch": "Agents",
+      "what": "Kimi Code’s release notes report K3.1 Pro, a million-token context window, and a Highspeed variant.",
+      "why": "Moonshot is pursuing both long-task capability and the speed of delivering it.",
+      "limit": "The release notes establish availability and vendor claims, not independent validation or an open-weight release for this variant.",
+      "sources": [
+        "k31",
+        "k31-blog"
+      ],
+      "paper": null
+    },
+    {
+      "id": "zcode-oct-2026",
+      "date": "2026-10-23",
+      "company": "GLM / Z.ai",
+      "title": "ZCode: the agent environment keeps evolving",
+      "branch": "Agents",
+      "what": "Official release notes describe document/session handling, plugins and reliability fixes in the work environment.",
+      "why": "The surrounding application affects whether model capability turns into dependable deliverables.",
+      "limit": "This is a product and reliability update, not evidence of a new model architecture.",
+      "sources": [
+        "zcode"
+      ],
+      "paper": null
+    },
+    {
+      "id": "openai-oct-2026",
+      "date": "2026-10-30",
+      "company": "OpenAI",
+      "title": "October: caching, Terra and specialized research",
+      "branch": "Agents",
+      "what": "Official documentation records 12-hour prompt caching on 20 October, GPT-6.1 Terra on 26 October, and GPT-6 Rosalind for approved research users on 30 October.",
+      "why": "General models, infrastructure efficiency and specialized research tools are developing together.",
+      "limit": "Access restrictions apply; a specialist release does not imply validated scientific outcomes.",
+      "sources": [
+        "o-log"
+      ],
+      "paper": null
+    },
+    {
+      "id": "astra-sol-nov17",
+      "date": "2026-11-17",
+      "company": "OpenAI",
+      "title": "GPT-6.2 Astra and Sol in the API",
+      "branch": "Efficiency",
+      "what": "OpenAI reports stronger results on demanding tasks with fewer output tokens than the preceding models. Both models accept text and image inputs and return text.",
+      "why": "A model that completes a task with fewer generated tokens can reduce one component of the cost of running it.",
+      "limit": "Real cost depends on input and output prices, retries, and the fraction of tasks completed successfully. The release reports the provider’s comparisons.",
+      "sources": [
+        "openai-nov17",
+        "gpt62"
+      ],
+      "paper": "gpt62"
+    },
+    {
+      "id": "claudefable52-report",
+      "date": "2026-11-09",
+      "company": "Anthropic",
+      "title": "Claude Fable 5.2 & Claude Mythos 5.2",
+      "branch": "Agents",
+      "what": "Anthropic documents two deployment configurations and tests how Fable performs when its working environment shows the remaining context budget.",
+      "why": "The comparison helps isolate the contribution of the environment to a measured score.",
+      "limit": "The reported gain applies to this benchmark and these settings.",
+      "sources": [
+        "claudefable52"
+      ],
+      "paper": "claudefable52"
+    },
+    {
+      "id": "gemini4neon-report",
+      "date": "2026-11-18",
+      "company": "Google DeepMind",
+      "title": "Gemini 4 Neon",
+      "branch": "Efficiency",
+      "what": "DeepMind describes Neon as an adaptation of Gemini 4 Carbon and documents its input types, combined input/output window and output limits.",
+      "why": "A shared window makes reserving space for an answer an explicit part of planning a long-document task.",
+      "limit": "Whether the relevant evidence can be recovered correctly requires a task-level evaluation.",
+      "sources": [
+        "gemini4neon"
+      ],
+      "paper": "gemini4neon"
+    }
+  ],
+  "companies": [
+    {
+      "name": "Anthropic",
+      "focus": "Agents, scientific tools and cost-aware model tiers",
+      "evidence": [
+        "haiku-2026",
+        "bioscience-2026",
+        "alignment-2026"
+      ],
+      "forecast": "Likely to expand workflows in which strong models coordinate cheaper helpers, with more scientific tooling and explicit deployment controls.",
+      "confidence": "Medium-high",
+      "why": "The selected releases already combine helper models, research case studies and published agent failure analysis.",
+      "watch": "Look for externally reproduced scientific results and lower cost per completed task, with measured permission compliance.",
+      "counter": "If safeguards, verification costs or task failures dominate savings, broader autonomy may arrive more slowly.",
+      "sources": [
+        "a-haiku",
+        "a-bio",
+        "a-safety"
+      ]
+    },
+    {
+      "name": "OpenAI",
+      "focus": "An integrated model, runtime and specialist-tool stack",
+      "evidence": [
+        "sol61-2026",
+        "openai-cost-2026",
+        "openai-oct-2026"
+      ],
+      "forecast": "Likely to keep packaging long-running work with tools, context reuse and multiple model tiers, while extending selected specialist research workflows.",
+      "confidence": "Medium-high",
+      "why": "The official releases pair models with caching and agent infrastructure, while Rosalind targets approved life-science research.",
+      "watch": "Track reliable end-to-end completion, context reuse in real workloads and reproducible specialist evaluations.",
+      "counter": "If verification and orchestration overhead stay high, faster tokens may not translate into cheaper finished work.",
+      "sources": [
+        "o-sol",
+        "o-cost",
+        "o-log"
+      ]
+    },
+    {
+      "name": "Moonshot",
+      "focus": "Architecture innovation plus multimodal long-horizon agents",
+      "evidence": [
+        "attnres-2026",
+        "kimi3-2026",
+        "kimi31-2026"
+      ],
+      "forecast": "Likely to keep improving the efficiency of long-context, multimodal agent work through attention, sparse computation and serving changes.",
+      "confidence": "Medium",
+      "why": "K3 explicitly connects KDA and AttnRes to its architecture; the October release adds a faster serving option.",
+      "watch": "Look for technical reports, reproducible long-context tests and cost measurements on multi-step work.",
+      "counter": "Routing, communication and long-context verification may erode theoretical gains. Future weight availability and licenses remain separate questions.",
+      "sources": [
+        "attnres",
+        "k3",
+        "k31"
+      ]
+    },
+    {
+      "name": "DeepSeek",
+      "focus": "Selective memory / computation and economical agent execution",
+      "evidence": [
+        "engram-2026",
+        "deepseek-oct-2026"
+      ],
+      "forecast": "Likely to continue exploring efficient memory and computation, while making search and tool-based workflows cheaper and more integrated.",
+      "confidence": "Medium",
+      "why": "Engram explores an additional efficiency axis; the October release combines execution improvements with a search API.",
+      "watch": "Look for controlled ablations, production memory measurements and comparable cost-per-task results.",
+      "counter": "A promising research module may not transfer to every deployed model or workload; quality can fall when context selection misses evidence.",
+      "sources": [
+        "engram",
+        "engram-repo",
+        "d-log"
+      ]
+    },
+    {
+      "name": "GLM / Z.ai",
+      "focus": "Agent training environments, hybrid attention and deployment engineering",
+      "evidence": [
+        "glm5-2026",
+        "glmflash-2026",
+        "glm-infra-2026"
+      ],
+      "forecast": "Likely to invest in verifiable long-task training environments and efficient multimodal deployment, with agents assisting infrastructure engineering.",
+      "confidence": "Medium",
+      "why": "GLM-5 emphasizes asynchronous RL; later official material combines hybrid attention with an agent-assisted serving case study.",
+      "watch": "Track independent long-task evaluations, reproducible accelerator performance and stronger verification of agent-generated changes.",
+      "counter": "Training-environment shortcuts and brittle software integration could limit gains outside the reported settings.",
+      "sources": [
+        "glm5",
+        "glm-flash",
+        "glm-infra"
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "understanding",
+      "name": "Learning reusable representations",
+      "question": "How does one model learn knowledge that transfers?",
+      "color": "#476b93",
+      "steps": [
+        "bert",
+        "gpt3",
+        "chinchilla",
+        "fable-2026"
+      ]
+    },
+    {
+      "id": "reasoning",
+      "name": "Reasoning & learning from feedback",
+      "question": "How does the model improve its decisions and behavior?",
+      "color": "#866340",
+      "steps": [
+        "cot",
+        "instruct",
+        "dpo",
+        "deepseekr1",
+        "glm5-2026",
+        "alignment-2026"
+      ]
+    },
+    {
+      "id": "efficiency",
+      "name": "Efficient computation & memory",
+      "question": "How do we do more useful work with the same resources?",
+      "color": "#3a7359",
+      "steps": [
+        "lora",
+        "flash",
+        "vllm",
+        "engram-2026",
+        "attnres-2026",
+        "glmflash-2026",
+        "haiku-2026",
+        "astra-sol-nov17",
+        "gemini4neon-report"
+      ]
+    },
+    {
+      "id": "agents",
+      "name": "Tools, vision & extended work",
+      "question": "How does a model act, inspect results and keep going?",
+      "color": "#8e5c80",
+      "steps": [
+        "rag",
+        "react",
+        "kimi25-2026",
+        "kimi3-2026",
+        "sol61-2026",
+        "deepseek-oct-2026",
+        "kimi31-2026",
+        "openai-oct-2026",
+        "claudefable52-report"
+      ]
+    }
+  ]
+}

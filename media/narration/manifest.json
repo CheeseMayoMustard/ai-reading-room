@@ -1,0 +1,1674 @@
+{
+  "engine": "Kokoro-82M v1.0",
+  "voice": "af_heart",
+  "clips": {
+    "ai-0": {
+      "src": "media/narration/ai-0.mp3",
+      "sha256": "def92cc95b4e8b79553dd151730ff027a1d6f141f4e80f60deaf8109eb9ab1d1",
+      "seconds": 16.85,
+      "peak": 0.4014
+    },
+    "ai-1": {
+      "src": "media/narration/ai-1.mp3",
+      "sha256": "7406385372746dd7617e8d94c3cc968e16835f2be26d017d8e4eb3477222e256",
+      "seconds": 19.17,
+      "peak": 0.4545
+    },
+    "ai-2": {
+      "src": "media/narration/ai-2.mp3",
+      "sha256": "973fd281ef3157242a4f080dc4655b8a21d302eb51b96c9f7342bc604bd547cb",
+      "seconds": 17.98,
+      "peak": 0.4548
+    },
+    "ai-question": {
+      "src": "media/narration/ai-question.mp3",
+      "sha256": "0e9a2193b44c5e9df90ebe438ab4ecde5cc4f7ed55eff6054b8480584b3cc96c",
+      "seconds": 9.52,
+      "peak": 0.4174
+    },
+    "ai-answer": {
+      "src": "media/narration/ai-answer.mp3",
+      "sha256": "5ab6a16790e60b9a3791f2a00bf39e31f0d8c3847a037fd742186193a2903904",
+      "seconds": 9.74,
+      "peak": 0.3981
+    },
+    "model-0": {
+      "src": "media/narration/model-0.mp3",
+      "sha256": "0e90309a45c23b4ed78805bddb1eb8c86edf49c13df0ecd8763b28ed9799da21",
+      "seconds": 17.54,
+      "peak": 0.593
+    },
+    "model-1": {
+      "src": "media/narration/model-1.mp3",
+      "sha256": "fffb26f8319a8046091b2ac7ef8502d117df033dc66c4a960478501f96b71788",
+      "seconds": 10.9,
+      "peak": 0.4802
+    },
+    "model-question": {
+      "src": "media/narration/model-question.mp3",
+      "sha256": "bb6bd8dfed67900d779ae642cfa75460edb60aacc36cb2af3520fb433d9d4a0a",
+      "seconds": 9.06,
+      "peak": 0.5791
+    },
+    "model-answer": {
+      "src": "media/narration/model-answer.mp3",
+      "sha256": "fedd2b9e133a2ed8aeb30f44735c6dd9fb730707fbfe54ec4e011630bb9bec5e",
+      "seconds": 8.71,
+      "peak": 0.4546
+    },
+    "llm-0": {
+      "src": "media/narration/llm-0.mp3",
+      "sha256": "23bd225cfc580e27f9de9ec51e522ad4e44318519ff3267fe7057b0869c14436",
+      "seconds": 16.64,
+      "peak": 0.4166
+    },
+    "llm-1": {
+      "src": "media/narration/llm-1.mp3",
+      "sha256": "b71190d76ed0c15c71316d259d2c8a0c34ba1d097962697c107d5d993940bce0",
+      "seconds": 16.36,
+      "peak": 0.4784
+    },
+    "llm-2": {
+      "src": "media/narration/llm-2.mp3",
+      "sha256": "eddf455e48752c32e265d0ffb91426f447254d363435e3450ea59cab0b73240c",
+      "seconds": 17.95,
+      "peak": 0.4261
+    },
+    "llm-question": {
+      "src": "media/narration/llm-question.mp3",
+      "sha256": "b91b443ddbf8a11332938f39b57aae53e3c2dd52c54e9115a7aab5d448170a07",
+      "seconds": 8.89,
+      "peak": 0.49
+    },
+    "llm-answer": {
+      "src": "media/narration/llm-answer.mp3",
+      "sha256": "01bad36ed3d94bc4811effead7ef9c81b1369865a6d06207fb3c751d6d92e6d4",
+      "seconds": 9.41,
+      "peak": 0.4317
+    },
+    "token-0": {
+      "src": "media/narration/token-0.mp3",
+      "sha256": "1465e24330c24f52ce21882b48b0aee7dcc2356c4b087ac200f0cf8915253f8e",
+      "seconds": 17.91,
+      "peak": 0.4549
+    },
+    "token-1": {
+      "src": "media/narration/token-1.mp3",
+      "sha256": "abe00331360bfe99d09a01e68b478911711c39f56c43a1e27ade7430a278b69a",
+      "seconds": 8.99,
+      "peak": 0.4292
+    },
+    "token-question": {
+      "src": "media/narration/token-question.mp3",
+      "sha256": "5ecb5a2468279bd57e63d1513e21b5923f82c31c4e58e4468266095f8b8825b8",
+      "seconds": 9.75,
+      "peak": 0.3488
+    },
+    "token-answer": {
+      "src": "media/narration/token-answer.mp3",
+      "sha256": "564b22ab1cb83f3ccf5c7b426fec37ef402f1a644f3dc0891b8a0a3da6192d01",
+      "seconds": 5.52,
+      "peak": 0.4108
+    },
+    "tokenizer-0": {
+      "src": "media/narration/tokenizer-0.mp3",
+      "sha256": "14a8b246438703935f322b9f7687263622614641f21f423c884766203c0f7958",
+      "seconds": 15.97,
+      "peak": 0.4825
+    },
+    "tokenizer-1": {
+      "src": "media/narration/tokenizer-1.mp3",
+      "sha256": "accd35b0432e906c2a10d44c7b97e5419428062a8827a85db69284a43b9108de",
+      "seconds": 7.29,
+      "peak": 0.4126
+    },
+    "tokenizer-question": {
+      "src": "media/narration/tokenizer-question.mp3",
+      "sha256": "b3875c79c49324a4cb43174aa694cb111c2ec99fa0b1610131f6b673e32dbfb1",
+      "seconds": 9.39,
+      "peak": 0.4463
+    },
+    "tokenizer-answer": {
+      "src": "media/narration/tokenizer-answer.mp3",
+      "sha256": "50808dadfcfb1ac044b03391b8053466fcaeada3d9c6b02db85ee1c747a287bb",
+      "seconds": 9.19,
+      "peak": 0.4219
+    },
+    "parameters-0": {
+      "src": "media/narration/parameters-0.mp3",
+      "sha256": "afecabd6a509f192b35f612246aa894cf86eee525f91caec9b3ed2444794b92b",
+      "seconds": 18.27,
+      "peak": 0.4576
+    },
+    "parameters-1": {
+      "src": "media/narration/parameters-1.mp3",
+      "sha256": "0663330aab4a8c819b695bb6c9b669aa5d994a652b3966a814a8b7d57754b6e2",
+      "seconds": 11.11,
+      "peak": 0.3702
+    },
+    "parameters-question": {
+      "src": "media/narration/parameters-question.mp3",
+      "sha256": "0dd6903df4ab86c8fdf360333053df3bfaffc9eb34e6f4308fb8daa1ff8c1acb",
+      "seconds": 9.28,
+      "peak": 0.5219
+    },
+    "parameters-answer": {
+      "src": "media/narration/parameters-answer.mp3",
+      "sha256": "f29a240c44ee639e56418d9493f837b8a14a6527acf60d518ce04a9ea64bc8fa",
+      "seconds": 7.66,
+      "peak": 0.4403
+    },
+    "embedding-0": {
+      "src": "media/narration/embedding-0.mp3",
+      "sha256": "035ae47f8ec557995cc6c26fdb678cd08ee64cf2b01c7b8d32f3a399dd6df1c4",
+      "seconds": 18.66,
+      "peak": 0.6302
+    },
+    "embedding-1": {
+      "src": "media/narration/embedding-1.mp3",
+      "sha256": "26f4c012d6b31f443e12ce6a9b65d9ebd604b74bb6f11ed9949679b6af9c22d2",
+      "seconds": 11.33,
+      "peak": 0.4027
+    },
+    "embedding-question": {
+      "src": "media/narration/embedding-question.mp3",
+      "sha256": "30b98dc65f4d1f155f8730038897c3b415ac6007da1c4a005752b526dad37fbd",
+      "seconds": 8.26,
+      "peak": 0.3909
+    },
+    "embedding-answer": {
+      "src": "media/narration/embedding-answer.mp3",
+      "sha256": "ba50e249c6fcc7945c2110fbfcd38a57448bc2ead06892087bb5f748971066e6",
+      "seconds": 7.66,
+      "peak": 0.6021
+    },
+    "attention-0": {
+      "src": "media/narration/attention-0.mp3",
+      "sha256": "284fade2cf8c85bb1787cc7a0c9832922f3df739c7521f2576b9a23a6b762ff9",
+      "seconds": 17.76,
+      "peak": 0.4073
+    },
+    "attention-1": {
+      "src": "media/narration/attention-1.mp3",
+      "sha256": "0d982531aa4c2d4c08d9355b5ad20f9dbd38acff5dc651f365a76178a860b9cc",
+      "seconds": 7.37,
+      "peak": 0.4123
+    },
+    "attention-question": {
+      "src": "media/narration/attention-question.mp3",
+      "sha256": "b7faadbe6b2c0520036f5c6e4c676620992c53c2f176b35f4591932817565a41",
+      "seconds": 8.41,
+      "peak": 0.3673
+    },
+    "attention-answer": {
+      "src": "media/narration/attention-answer.mp3",
+      "sha256": "36a33c514a9cef4133469526c1d54f3bfa5d1547f570f019283c4a360d3905c2",
+      "seconds": 6.95,
+      "peak": 0.4954
+    },
+    "transformer-0": {
+      "src": "media/narration/transformer-0.mp3",
+      "sha256": "1cebe69a4088a2653a43154892e1afdf34361d7e70a269604d3a0e9c8c6b5ca6",
+      "seconds": 18.98,
+      "peak": 0.4317
+    },
+    "transformer-1": {
+      "src": "media/narration/transformer-1.mp3",
+      "sha256": "655972153db86d34fa4158a421c8164b259fa9414334b96db9083f909f5ba162",
+      "seconds": 8.21,
+      "peak": 0.4182
+    },
+    "transformer-question": {
+      "src": "media/narration/transformer-question.mp3",
+      "sha256": "d0bb799e0d2ef34ba75ebfba0cf1bc9d1543ce9dd6d2e5ac0ace1a82ea6aaec4",
+      "seconds": 7.4,
+      "peak": 0.4852
+    },
+    "transformer-answer": {
+      "src": "media/narration/transformer-answer.mp3",
+      "sha256": "1ef8c47337f5ab213a2f9b4cef5f301bddf86afdab73d558f8881b1befa1aa99",
+      "seconds": 7.12,
+      "peak": 0.4396
+    },
+    "multimodal-0": {
+      "src": "media/narration/multimodal-0.mp3",
+      "sha256": "d7301af5c89680728fcd139ed874b6d87d35f645bdcd639c2728971b544b9042",
+      "seconds": 15.97,
+      "peak": 0.458
+    },
+    "multimodal-1": {
+      "src": "media/narration/multimodal-1.mp3",
+      "sha256": "1d419b26bbdc3284852208ef6679055c04f497adb9727450c9be1ed59c64aa4e",
+      "seconds": 9.56,
+      "peak": 0.3671
+    },
+    "multimodal-question": {
+      "src": "media/narration/multimodal-question.mp3",
+      "sha256": "552c90b512b102119a15deda72e78c5095a5f0bf85afee1f7e47ad4f1324e011",
+      "seconds": 7.6,
+      "peak": 0.4262
+    },
+    "multimodal-answer": {
+      "src": "media/narration/multimodal-answer.mp3",
+      "sha256": "10f8c79fbd080bb171bdaa0f03b3ae54a55b85fe3f838552d815c306e85cadd1",
+      "seconds": 6.52,
+      "peak": 0.4586
+    },
+    "pretraining-0": {
+      "src": "media/narration/pretraining-0.mp3",
+      "sha256": "85e1091fe5bec16b5f2aa3faddf5007688f0365014002cbd216baccb6c679168",
+      "seconds": 16.26,
+      "peak": 0.4541
+    },
+    "pretraining-1": {
+      "src": "media/narration/pretraining-1.mp3",
+      "sha256": "5c5c8341cd24cb815521b8a034bbba8304e73477a696090834859fbf2d0f743e",
+      "seconds": 7.19,
+      "peak": 0.4208
+    },
+    "pretraining-question": {
+      "src": "media/narration/pretraining-question.mp3",
+      "sha256": "7270cd8484ad569a667c3acf08b18e9648429ebc8ff5b2f4ab124ff381e1100b",
+      "seconds": 7.95,
+      "peak": 0.5441
+    },
+    "pretraining-answer": {
+      "src": "media/narration/pretraining-answer.mp3",
+      "sha256": "a37fd5cc1681826091818d0d9f0d7e4dbd1a5bdb524bf1910b2609869382f20d",
+      "seconds": 6.23,
+      "peak": 0.4663
+    },
+    "finetuning-0": {
+      "src": "media/narration/finetuning-0.mp3",
+      "sha256": "00ae984ac69f62ae5a10392ed095246bf81968c29f4452d65c9ac0808315f284",
+      "seconds": 16.0,
+      "peak": 0.5656
+    },
+    "finetuning-1": {
+      "src": "media/narration/finetuning-1.mp3",
+      "sha256": "75a141779be5d15a46d4ffcfd2764d174dfba08562a3cc4f5f55b2950cd92131",
+      "seconds": 8.79,
+      "peak": 0.3675
+    },
+    "finetuning-question": {
+      "src": "media/narration/finetuning-question.mp3",
+      "sha256": "61978038f6bf5b7bd3699124064ae0044e67b2e54e930e562b81e5d925b81d9d",
+      "seconds": 7.19,
+      "peak": 0.352
+    },
+    "finetuning-answer": {
+      "src": "media/narration/finetuning-answer.mp3",
+      "sha256": "e7d63c32d96f59b4987648a10e903d3410e441c176415cbdf53874dc0c18b054",
+      "seconds": 6.56,
+      "peak": 0.4359
+    },
+    "posttraining-0": {
+      "src": "media/narration/posttraining-0.mp3",
+      "sha256": "6bfc9483fdd351c5b3f61ff3c3bfb4f8cb00a00b40c0b924b25c40c9a359e56b",
+      "seconds": 17.47,
+      "peak": 0.4452
+    },
+    "posttraining-1": {
+      "src": "media/narration/posttraining-1.mp3",
+      "sha256": "d989ee37beccf6d275ba3bf5c6e42b1096b75480676956a059b4c07cabf4f69a",
+      "seconds": 10.05,
+      "peak": 0.4582
+    },
+    "posttraining-question": {
+      "src": "media/narration/posttraining-question.mp3",
+      "sha256": "e804aa160ee367fa06f4f78ec77e56585477f0af051c324d958a32c8f09006ea",
+      "seconds": 7.03,
+      "peak": 0.5081
+    },
+    "posttraining-answer": {
+      "src": "media/narration/posttraining-answer.mp3",
+      "sha256": "5f098290b54dc18db1e7fde5f3fe97b8747eaa6acf935db5fa50066c1e41bee6",
+      "seconds": 7.97,
+      "peak": 0.52
+    },
+    "inference-0": {
+      "src": "media/narration/inference-0.mp3",
+      "sha256": "3577249bb68f32fc300eec449b2f01308ae45067fc00455a1ca5da775b492214",
+      "seconds": 15.97,
+      "peak": 0.4572
+    },
+    "inference-1": {
+      "src": "media/narration/inference-1.mp3",
+      "sha256": "86525f8c0a4112b79c1fdc9c0a9bc75614eed3160562a1b9c602a730cdf0e17f",
+      "seconds": 6.17,
+      "peak": 0.5104
+    },
+    "inference-question": {
+      "src": "media/narration/inference-question.mp3",
+      "sha256": "75b65e8cb93876d55900bfc11d6ff0564456c70e9ebcaeddc8681674076fbf66",
+      "seconds": 6.86,
+      "peak": 0.4358
+    },
+    "inference-answer": {
+      "src": "media/narration/inference-answer.mp3",
+      "sha256": "b997584ee56606a483fd0e133e138f0c94560ca31ed5bb43b6a1bafe5789993c",
+      "seconds": 4.87,
+      "peak": 0.4599
+    },
+    "loss-0": {
+      "src": "media/narration/loss-0.mp3",
+      "sha256": "efae819de2afd82888582fdc954d7a155da03a1cf86b85d7e87d7a76bb7fbc83",
+      "seconds": 16.22,
+      "peak": 0.6216
+    },
+    "loss-1": {
+      "src": "media/narration/loss-1.mp3",
+      "sha256": "bd8cf50b6386e6f1a8e4e0116b221343cff5c650b7eb3e9a79579876cc7c508b",
+      "seconds": 8.56,
+      "peak": 0.3536
+    },
+    "loss-question": {
+      "src": "media/narration/loss-question.mp3",
+      "sha256": "f4cd29415fcda75e5ede419520b28961dcd85f938cd606896b378d72ba52353c",
+      "seconds": 5.68,
+      "peak": 0.3735
+    },
+    "loss-answer": {
+      "src": "media/narration/loss-answer.mp3",
+      "sha256": "b89d929ec753c28e3df674e72886fc64297a43cedffb2a71687f631b17c29159",
+      "seconds": 8.62,
+      "peak": 0.4415
+    },
+    "rlhf-0": {
+      "src": "media/narration/rlhf-0.mp3",
+      "sha256": "e5eea477b399e5452782d33c7dfdf20f09b4b7bde8ddb71f10a9c53637698a0a",
+      "seconds": 19.1,
+      "peak": 0.4903
+    },
+    "rlhf-1": {
+      "src": "media/narration/rlhf-1.mp3",
+      "sha256": "c0b1a6100108928a2c69cb405c3024736c8654b750abb7b6d6ecf14387c75176",
+      "seconds": 10.02,
+      "peak": 0.4377
+    },
+    "rlhf-question": {
+      "src": "media/narration/rlhf-question.mp3",
+      "sha256": "8e4900bc8972e5fbd67c8f6c7a54f81f0420fdd9ff81fc7dc6a0ee288b3ffc6f",
+      "seconds": 7.52,
+      "peak": 0.4082
+    },
+    "rlhf-answer": {
+      "src": "media/narration/rlhf-answer.mp3",
+      "sha256": "7d20b76e9d6082f13714d1451c5f017ecb6fde52ec2cb1439752f432b0e52aa3",
+      "seconds": 6.2,
+      "peak": 0.4515
+    },
+    "distillation-0": {
+      "src": "media/narration/distillation-0.mp3",
+      "sha256": "f9ad10602cc2a24fbd508d42cbce330fd0fb721aae290ded82f72064296381be",
+      "seconds": 17.24,
+      "peak": 0.4785
+    },
+    "distillation-1": {
+      "src": "media/narration/distillation-1.mp3",
+      "sha256": "00d3b4188f416264e51b4923b3faae15f22ceeba20e944070f622349579a5af1",
+      "seconds": 7.0,
+      "peak": 0.535
+    },
+    "distillation-question": {
+      "src": "media/narration/distillation-question.mp3",
+      "sha256": "6bb207b9b721b4e4fd7404825ba1bb98b5f0f5f4b402f1f19c6d940422028e0e",
+      "seconds": 8.0,
+      "peak": 0.4439
+    },
+    "distillation-answer": {
+      "src": "media/narration/distillation-answer.mp3",
+      "sha256": "787ea842f5bddd0d2dc888167ba09e86d8a0dd15b7e349240cd3721908becfe8",
+      "seconds": 3.98,
+      "peak": 0.4619
+    },
+    "lora-0": {
+      "src": "media/narration/lora-0.mp3",
+      "sha256": "ad1782c26a763628fddb710e8e0351a2bf20fcc5e0906423e0e8605cb4b801b9",
+      "seconds": 17.95,
+      "peak": 0.495
+    },
+    "lora-1": {
+      "src": "media/narration/lora-1.mp3",
+      "sha256": "c94da2716a8b0802d36218754e9461d51b7d659f96aed4c8f2cb71ac0bce7496",
+      "seconds": 10.5,
+      "peak": 0.4583
+    },
+    "lora-question": {
+      "src": "media/narration/lora-question.mp3",
+      "sha256": "f04f5f263cea4d4d6eb14b2a0d5060fa36830e006802e8e81b3aa0c640c2fde2",
+      "seconds": 7.01,
+      "peak": 0.3832
+    },
+    "lora-answer": {
+      "src": "media/narration/lora-answer.mp3",
+      "sha256": "4c14be723cfdc486272b2ec0393db2c6835bc198508a9153dec647007f691b23",
+      "seconds": 7.16,
+      "peak": 0.4309
+    },
+    "prompt-0": {
+      "src": "media/narration/prompt-0.mp3",
+      "sha256": "9d7b5d6bab0208ee85b357e8ca0e92cb3e87a3af8afc2a32b4bfb75ca512728e",
+      "seconds": 17.64,
+      "peak": 0.4584
+    },
+    "prompt-1": {
+      "src": "media/narration/prompt-1.mp3",
+      "sha256": "28747af0d124e9719d402170922b18046871bdf3333f7e6980181c75be8c717f",
+      "seconds": 6.3,
+      "peak": 0.3651
+    },
+    "prompt-question": {
+      "src": "media/narration/prompt-question.mp3",
+      "sha256": "f4efaf6ac3d176d66786c37a493529d8aeb800e9fab8eca3ad4854bd160aaf54",
+      "seconds": 7.54,
+      "peak": 0.4608
+    },
+    "prompt-answer": {
+      "src": "media/narration/prompt-answer.mp3",
+      "sha256": "2974aabeee7710ed0909e2b66d810bdb8a3bdb6a6831592187a64d00277ce9b3",
+      "seconds": 5.65,
+      "peak": 0.3791
+    },
+    "context-0": {
+      "src": "media/narration/context-0.mp3",
+      "sha256": "ae37f4b1df9081c59b4ad8d4891370eec1b9b9b169568e584903c3d35a060874",
+      "seconds": 18.61,
+      "peak": 0.4459
+    },
+    "context-1": {
+      "src": "media/narration/context-1.mp3",
+      "sha256": "e4c9be99a47d777cee83d62c23176d21866acb35f24e4160e4e4c0363069711c",
+      "seconds": 8.18,
+      "peak": 0.3907
+    },
+    "context-question": {
+      "src": "media/narration/context-question.mp3",
+      "sha256": "13008770f97374aedcc4756d477ebfd2debf83e68cf0b9f0789a6283a52dcc38",
+      "seconds": 5.93,
+      "peak": 0.3121
+    },
+    "context-answer": {
+      "src": "media/narration/context-answer.mp3",
+      "sha256": "0ec9b5bc4643ef03ffc8642b6d779db59a9001b4863314e12a1c0dfbb58abb01",
+      "seconds": 7.42,
+      "peak": 0.5526
+    },
+    "rag-0": {
+      "src": "media/narration/rag-0.mp3",
+      "sha256": "a58a8a43cb6869561ddb88f3c73aadb97553119fd0f29b7aaa72b8d066e05302",
+      "seconds": 16.28,
+      "peak": 0.4944
+    },
+    "rag-1": {
+      "src": "media/narration/rag-1.mp3",
+      "sha256": "43effc8f012d703fdb2b0776348fa3ef19fd034124776e38013a354fb0fcca57",
+      "seconds": 8.38,
+      "peak": 0.4119
+    },
+    "rag-question": {
+      "src": "media/narration/rag-question.mp3",
+      "sha256": "08f74206cd87932c95477f6bca4937cb0bd5e05d6d6a1fd2f42b25e2d67b2443",
+      "seconds": 8.09,
+      "peak": 0.4028
+    },
+    "rag-answer": {
+      "src": "media/narration/rag-answer.mp3",
+      "sha256": "297991108259c097e2f8c3d07b12d7a2f6b2f1eb1ef3ea7ff01705b911d689c5",
+      "seconds": 6.33,
+      "peak": 0.405
+    },
+    "hallucination-0": {
+      "src": "media/narration/hallucination-0.mp3",
+      "sha256": "06954d36902bbfd5e01984b723a6a0f2cfcf318fff4e78584c260dd8434dbf03",
+      "seconds": 14.88,
+      "peak": 0.4297
+    },
+    "hallucination-1": {
+      "src": "media/narration/hallucination-1.mp3",
+      "sha256": "ef268e0d957eba5c79afd8b8ab9b70519ec9f183e13f1204771666d8d9479faa",
+      "seconds": 8.22,
+      "peak": 0.4289
+    },
+    "hallucination-question": {
+      "src": "media/narration/hallucination-question.mp3",
+      "sha256": "2a05fc21d3858d9a8a7ac57940dec9f9a398401c83222458e37568cea07fb677",
+      "seconds": 5.7,
+      "peak": 0.3716
+    },
+    "hallucination-answer": {
+      "src": "media/narration/hallucination-answer.mp3",
+      "sha256": "16ed42043f48cb4a546b3616af143535b3735e9908fdc9db41ebde48deb454a0",
+      "seconds": 6.55,
+      "peak": 0.4202
+    },
+    "reasoning-0": {
+      "src": "media/narration/reasoning-0.mp3",
+      "sha256": "8f85fec8539175c39b76b13840dac40b30f9873dab7902a17581a223aa4e9585",
+      "seconds": 15.97,
+      "peak": 0.4068
+    },
+    "reasoning-1": {
+      "src": "media/narration/reasoning-1.mp3",
+      "sha256": "5db8c36e1ce1bf474a6d7a3f5b2a383eb42a5318c30b1bca0e4eddcc9aa9bbd3",
+      "seconds": 10.38,
+      "peak": 0.4654
+    },
+    "reasoning-question": {
+      "src": "media/narration/reasoning-question.mp3",
+      "sha256": "270284572ce16fc5c252bf4013b66007fd03e79d272fcdbbbb10762d459ebe4d",
+      "seconds": 7.38,
+      "peak": 0.4089
+    },
+    "reasoning-answer": {
+      "src": "media/narration/reasoning-answer.mp3",
+      "sha256": "e34e0316903be55ef07772e2e2faa8100a9386b299a59ff6359790b1b78e7136",
+      "seconds": 5.79,
+      "peak": 0.3603
+    },
+    "temperature-0": {
+      "src": "media/narration/temperature-0.mp3",
+      "sha256": "80e9f49a6867631f629e8425b6792ef585d13c034eefd05a067276f454bb82a0",
+      "seconds": 18.22,
+      "peak": 0.5069
+    },
+    "temperature-1": {
+      "src": "media/narration/temperature-1.mp3",
+      "sha256": "0adeabd4364f2c346330f4d02be8f806d5d3e9f4ad3f38530f16573cfafa3ae2",
+      "seconds": 8.19,
+      "peak": 0.4736
+    },
+    "temperature-question": {
+      "src": "media/narration/temperature-question.mp3",
+      "sha256": "85c78d1c83049e70a2df91ddba3477ef5c32c5a3f5ed90394dd30640041717ff",
+      "seconds": 6.71,
+      "peak": 0.3701
+    },
+    "temperature-answer": {
+      "src": "media/narration/temperature-answer.mp3",
+      "sha256": "b4c6768e19fc0acf317ec6a847ddc516e36fe6827235bb215b9de2db4a36b1ba",
+      "seconds": 5.76,
+      "peak": 0.4262
+    },
+    "agent-0": {
+      "src": "media/narration/agent-0.mp3",
+      "sha256": "8806d1e85c38592b4c47ffe33ed5269fbf5f8904ae0a5274c02600a51d69e705",
+      "seconds": 15.56,
+      "peak": 0.6537
+    },
+    "agent-1": {
+      "src": "media/narration/agent-1.mp3",
+      "sha256": "9123dd6ce3a07e39d71b145720b475c8f8849e1ad8fdd5ad5838f26a0f4edfd5",
+      "seconds": 8.3,
+      "peak": 0.4534
+    },
+    "agent-question": {
+      "src": "media/narration/agent-question.mp3",
+      "sha256": "a387a582c699725205207d81e224e51024c55e4fd670edaecf568df227a69367",
+      "seconds": 6.4,
+      "peak": 0.3513
+    },
+    "agent-answer": {
+      "src": "media/narration/agent-answer.mp3",
+      "sha256": "8cc3dda04804e155d1c25cd389ed8fa513e9fd371935be70c78eb97ea9dd273f",
+      "seconds": 6.97,
+      "peak": 0.4746
+    },
+    "workflow-0": {
+      "src": "media/narration/workflow-0.mp3",
+      "sha256": "33e5d6583f5b2244cafc23186dce8ed1d9e6ae20ba2c0629a6cbb81e07ea85a7",
+      "seconds": 16.31,
+      "peak": 0.4978
+    },
+    "workflow-1": {
+      "src": "media/narration/workflow-1.mp3",
+      "sha256": "81e44907dbf9edbcc927658cf4ad94798b9bf96e881fd6fb179d075df00af612",
+      "seconds": 8.79,
+      "peak": 0.4443
+    },
+    "workflow-question": {
+      "src": "media/narration/workflow-question.mp3",
+      "sha256": "d8a640ad87ef42aecab442372d4c222e6d2b7daf44429f47df44574a302c67d7",
+      "seconds": 5.93,
+      "peak": 0.3532
+    },
+    "workflow-answer": {
+      "src": "media/narration/workflow-answer.mp3",
+      "sha256": "2f37528b79f2a445af535d29216c0f47bedb33c6219156027b880cd0202ca3ce",
+      "seconds": 5.35,
+      "peak": 0.3862
+    },
+    "tool-0": {
+      "src": "media/narration/tool-0.mp3",
+      "sha256": "5353a4c2fc0af8e0cda90df939561a9e7f66690a6a00d35993d7c044aecf5a89",
+      "seconds": 16.54,
+      "peak": 0.5389
+    },
+    "tool-1": {
+      "src": "media/narration/tool-1.mp3",
+      "sha256": "1a6e5b9c99d8a7e6c190662128ee98014d24f72bfe16e61f3f3478520803dc51",
+      "seconds": 11.95,
+      "peak": 0.433
+    },
+    "tool-question": {
+      "src": "media/narration/tool-question.mp3",
+      "sha256": "cfb7b6279ff242ccbcf2da6ffc91b813e4b9bedef98af23122a50db03ec77a54",
+      "seconds": 7.9,
+      "peak": 0.5494
+    },
+    "tool-answer": {
+      "src": "media/narration/tool-answer.mp3",
+      "sha256": "92e2f9fa623fbb908de040e5dc7a36f0c856762dee9beb3420bb915d5c2bc3fc",
+      "seconds": 5.03,
+      "peak": 0.4015
+    },
+    "harness-0": {
+      "src": "media/narration/harness-0.mp3",
+      "sha256": "f010108854e8507f3f5d29a392645088fc8f69ce7a50b22b4eb432e92545b535",
+      "seconds": 17.31,
+      "peak": 0.4285
+    },
+    "harness-1": {
+      "src": "media/narration/harness-1.mp3",
+      "sha256": "1c73c1ad94325dd63fc9a3fadd468e12ebde5730d56ecd7a4672919b5c8b44c8",
+      "seconds": 8.45,
+      "peak": 0.4312
+    },
+    "harness-question": {
+      "src": "media/narration/harness-question.mp3",
+      "sha256": "e3c5346046d8ffe543d084102b7e1fef83fc9a3350948443897c784237a807d8",
+      "seconds": 6.68,
+      "peak": 0.3414
+    },
+    "harness-answer": {
+      "src": "media/narration/harness-answer.mp3",
+      "sha256": "8a8ef07b94b4e736e908162cc9a5d75aa3e3cdf18cefb4242d557f2d67bf64fe",
+      "seconds": 5.57,
+      "peak": 0.4156
+    },
+    "verification-0": {
+      "src": "media/narration/verification-0.mp3",
+      "sha256": "16ce87cac7402e7a2f621c6fd8b53b2c9f6423bf6127ac52cb1448b949b02497",
+      "seconds": 14.27,
+      "peak": 0.4392
+    },
+    "verification-1": {
+      "src": "media/narration/verification-1.mp3",
+      "sha256": "83c8b8053f7fce692ea984c4522048d75b795f63a0b4a07452532bb12c1b419d",
+      "seconds": 7.3,
+      "peak": 0.453
+    },
+    "verification-question": {
+      "src": "media/narration/verification-question.mp3",
+      "sha256": "c9a4b6d65829b4198faf92cb1df8bde03656c874746167eb0877b8676b457952",
+      "seconds": 7.09,
+      "peak": 0.3538
+    },
+    "verification-answer": {
+      "src": "media/narration/verification-answer.mp3",
+      "sha256": "967df0fccacf911f7071f4b1a5ba834b7eecaa336609b874b7e77605eaa96f77",
+      "seconds": 6.12,
+      "peak": 0.5269
+    },
+    "gpu-0": {
+      "src": "media/narration/gpu-0.mp3",
+      "sha256": "57b996591c2ba766b523f4f7079df56aea6fb37f48178cb3c4414cf275cd8560",
+      "seconds": 17.21,
+      "peak": 0.5188
+    },
+    "gpu-1": {
+      "src": "media/narration/gpu-1.mp3",
+      "sha256": "a10a57787b81feddba1054fd38b5c54b4102b27b90470122d33d9b8e74086222",
+      "seconds": 10.11,
+      "peak": 0.3962
+    },
+    "gpu-question": {
+      "src": "media/narration/gpu-question.mp3",
+      "sha256": "cedb3794c2b05234c26a81c5396984f0da24e50190e6087afbc1c4b4a8b523c3",
+      "seconds": 7.56,
+      "peak": 0.4054
+    },
+    "gpu-answer": {
+      "src": "media/narration/gpu-answer.mp3",
+      "sha256": "ff1c71bb399353c8e0afe5e9bea2941e503ee64923c085875c58694e0b8d8b8b",
+      "seconds": 6.18,
+      "peak": 0.4603
+    },
+    "memory-0": {
+      "src": "media/narration/memory-0.mp3",
+      "sha256": "73c4999e4823182d9b4a5805258c8a5215bde00fd257cfbdab5e99af9e440e38",
+      "seconds": 15.68,
+      "peak": 0.4582
+    },
+    "memory-1": {
+      "src": "media/narration/memory-1.mp3",
+      "sha256": "2f897415772936843f1bc7af1f906064a04e46fbcbf9e5d5757d66f637bac6e8",
+      "seconds": 13.32,
+      "peak": 0.4454
+    },
+    "memory-question": {
+      "src": "media/narration/memory-question.mp3",
+      "sha256": "2f0d84762a8ae096ab0b7f495f3ba62d296df377aca7c0e581b2f5cfa145ac97",
+      "seconds": 7.46,
+      "peak": 0.4026
+    },
+    "memory-answer": {
+      "src": "media/narration/memory-answer.mp3",
+      "sha256": "da34a97e6c1cf6f0551a0e906a9d69e633bcfda069f8ca0278b8b8168a7eb6bb",
+      "seconds": 4.62,
+      "peak": 0.4304
+    },
+    "quantization-0": {
+      "src": "media/narration/quantization-0.mp3",
+      "sha256": "4c451556434dd50d1bb1d9c04e86e44fd7dd94ac3e304ea23c3c4612b1feaa38",
+      "seconds": 15.67,
+      "peak": 0.4992
+    },
+    "quantization-1": {
+      "src": "media/narration/quantization-1.mp3",
+      "sha256": "26a7f0eb88487035ccf4be62141260dbba74b1eaa84ca587dd98dadbe1ef92d4",
+      "seconds": 8.37,
+      "peak": 0.4827
+    },
+    "quantization-question": {
+      "src": "media/narration/quantization-question.mp3",
+      "sha256": "c4a9504a7e42d9b7d32b725b9e0500f163f4572867baf1effc7f11d06e99533f",
+      "seconds": 6.72,
+      "peak": 0.4038
+    },
+    "quantization-answer": {
+      "src": "media/narration/quantization-answer.mp3",
+      "sha256": "a0cb74cb9154a2e6166f2a6c2d207052a0b08250a6e212a665aeb30ae79858ee",
+      "seconds": 5.87,
+      "peak": 0.3405
+    },
+    "moe-0": {
+      "src": "media/narration/moe-0.mp3",
+      "sha256": "5bff12daa9731b730d81d4d839d585998c764489a9d224e508d48f6ded7fd6a6",
+      "seconds": 14.47,
+      "peak": 0.6115
+    },
+    "moe-1": {
+      "src": "media/narration/moe-1.mp3",
+      "sha256": "5afb35f80f012f55dbc68341bbd6bbda5eb83c479da7376f7e7c61ab6c2ccbeb",
+      "seconds": 9.9,
+      "peak": 0.4639
+    },
+    "moe-question": {
+      "src": "media/narration/moe-question.mp3",
+      "sha256": "01aeff1d4005f9fba2882094ba00ab3ada5bea6517140e0684c645058941a665",
+      "seconds": 7.78,
+      "peak": 0.3796
+    },
+    "moe-answer": {
+      "src": "media/narration/moe-answer.mp3",
+      "sha256": "13b0197f086092174dcdf6e6416e68de1eee081df31fab8068c39f685de96879",
+      "seconds": 4.86,
+      "peak": 0.5199
+    },
+    "active-0": {
+      "src": "media/narration/active-0.mp3",
+      "sha256": "b5d95a1f8058856745c533d45289378c36e85624c5c57edf9075ae1c6be5cd40",
+      "seconds": 14.62,
+      "peak": 0.4835
+    },
+    "active-1": {
+      "src": "media/narration/active-1.mp3",
+      "sha256": "92ecddb7e4d4a862b9b4230a142355420439021b34e348622e70ca62c3fe246e",
+      "seconds": 11.8,
+      "peak": 0.5487
+    },
+    "active-question": {
+      "src": "media/narration/active-question.mp3",
+      "sha256": "9577b92cd97a7e76fcd084471b81ecfefdb86579ed2c7487b2b9e878f18670fc",
+      "seconds": 7.31,
+      "peak": 0.4382
+    },
+    "active-answer": {
+      "src": "media/narration/active-answer.mp3",
+      "sha256": "4b3caea32480de9ff49157a2d5574bba43e8e5ec3634de97d07d8f2980deab84",
+      "seconds": 5.72,
+      "peak": 0.4946
+    },
+    "kvcache-0": {
+      "src": "media/narration/kvcache-0.mp3",
+      "sha256": "22d69eca4e0ae9f3c8d73a205d4d2a95d6a3e7723cdac425afddda9a23a0552f",
+      "seconds": 17.04,
+      "peak": 0.4261
+    },
+    "kvcache-1": {
+      "src": "media/narration/kvcache-1.mp3",
+      "sha256": "2751781b54906e3fa3c182ecc700112231a54a3d525da76c5b0bb9ebcf81b3e2",
+      "seconds": 8.2,
+      "peak": 0.4147
+    },
+    "kvcache-question": {
+      "src": "media/narration/kvcache-question.mp3",
+      "sha256": "da9328f38626deae4500fed2f9002b117da14267ee6fdcb44a10195e1345083b",
+      "seconds": 7.04,
+      "peak": 0.3713
+    },
+    "kvcache-answer": {
+      "src": "media/narration/kvcache-answer.mp3",
+      "sha256": "8501f9a1de5538ef39a81024321b9094a44d8f2119eb15ce2d712c0dd4baa646",
+      "seconds": 5.11,
+      "peak": 0.4931
+    },
+    "prefill-0": {
+      "src": "media/narration/prefill-0.mp3",
+      "sha256": "8a4cd5a0b780b072039c0b4375d28750e0011d3ad40157eecea4c542de17dc27",
+      "seconds": 16.36,
+      "peak": 0.4684
+    },
+    "prefill-1": {
+      "src": "media/narration/prefill-1.mp3",
+      "sha256": "577673b7f63f851258eb87a37bf6bb50ea7228f1a3b7558dd6ce73c12014d0d6",
+      "seconds": 8.8,
+      "peak": 0.624
+    },
+    "prefill-question": {
+      "src": "media/narration/prefill-question.mp3",
+      "sha256": "494cbbe11df056bdcc65bc73e022c9fe54a89185be0681927217925da42dfa30",
+      "seconds": 6.95,
+      "peak": 0.3969
+    },
+    "prefill-answer": {
+      "src": "media/narration/prefill-answer.mp3",
+      "sha256": "104fb1a0612840c42f23faed803f99e66144f6881160142112c7eddf8b8284a3",
+      "seconds": 6.59,
+      "peak": 0.3546
+    },
+    "latency-0": {
+      "src": "media/narration/latency-0.mp3",
+      "sha256": "b837b88c4d27a400884d8455e7ccd3bab7c269034610569b808719677647b6fb",
+      "seconds": 13.08,
+      "peak": 0.4903
+    },
+    "latency-1": {
+      "src": "media/narration/latency-1.mp3",
+      "sha256": "f493143276e5c216f0c63a2ced658d59058c6e73ea1118618ab8fd5c16a9b3e3",
+      "seconds": 9.03,
+      "peak": 0.3541
+    },
+    "latency-question": {
+      "src": "media/narration/latency-question.mp3",
+      "sha256": "5fd94dca02bbffcefc9e38e89c596bbefc8837f7992d1dfdaa4ebfe0dbcd1c77",
+      "seconds": 8.71,
+      "peak": 0.432
+    },
+    "latency-answer": {
+      "src": "media/narration/latency-answer.mp3",
+      "sha256": "ee702755a132c166fd0432d5933094701ccf5159c87a7f293b166d6a10eb8121",
+      "seconds": 4.35,
+      "peak": 0.4362
+    },
+    "throughput-0": {
+      "src": "media/narration/throughput-0.mp3",
+      "sha256": "327945b9ba3b50c2a5a4751f63e9a87e8d4134f60fad8741b038025dc941051b",
+      "seconds": 15.24,
+      "peak": 0.4854
+    },
+    "throughput-1": {
+      "src": "media/narration/throughput-1.mp3",
+      "sha256": "f3ef5c742832473ada010e0ca4960a3732aa0330248932e6b49a564e8ef94a50",
+      "seconds": 9.14,
+      "peak": 0.4033
+    },
+    "throughput-question": {
+      "src": "media/narration/throughput-question.mp3",
+      "sha256": "1576486ecad05d1d0f9dae3b5b81ae7a0044cc52837033ec149a97b22363cc9c",
+      "seconds": 8.82,
+      "peak": 0.535
+    },
+    "throughput-answer": {
+      "src": "media/narration/throughput-answer.mp3",
+      "sha256": "c9a53095fd3a286c72df25723c9a6fe885221cafc0529d06c21a26317a2b4075",
+      "seconds": 4.09,
+      "peak": 0.5318
+    },
+    "benchmark-0": {
+      "src": "media/narration/benchmark-0.mp3",
+      "sha256": "48057ef2aa99d24c424a1870a0a9ab90f25b82d15cce871d9f0ccf3400ea74ac",
+      "seconds": 15.79,
+      "peak": 0.4069
+    },
+    "benchmark-1": {
+      "src": "media/narration/benchmark-1.mp3",
+      "sha256": "a13b6286458ef5d7d85f55b36c45dc781eb1152d361b57cb847c361622032450",
+      "seconds": 6.05,
+      "peak": 0.375
+    },
+    "benchmark-question": {
+      "src": "media/narration/benchmark-question.mp3",
+      "sha256": "c27afa8e0c135869677a5b72ac81460d6ccdcbe1587dc1f865e1a4f20438250e",
+      "seconds": 7.74,
+      "peak": 0.3395
+    },
+    "benchmark-answer": {
+      "src": "media/narration/benchmark-answer.mp3",
+      "sha256": "8a91b824543bad19c9039efaf13e13bcedebafa4ed7c20009eb859b5eeb9276b",
+      "seconds": 7.35,
+      "peak": 0.3841
+    },
+    "ablation-0": {
+      "src": "media/narration/ablation-0.mp3",
+      "sha256": "e71edd3dd8ad21ad8b689e023d80e26e63d49b4dfb597edbcd3f8efeac9d23af",
+      "seconds": 15.48,
+      "peak": 0.5737
+    },
+    "ablation-1": {
+      "src": "media/narration/ablation-1.mp3",
+      "sha256": "d4ee6c5228b07b1dcabb77eff6762e6837a84ae7595aaa0240f33aa02ca98325",
+      "seconds": 7.43,
+      "peak": 0.3726
+    },
+    "ablation-question": {
+      "src": "media/narration/ablation-question.mp3",
+      "sha256": "ba211c0937571b2f19e163071ae3d60f947ee786ac1054b261a84cc4e97caca0",
+      "seconds": 8.73,
+      "peak": 0.4726
+    },
+    "ablation-answer": {
+      "src": "media/narration/ablation-answer.mp3",
+      "sha256": "400b3de9bc1c8aa9767b38ccf03cc1f464123c339d85adef08f8dea31056c059",
+      "seconds": 5.54,
+      "peak": 0.445
+    },
+    "checkpoint-0": {
+      "src": "media/narration/checkpoint-0.mp3",
+      "sha256": "f7bea3c369fc03661e76486213781aa430e6b43d241320fadc8b5d29289a6b53",
+      "seconds": 16.26,
+      "peak": 0.4255
+    },
+    "checkpoint-1": {
+      "src": "media/narration/checkpoint-1.mp3",
+      "sha256": "433a0e83c1816193d75b3746c14d83e740aa1cc9845134acc4d34bf19e8241c8",
+      "seconds": 6.78,
+      "peak": 0.4816
+    },
+    "checkpoint-question": {
+      "src": "media/narration/checkpoint-question.mp3",
+      "sha256": "700d6159c4d76c56357065780efaa78d7b8b807796809914edd8126d2445c411",
+      "seconds": 7.42,
+      "peak": 0.348
+    },
+    "checkpoint-answer": {
+      "src": "media/narration/checkpoint-answer.mp3",
+      "sha256": "5a4f403d4f519ed8fe05bea87137287deaefd94ee155cde63f9799f8b86faea7",
+      "seconds": 5.97,
+      "peak": 0.4835
+    },
+    "openweights-0": {
+      "src": "media/narration/openweights-0.mp3",
+      "sha256": "9fad55076cf3b4024d83c8d4a67a8538ba501a631921775aa3c410eddaa91d44",
+      "seconds": 16.59,
+      "peak": 0.507
+    },
+    "openweights-1": {
+      "src": "media/narration/openweights-1.mp3",
+      "sha256": "2adf50477eeb6927f88fb7a3926c4aea16c5a942e27984ad2e3e9dbc25dfed5e",
+      "seconds": 12.5,
+      "peak": 0.4501
+    },
+    "openweights-question": {
+      "src": "media/narration/openweights-question.mp3",
+      "sha256": "3151e852764e1572a7a47442708de6ba0ba02845b6d38342a4746a413e036795",
+      "seconds": 6.85,
+      "peak": 0.3267
+    },
+    "openweights-answer": {
+      "src": "media/narration/openweights-answer.mp3",
+      "sha256": "8a0c24c1252477e65923611e96f936c33b760f985123b560429e138192a4b77d",
+      "seconds": 3.51,
+      "peak": 0.429
+    },
+    "preprint-0": {
+      "src": "media/narration/preprint-0.mp3",
+      "sha256": "dfde889d9374baac178964b7c82d27e7c46220c1a3286fe6eb8f507e4b688190",
+      "seconds": 16.03,
+      "peak": 0.4458
+    },
+    "preprint-1": {
+      "src": "media/narration/preprint-1.mp3",
+      "sha256": "b69108f013b814395200b50653bff76c0d7ce1a360db7cbe6749586f39915c52",
+      "seconds": 10.12,
+      "peak": 0.4353
+    },
+    "preprint-question": {
+      "src": "media/narration/preprint-question.mp3",
+      "sha256": "fe3159514b77eb953569166e462b35b002b5639a91bd509223900935deb48340",
+      "seconds": 7.96,
+      "peak": 0.3798
+    },
+    "preprint-answer": {
+      "src": "media/narration/preprint-answer.mp3",
+      "sha256": "e8b52952c668fa62bbb3f9c8f0f0e68fecf758d1263b55880dd707353885b316",
+      "seconds": 6.57,
+      "peak": 0.4026
+    },
+    "flops-0": {
+      "src": "media/narration/flops-0.mp3",
+      "sha256": "982df08bf07f914d29f8b048b6f5ae391d8fe941ded806f5a1c23383548c5e11",
+      "seconds": 15.2,
+      "peak": 0.4353
+    },
+    "flops-1": {
+      "src": "media/narration/flops-1.mp3",
+      "sha256": "e2dbb7c6f1fe5b2a61306fa99817121590b68e5c69fc21d5745ce9162d48a43b",
+      "seconds": 9.91,
+      "peak": 0.4398
+    },
+    "flops-question": {
+      "src": "media/narration/flops-question.mp3",
+      "sha256": "e24fd0ddf59cb88f6f68b74eb3cd2971a70400fa4ee92fa94a5343f86f2da17d",
+      "seconds": 6.99,
+      "peak": 0.3859
+    },
+    "flops-answer": {
+      "src": "media/narration/flops-answer.mp3",
+      "sha256": "65610ce3e8f8de5d80af5d5028788336a4e43e10f353d4ed022d38b8e892cf95",
+      "seconds": 4.79,
+      "peak": 0.4289
+    },
+    "gradient-0": {
+      "src": "media/narration/gradient-0.mp3",
+      "sha256": "e0081fc0f45a4d1a41aa933fdc2074f2f168630ddd9d69b5dfd77ae47ade312d",
+      "seconds": 19.09,
+      "peak": 0.4304
+    },
+    "gradient-1": {
+      "src": "media/narration/gradient-1.mp3",
+      "sha256": "77ebe9a9cc1297f15b1956aa3aede5a3f4c220f53ab931134e0869d7e3bc88d4",
+      "seconds": 9.13,
+      "peak": 0.4381
+    },
+    "gradient-question": {
+      "src": "media/narration/gradient-question.mp3",
+      "sha256": "1ebace338b1b829949f4921eead6468978dd72f4d0b41c9a4b79a772be25eded",
+      "seconds": 8.2,
+      "peak": 0.3889
+    },
+    "gradient-answer": {
+      "src": "media/narration/gradient-answer.mp3",
+      "sha256": "0bc56aec2b6716dd4368d7cf4748d89401420fed0f179f6a6839b0c7466bf676",
+      "seconds": 5.97,
+      "peak": 0.3629
+    },
+    "descent-0": {
+      "src": "media/narration/descent-0.mp3",
+      "sha256": "3a1cc629ddf068af01c4c77cb0748efb396a3f2a357e4702ff35c2002c3197e7",
+      "seconds": 14.14,
+      "peak": 0.4599
+    },
+    "descent-1": {
+      "src": "media/narration/descent-1.mp3",
+      "sha256": "9b604c7b6f3c1cf199feae3f9ee5b9fc1b7456659c7021c55b51bfa7df7f211f",
+      "seconds": 7.74,
+      "peak": 0.4751
+    },
+    "descent-question": {
+      "src": "media/narration/descent-question.mp3",
+      "sha256": "0dab63eb6c80f50816b7b0b3ffa3544bb0ffcec86c5b83a4f858e5b96bf20c3e",
+      "seconds": 6.19,
+      "peak": 0.3317
+    },
+    "descent-answer": {
+      "src": "media/narration/descent-answer.mp3",
+      "sha256": "9d39a71751adcdaad471846491c50b3f412380fdd196c31a36d88e363c9752d1",
+      "seconds": 6.39,
+      "peak": 0.381
+    },
+    "rate-0": {
+      "src": "media/narration/rate-0.mp3",
+      "sha256": "71a6c64cade8b07940b1c9eb2ee05d3039cea526716a894f25996cfada6a4592",
+      "seconds": 13.49,
+      "peak": 0.4051
+    },
+    "rate-1": {
+      "src": "media/narration/rate-1.mp3",
+      "sha256": "48d2213896281bf3f1c2e62fa063b43c8812f677f7547c3d2c365be683117122",
+      "seconds": 6.49,
+      "peak": 0.3983
+    },
+    "rate-question": {
+      "src": "media/narration/rate-question.mp3",
+      "sha256": "125bc37449bbd21759b95bb5fa7b8c10ff346451ab2298d223bd5c001ba86cae",
+      "seconds": 9.13,
+      "peak": 0.402
+    },
+    "rate-answer": {
+      "src": "media/narration/rate-answer.mp3",
+      "sha256": "9e71fbaacd399478434508b2fecdf47f7986de84561fad143de8e622ca532581",
+      "seconds": 5.63,
+      "peak": 0.3751
+    },
+    "curvature-0": {
+      "src": "media/narration/curvature-0.mp3",
+      "sha256": "96a958a41d8e66a7747d548030565c6e5bd0b53134672c3da641b6f4a970eebb",
+      "seconds": 15.57,
+      "peak": 0.4676
+    },
+    "curvature-1": {
+      "src": "media/narration/curvature-1.mp3",
+      "sha256": "4e63ac07cb088db7827efb552c1e4360c8346089e3f7b932ce8cabf1db6e3756",
+      "seconds": 11.41,
+      "peak": 0.572
+    },
+    "curvature-question": {
+      "src": "media/narration/curvature-question.mp3",
+      "sha256": "70bc0baa4d7a9bc4a8c31d18c45a9a617ed1ba39cf874133d8adb62bf8a5e1be",
+      "seconds": 9.6,
+      "peak": 0.4388
+    },
+    "curvature-answer": {
+      "src": "media/narration/curvature-answer.mp3",
+      "sha256": "5cc28ce677efc75c4ac9b87c014d849f09a5a28fa3e73f156da7b059ddfb7df9",
+      "seconds": 7.01,
+      "peak": 0.4084
+    },
+    "sgd-0": {
+      "src": "media/narration/sgd-0.mp3",
+      "sha256": "74475b1436c106231be88bde0052414e932e233bb9bf4b2d55def55e54b83e9d",
+      "seconds": 14.3,
+      "peak": 0.4176
+    },
+    "sgd-1": {
+      "src": "media/narration/sgd-1.mp3",
+      "sha256": "25d07fc19b72b95da08dddee8958a706ac03e5cc563a71e537b35c3f4a2bdd78",
+      "seconds": 8.74,
+      "peak": 0.4628
+    },
+    "sgd-question": {
+      "src": "media/narration/sgd-question.mp3",
+      "sha256": "b05646e09db008514bf906411cceba068afe1d817d448edc5c358b49bf5bc616",
+      "seconds": 7.14,
+      "peak": 0.3415
+    },
+    "sgd-answer": {
+      "src": "media/narration/sgd-answer.mp3",
+      "sha256": "9881afc7e44392ffa8ff8f90313fb2358cf4c9c4f467ea702ca0db2c15d8500d",
+      "seconds": 6.39,
+      "peak": 0.3717
+    },
+    "minibatch-0": {
+      "src": "media/narration/minibatch-0.mp3",
+      "sha256": "e6ab41d36a80eabce12b90bab3587d30963678af87880fd733898ca575fa6d22",
+      "seconds": 13.73,
+      "peak": 0.3926
+    },
+    "minibatch-1": {
+      "src": "media/narration/minibatch-1.mp3",
+      "sha256": "eab28dfc3f7ecc420a4079aa4ff357d6dd18638c231bb4692520e4ae413ebc78",
+      "seconds": 6.37,
+      "peak": 0.5689
+    },
+    "minibatch-question": {
+      "src": "media/narration/minibatch-question.mp3",
+      "sha256": "0f3624607cc276282eaa72acb53b045cd07902e417523e885997fe2084cbdfe1",
+      "seconds": 8.96,
+      "peak": 0.3657
+    },
+    "minibatch-answer": {
+      "src": "media/narration/minibatch-answer.mp3",
+      "sha256": "c21257de2180e015c7c5881fb64469d86d66dd7ca788405e834834d8214bd915",
+      "seconds": 3.56,
+      "peak": 0.4564
+    },
+    "epoch-0": {
+      "src": "media/narration/epoch-0.mp3",
+      "sha256": "d587b3d2431805b25e01f064bdb86327e7aa5536e7651651dbee4327576995d7",
+      "seconds": 13.75,
+      "peak": 0.4155
+    },
+    "epoch-1": {
+      "src": "media/narration/epoch-1.mp3",
+      "sha256": "24f4e218c52ea639e051627f5a95b2eb4bc3ec5c4e610fc5c2b6bff67940b4df",
+      "seconds": 7.06,
+      "peak": 0.3412
+    },
+    "epoch-question": {
+      "src": "media/narration/epoch-question.mp3",
+      "sha256": "8d075a58a0b868e2ac4a37fe8b7814fe013488c6bf35dcf997349f9bd0120f70",
+      "seconds": 8.94,
+      "peak": 0.4625
+    },
+    "epoch-answer": {
+      "src": "media/narration/epoch-answer.mp3",
+      "sha256": "526f61ea1f6e7085aae07b599736fdb8ca5d61228db77a2c1fb71ae6ed357c2b",
+      "seconds": 4.33,
+      "peak": 0.3587
+    },
+    "backprop-0": {
+      "src": "media/narration/backprop-0.mp3",
+      "sha256": "11e1591596380f05743f0a29885d1677af9b302d46f25bdcb920697ca8e23ddf",
+      "seconds": 15.16,
+      "peak": 0.4315
+    },
+    "backprop-1": {
+      "src": "media/narration/backprop-1.mp3",
+      "sha256": "01030ab4c0e068953e51bf2d6563b388ea96359f26105552945fa5c26468c701",
+      "seconds": 6.96,
+      "peak": 0.4317
+    },
+    "backprop-question": {
+      "src": "media/narration/backprop-question.mp3",
+      "sha256": "70d13de3ef377c620aedd19f7bb327e6459c01796dccbce668e92ff745328d83",
+      "seconds": 13.91,
+      "peak": 0.4575
+    },
+    "backprop-answer": {
+      "src": "media/narration/backprop-answer.mp3",
+      "sha256": "802c6c6dd3f64a38edfd6484ea318c9403d0ae0369325495ba35d613dcc584bf",
+      "seconds": 5.46,
+      "peak": 0.4507
+    },
+    "regularize-0": {
+      "src": "media/narration/regularize-0.mp3",
+      "sha256": "01650f74a3f1fd301f12e3d01bfdc1130949c634f43ad0c357adb212897cb7eb",
+      "seconds": 13.79,
+      "peak": 0.5157
+    },
+    "regularize-1": {
+      "src": "media/narration/regularize-1.mp3",
+      "sha256": "566ee16fbe2c144e0ec1e23dafd7a90c4b42469413dd4e2f3d4aca642e62218b",
+      "seconds": 8.05,
+      "peak": 0.3686
+    },
+    "regularize-question": {
+      "src": "media/narration/regularize-question.mp3",
+      "sha256": "500c58ba4832d5a897d2c2489820f368c7acd6e826eeeb05cd7fa2b912fff66f",
+      "seconds": 9.5,
+      "peak": 0.3798
+    },
+    "regularize-answer": {
+      "src": "media/narration/regularize-answer.mp3",
+      "sha256": "428360fe301e5113f2331b8c6c0c8dbaf7044fdf250429eff1957a5ccd6af239",
+      "seconds": 7.12,
+      "peak": 0.3886
+    },
+    "vector-0": {
+      "src": "media/narration/vector-0.mp3",
+      "sha256": "37aeb67b677b57dee8eae447a45d1a631616a752c0d95342f6e8508df5030577",
+      "seconds": 13.79,
+      "peak": 0.4206
+    },
+    "vector-1": {
+      "src": "media/narration/vector-1.mp3",
+      "sha256": "af99e95a1f61399c610acaa5cbda8339addcd37744962fdedc774b6c1cebf7f6",
+      "seconds": 6.02,
+      "peak": 0.4113
+    },
+    "vector-question": {
+      "src": "media/narration/vector-question.mp3",
+      "sha256": "b966bcf846c6b4643d561a85fb69c12d67bb8b85bf89970da8430321c666eac7",
+      "seconds": 10.14,
+      "peak": 0.4265
+    },
+    "vector-answer": {
+      "src": "media/narration/vector-answer.mp3",
+      "sha256": "a9f23ded8dc516cb404e282ee1faece6daaefe4d228f686efd31f20bcead4ea9",
+      "seconds": 5.7,
+      "peak": 0.4279
+    },
+    "norm-0": {
+      "src": "media/narration/norm-0.mp3",
+      "sha256": "f5e3a8e43f284741304aee3fc2e0372bacb962c8846489d534ba48a347bfa113",
+      "seconds": 14.22,
+      "peak": 0.4912
+    },
+    "norm-1": {
+      "src": "media/narration/norm-1.mp3",
+      "sha256": "5ffb756429a0bad7ad4e1c45377da99a1eb4c0889379665512e9de3b84035f80",
+      "seconds": 7.7,
+      "peak": 0.5451
+    },
+    "norm-question": {
+      "src": "media/narration/norm-question.mp3",
+      "sha256": "370aa608863722e52905be2c9a1d3420d357268a2c9f0d7443724255cfe973f3",
+      "seconds": 6.5,
+      "peak": 0.3504
+    },
+    "norm-answer": {
+      "src": "media/narration/norm-answer.mp3",
+      "sha256": "f10174ed703f2a93e34be8afe24bdc30b269e187510201c381dc1159803db33c",
+      "seconds": 4.98,
+      "peak": 0.4165
+    },
+    "dotproduct-0": {
+      "src": "media/narration/dotproduct-0.mp3",
+      "sha256": "72146dfb946f1e938b5c0bebf6bb6b5745252954fd40cd3bd70400fd72bb8907",
+      "seconds": 12.31,
+      "peak": 0.4296
+    },
+    "dotproduct-1": {
+      "src": "media/narration/dotproduct-1.mp3",
+      "sha256": "1b2ae3dc0c5b3949912e8893d7e125b42262441dc2147ee89f248394884199c1",
+      "seconds": 8.49,
+      "peak": 0.429
+    },
+    "dotproduct-question": {
+      "src": "media/narration/dotproduct-question.mp3",
+      "sha256": "b4e3364d8c03323f29287e3b1964defb32b3340f48383e4dbe21cbaef078e3bd",
+      "seconds": 6.41,
+      "peak": 0.3684
+    },
+    "dotproduct-answer": {
+      "src": "media/narration/dotproduct-answer.mp3",
+      "sha256": "826ff0c762c9b4450b40ab6f9b1aecb3937401b6638bf52db98f3e4fe15ef78e",
+      "seconds": 3.77,
+      "peak": 0.3977
+    },
+    "cosine-0": {
+      "src": "media/narration/cosine-0.mp3",
+      "sha256": "8eb3c4a5116748d9c8f121fa7736493c3f2d7bdd305660c7e91abc4b296e719a",
+      "seconds": 15.64,
+      "peak": 0.4833
+    },
+    "cosine-1": {
+      "src": "media/narration/cosine-1.mp3",
+      "sha256": "733d999b9bc38a1cc57e2357ebc6abc9eba1c7eae5cc9122e27f9afe5845e985",
+      "seconds": 8.32,
+      "peak": 0.3387
+    },
+    "cosine-question": {
+      "src": "media/narration/cosine-question.mp3",
+      "sha256": "b91b9e3e7f539fbbf1283a64bab7423668d4ef00a2ac3f322e238c7f8843db94",
+      "seconds": 9.12,
+      "peak": 0.3695
+    },
+    "cosine-answer": {
+      "src": "media/narration/cosine-answer.mp3",
+      "sha256": "d332fc36e6f4aedba8aa8ef52e6e20b2368264c2be10a55b69d05be28758ef4e",
+      "seconds": 3.77,
+      "peak": 0.3446
+    },
+    "euclidean-0": {
+      "src": "media/narration/euclidean-0.mp3",
+      "sha256": "ea317a7e08003390ca0e3100c4fa636ff10b58e14aabd3a29ee7300a39d9d614",
+      "seconds": 13.14,
+      "peak": 0.4686
+    },
+    "euclidean-1": {
+      "src": "media/narration/euclidean-1.mp3",
+      "sha256": "cbf4908869645afb36eddcf7eb1b2ee983d9bde740ab7dd9ae96b46810cf5088",
+      "seconds": 7.32,
+      "peak": 0.4454
+    },
+    "euclidean-question": {
+      "src": "media/narration/euclidean-question.mp3",
+      "sha256": "0e78ab723ec1c769e09b89f3cdf90a8a09393de2fe07db4ced82a1f87b9d04dd",
+      "seconds": 9.06,
+      "peak": 0.4203
+    },
+    "euclidean-answer": {
+      "src": "media/narration/euclidean-answer.mp3",
+      "sha256": "f497214070471718435a9f1b6716b5e3c73bbf1d3897dd40c7fd3e7771970c17",
+      "seconds": 6.88,
+      "peak": 0.3592
+    },
+    "softmax-0": {
+      "src": "media/narration/softmax-0.mp3",
+      "sha256": "6daf5866e3a37580a919faeb185ae7222802f41c33139da2ec0b44cd5be69701",
+      "seconds": 17.35,
+      "peak": 0.5291
+    },
+    "softmax-1": {
+      "src": "media/narration/softmax-1.mp3",
+      "sha256": "6d504da453cbaf3fee7420ec5d5630d3a51c750f78ae504f22476c0c66d2b271",
+      "seconds": 9.6,
+      "peak": 0.4161
+    },
+    "softmax-question": {
+      "src": "media/narration/softmax-question.mp3",
+      "sha256": "349d65b6bc2af1228e3a16adc7a474797bc8412b660ad40ee909820477fda85b",
+      "seconds": 6.69,
+      "peak": 0.4448
+    },
+    "softmax-answer": {
+      "src": "media/narration/softmax-answer.mp3",
+      "sha256": "575b78309084126da8e339c8ee4742edb8b2b65aaaca5c842e7328dc96461419",
+      "seconds": 3.46,
+      "peak": 0.3753
+    },
+    "mask-0": {
+      "src": "media/narration/mask-0.mp3",
+      "sha256": "fa8aa25678b4afff9e95d0eead54b964826e127230a7c2f67cab93798248fe3b",
+      "seconds": 16.21,
+      "peak": 0.5478
+    },
+    "mask-1": {
+      "src": "media/narration/mask-1.mp3",
+      "sha256": "44b2accbc8210d51d568a7998615d2757b44af7f1a22cf1a3326c23a61922a2c",
+      "seconds": 9.16,
+      "peak": 0.4009
+    },
+    "mask-question": {
+      "src": "media/narration/mask-question.mp3",
+      "sha256": "257b6ae06a555984b8835a2d67d32b5e1f12d4acba4e8364994622cf49a5c09a",
+      "seconds": 9.12,
+      "peak": 0.3773
+    },
+    "mask-answer": {
+      "src": "media/narration/mask-answer.mp3",
+      "sha256": "1f7640455ccb09a509d5cbbbbdf71c374669dd85b0f01b9ae55112413fb76386",
+      "seconds": 6.36,
+      "peak": 0.3762
+    },
+    "position-0": {
+      "src": "media/narration/position-0.mp3",
+      "sha256": "a43a9a56b73449caa08fea31de46d4dcc991c66fc7a6ba2fc35fca79ee17ec0d",
+      "seconds": 17.06,
+      "peak": 0.4497
+    },
+    "position-1": {
+      "src": "media/narration/position-1.mp3",
+      "sha256": "d1fc1ad187a740f89cbfd50a713aff67511aa9e6936984f64ee96e18d3977ea2",
+      "seconds": 7.35,
+      "peak": 0.464
+    },
+    "position-question": {
+      "src": "media/narration/position-question.mp3",
+      "sha256": "9e3fe2360bf56262cc3552b3f697075cadb99f93c37f79d04491fd076082e35c",
+      "seconds": 6.98,
+      "peak": 0.3398
+    },
+    "position-answer": {
+      "src": "media/narration/position-answer.mp3",
+      "sha256": "0b2efd603914e6d412afb0fc46eed19b4d374fc5e9d8d606d7cc37c70869fc6d",
+      "seconds": 8.8,
+      "peak": 0.5099
+    },
+    "split-0": {
+      "src": "media/narration/split-0.mp3",
+      "sha256": "6f5791661627ce2c44b226b6be564dba740743cf4e30b811c46abefd29c48c6b",
+      "seconds": 15.07,
+      "peak": 0.4844
+    },
+    "split-1": {
+      "src": "media/narration/split-1.mp3",
+      "sha256": "d14f90e6e3d07b36da95f64d23975595ab0ec72cf7ba6f169c6d837e55941c07",
+      "seconds": 8.09,
+      "peak": 0.5121
+    },
+    "split-question": {
+      "src": "media/narration/split-question.mp3",
+      "sha256": "2d10dcf4a0aae97620fc25df332e322f644444c1276027aa50580ffec75eed43",
+      "seconds": 6.95,
+      "peak": 0.4029
+    },
+    "split-answer": {
+      "src": "media/narration/split-answer.mp3",
+      "sha256": "018e32edd0bb560d0146afd80532e3e13bb5ce45728e346a4ace8d6aeb12095a",
+      "seconds": 7.06,
+      "peak": 0.4318
+    },
+    "overfit-0": {
+      "src": "media/narration/overfit-0.mp3",
+      "sha256": "e2290cda23ad7b4c128494f18314fd833f1eceefb1593172951b790cfe8f6a22",
+      "seconds": 15.89,
+      "peak": 0.4801
+    },
+    "overfit-1": {
+      "src": "media/narration/overfit-1.mp3",
+      "sha256": "a098c574eedc32540bc271a09b2420a391d87828e5cd564ba1b04de220d9487b",
+      "seconds": 7.79,
+      "peak": 0.4633
+    },
+    "overfit-question": {
+      "src": "media/narration/overfit-question.mp3",
+      "sha256": "0f9e199d3441e0d901e0ba99cc0611e2c7c0dfe43fec96a3a011f3c7c29c0424",
+      "seconds": 7.83,
+      "peak": 0.7249
+    },
+    "overfit-answer": {
+      "src": "media/narration/overfit-answer.mp3",
+      "sha256": "d9ad4c5db3ec6b3523a8a7775e8c1782118e7952ae1a9fec8ad487f9d005317f",
+      "seconds": 5.74,
+      "peak": 0.5036
+    },
+    "precision-0": {
+      "src": "media/narration/precision-0.mp3",
+      "sha256": "ac8fb84c82141fa2ced84f97c6644258bf1dbe26931e1b5a872506cd116d68ad",
+      "seconds": 14.27,
+      "peak": 0.3967
+    },
+    "precision-1": {
+      "src": "media/narration/precision-1.mp3",
+      "sha256": "078a3c0c91d820bdd3084069ff66ac3e173c5d938ded34a4cf089ee63c2a8ffc",
+      "seconds": 7.05,
+      "peak": 0.4034
+    },
+    "precision-question": {
+      "src": "media/narration/precision-question.mp3",
+      "sha256": "eb7f4783e373741f2ebd0ba135253df30faf612e45e75e63f48a48254f4424f5",
+      "seconds": 7.36,
+      "peak": 0.3259
+    },
+    "precision-answer": {
+      "src": "media/narration/precision-answer.mp3",
+      "sha256": "500bcc80a1c867826507d09e89daf0613fb812863df9eed01ac8ed61eed5c3ac",
+      "seconds": 7.85,
+      "peak": 0.4975
+    },
+    "recall-0": {
+      "src": "media/narration/recall-0.mp3",
+      "sha256": "d4aefb87dd314ae3076a90807c2c7e05c1a48d32615a8c1571cf55531c233d0e",
+      "seconds": 14.22,
+      "peak": 0.4049
+    },
+    "recall-1": {
+      "src": "media/narration/recall-1.mp3",
+      "sha256": "60cc1829ef330db0ab5e54fc44f3a9f85acc046eaf398327d3b713f24161718d",
+      "seconds": 6.74,
+      "peak": 0.386
+    },
+    "recall-question": {
+      "src": "media/narration/recall-question.mp3",
+      "sha256": "dfba4583a9a5fb40b7aca029659caaa7e57a8281eea7f0dc41e14e130b91e58b",
+      "seconds": 7.77,
+      "peak": 0.3566
+    },
+    "recall-answer": {
+      "src": "media/narration/recall-answer.mp3",
+      "sha256": "fa84c2c7cc17e4f18433ca921ab708eba1cf78152c173e19a076bcae71aaa7db",
+      "seconds": 8.18,
+      "peak": 0.4631
+    },
+    "baseline-0": {
+      "src": "media/narration/baseline-0.mp3",
+      "sha256": "2039a93fe2ddc970d303f4bc32b221cd35627d2a2f1b70eb66a72ccfdcee1475",
+      "seconds": 15.22,
+      "peak": 0.458
+    },
+    "baseline-1": {
+      "src": "media/narration/baseline-1.mp3",
+      "sha256": "05c9c4d8b16e422070b83eebf8f1a22f152d34d69a3d7424f8016f710a6feda2",
+      "seconds": 5.9,
+      "peak": 0.4758
+    },
+    "baseline-question": {
+      "src": "media/narration/baseline-question.mp3",
+      "sha256": "77797d8faab552e644db06e92de8844e1ebe92577b81e6055a2d74bd28faa621",
+      "seconds": 9.37,
+      "peak": 0.3652
+    },
+    "baseline-answer": {
+      "src": "media/narration/baseline-answer.mp3",
+      "sha256": "d0fbb2c863d41f2abc48640be99fa56370046ac0308f8be7aa7af9838af3b93c",
+      "seconds": 5.92,
+      "peak": 0.4443
+    },
+    "leakage-0": {
+      "src": "media/narration/leakage-0.mp3",
+      "sha256": "02835a384b17b68c3227cd6f9fb5f7a3116624b5e41884e248d29a4658634a13",
+      "seconds": 16.25,
+      "peak": 0.3837
+    },
+    "leakage-1": {
+      "src": "media/narration/leakage-1.mp3",
+      "sha256": "d7f7a191bacb1cabf006d2566c786f1ee2bab075a89748846191e919bc250118",
+      "seconds": 8.59,
+      "peak": 0.4226
+    },
+    "leakage-question": {
+      "src": "media/narration/leakage-question.mp3",
+      "sha256": "f8df653bc30bbddb36307acb8ed4d2a0722f735b60e718d7e90a6904400abadf",
+      "seconds": 7.38,
+      "peak": 0.3292
+    },
+    "leakage-answer": {
+      "src": "media/narration/leakage-answer.mp3",
+      "sha256": "1c0db38b47038c859b78af2892a94a4e1e6ebe791be842bac90d8780da3dd284",
+      "seconds": 5.72,
+      "peak": 0.4429
+    },
+    "calibration-0": {
+      "src": "media/narration/calibration-0.mp3",
+      "sha256": "a2bdbfd9aa58169efc766852219cf3c9cffec0ce5f251c53b568b1b77b941cdd",
+      "seconds": 15.47,
+      "peak": 0.487
+    },
+    "calibration-1": {
+      "src": "media/narration/calibration-1.mp3",
+      "sha256": "7d5131788efe4700a866864287d2baede1d6972af6dafb5bbeda9c721aaab541",
+      "seconds": 8.79,
+      "peak": 0.4581
+    },
+    "calibration-question": {
+      "src": "media/narration/calibration-question.mp3",
+      "sha256": "7d6e93c8f8214eee12d6dec732ea2901e6e8e31d930f9105dd122425a73dd2ce",
+      "seconds": 10.65,
+      "peak": 0.386
+    },
+    "calibration-answer": {
+      "src": "media/narration/calibration-answer.mp3",
+      "sha256": "412f4dee276e72fab620523813c7478bdc12af5889658f5a3c059113a778b20b",
+      "seconds": 6.86,
+      "peak": 0.4157
+    },
+    "state-0": {
+      "src": "media/narration/state-0.mp3",
+      "sha256": "63b2b42b042f66675fea209aeaa7b0996247f4987351a62166075a4224b394af",
+      "seconds": 18.2,
+      "peak": 0.5444
+    },
+    "state-1": {
+      "src": "media/narration/state-1.mp3",
+      "sha256": "0f8716185c0dba67d7886087f80fdc4051e89fd642d1d112fe3071d179494fdd",
+      "seconds": 8.45,
+      "peak": 0.4224
+    },
+    "state-question": {
+      "src": "media/narration/state-question.mp3",
+      "sha256": "48aa6ab1453135adb575c4748e4ebe9a63295a59d40c752776cc5481be12b033",
+      "seconds": 9.33,
+      "peak": 0.4325
+    },
+    "state-answer": {
+      "src": "media/narration/state-answer.mp3",
+      "sha256": "0b7c6819ae92b7c10e56160cb6ad8be6bd9c5eb9cffdaf4030ba5af4d47c4267",
+      "seconds": 10.01,
+      "peak": 0.4644
+    }
+  }
+}
