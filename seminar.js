@@ -1,8 +1,8 @@
-import {nestedFields} from './field-board.js?v=paperstudio1';
-import {talks} from './seminar-notes.js?v=paperstudio1';
-import {talkSlides} from './seminar-content.js?v=paperstudio1';
-import {conceptFigure,bindFigures} from './concept-figures.js?v=paperstudio1';
-import {lessonMedia,prepareLessonMedia,prepareNarration} from './lesson-media.js?v=paperstudio1';
+import {nestedFields} from './field-board.js?v=readingedit1';
+import {talks} from './seminar-notes.js?v=readingedit1';
+import {talkSlides} from './seminar-content.js?v=readingedit1';
+import {conceptFigure,bindFigures} from './concept-figures.js?v=readingedit1';
+import {lessonMedia,prepareLessonMedia,prepareNarration} from './lesson-media.js?v=readingedit1';
 
 const esc = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 let speed=1,autoAdvance=false;
@@ -34,7 +34,7 @@ function attach(box,term){
    '<h3 tabindex="-1">'+esc(heading)+'</h3>'+ (lessonMedia(term.id,step)?'<details class="talk-transcript"><summary>Read the explanation</summary><p class="talk-voice">'+esc(body)+'</p></details>':'<p class="talk-voice">'+esc(body)+'</p>')+board()+
    (isCheck?'<button class="talk-answer" aria-expanded="'+revealed+'">'+(revealed?'Hide explanation':'Show explanation')+'</button>'+(revealed?'<p class="talk-response">'+esc(answer)+'</p>':''):'')+
    '<div class="talk-player"><div class="talk-player-title"><span>'+ (isCheck&&revealed?'Listen to the answer':'Listen to this part')+'</span><small>AI-generated voice</small></div>'+
-   '<audio controls preload="metadata" aria-label="'+(isCheck&&revealed?'Answer narration':'Lesson narration')+'" data-audio-src="media/narration/'+clip+'.mp3"></audio>'+
+   '<audio controls preload="metadata" aria-label="'+(isCheck&&revealed?'Answer narration':'Lesson narration')+'" data-audio-src="media/narration/'+clip+'.mp3?v=readingedit1"></audio>'+
    '<div class="talk-audio-options"><label>Speed <select aria-label="Narration speed">'+[.85,1,1.15,1.3].map(n=>'<option value="'+n+'" '+(speed===n?'selected':'')+'>'+n+'×</option>').join('')+'</select></label>'+ (!isCheck?'<label><input type="checkbox" data-advance '+(autoAdvance?'checked':'')+'> Continue automatically</label>':'<small>Pause and think before revealing the answer.</small>')+'</div><small role="status" class="talk-audio-status"></small></div>'+
    '<div class="talk-nav"><button data-back '+(step===0?'disabled':'')+'>← Back</button><button class="talk-forward" data-next>'+ (isCheck?'Start again':step===last-1?'Try the question →':'Continue →')+'</button></div>';
   if(lessonMedia(term.id,step))box.querySelector('h3').after(box.querySelector('.talk-player'));

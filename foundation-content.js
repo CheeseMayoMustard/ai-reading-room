@@ -2,8 +2,8 @@
 export const units = [
   {
     id: 'pieces', title: 'How a model reads text', term: 'Token',
-    scene: 'Imagine sorting a message into labeled tiles. One tile might contain a word, a piece of a word, or punctuation. A tokenizer splits text into tiles and assigns each one a number.',
-    example: 'In a pretend tokenizer, “unhelpful!” becomes [un] [help] [ful] [!]. The model receives four numbered pieces. A real tokenizer may split the same text differently.',
+    scene: 'A tokenizer splits text into pieces called tokens. A token can be a word, part of a word or punctuation. The tokenizer looks up each piece in its vocabulary and returns its number.',
+    example: 'Suppose a tokenizer splits “unhelpful!” into [un] [help] [ful] [!]. The model receives four token IDs. A different vocabulary might split the same text into a different number of tokens.',
     bridge: 'A context window is the number of tokens a model can work with in one request. Instructions, examples and conversation history take up space.',
     papers: ['gpt3','cot','bert'],
     checks: [
@@ -13,8 +13,8 @@ export const units = [
   },
   {
     id: 'chance', title: 'What a prediction means', term: 'Probability',
-    scene: 'Suppose a café usually hears “with milk” after “coffee.” You can use that pattern to guess the next words. The guess still needs checking against this customer’s order.',
-    example: 'Imagine 10 possible draws from a bag containing 6 milk tickets, 3 cream tickets and 1 black-coffee ticket, replacing the ticket after each draw. Milk is the most likely outcome on each draw. A single draw can still give cream.',
+    scene: 'Suppose six of the last ten customers ordered coffee with milk. On that evidence, milk is a reasonable guess for the next order. You would still ask the customer before making it.',
+    example: 'Put ten identical slips in a bag and label six “milk”, three “cream” and one “black”. Draw one at random. The chance of “milk” is 6/10 and the chance of “cream” is 3/10. Milk is more likely, but a draw can still give cream.',
     bridge: 'A language model assigns probabilities to possible next tokens. Choosing likely words can produce fluent sentences, including sentences that contain a factual error.',
     papers: ['gpt3','speculative','scaling'],
     checks: [
@@ -30,14 +30,14 @@ export const units = [
     papers: ['bert','lora','qlora','gpt3','chinchilla','dpo','instruct','deepseekr1','glm5'],
     checks: [
       ['Which activity changes a learned setting in the delivery example?', ['Adjusting minutes per kilometre after reviewing past trips.','Using yesterday’s setting for a new route.','Printing today’s estimate.'], 0, 'Look for the step that changes future calculations.', 'Adjusting the setting changes how later estimates are made. Using the setting is prediction.'],
-      ['You paste two example reports into a chat and ask for a third in the same style. Where are those examples used?', ['In a replacement computer chip.','In the current prompt.','Necessarily in a new version of the model’s weights.'], 1, 'Ask what you actually supplied to the model.', 'The examples are part of the current input. The model can follow their pattern during inference.']
+      ['You paste two example reports into a chat and ask for a third in the same style. Where are those examples used?', ['In a new training dataset assembled for this request.','In the current prompt.','Necessarily in a new version of the model’s weights.'], 1, 'Ask what you actually supplied to the model.', 'The examples are part of the current input. The model can follow their pattern during inference.']
     ]
   },
   {
-    id: 'weights', title: 'How to give a clue more weight', term: 'Weighted average',
+    id: 'weights', title: 'Combining two estimates with a weighted average', term: 'Weighted average',
     scene: 'You ask two colleagues for delivery estimates. One knows the route well, so you want their estimate to count more. A weight tells you how much each estimate contributes.',
     example: 'The estimates are 10 and 20 days. Give the first a weight of 0.8 and the second 0.2. The result is 0.8 × 10 + 0.2 × 20 = 12 days. The weights add to one.',
-    bridge: 'Attention uses weights to mix information from different positions in a sequence. The values are lists of numbers. The calculation above shows the mixing step with one number per position.',
+    bridge: 'In attention, each token position supplies a vector, or list of numbers. The model calculates a weight for each position and takes the weighted average of those vectors, coordinate by coordinate. The delivery example used just one number per estimate.',
     papers: ['transformer','bert','gqa','flash','attnres','mamba'],
     checks: [
       ['Two estimates are 4 and 8 hours. Give each half the weight. What is the combined estimate?', ['12 hours','6 hours','4 hours'], 1, 'Half of 4 plus half of 8.', '0.5 × 4 + 0.5 × 8 = 2 + 4 = 6 hours.'],
@@ -68,9 +68,9 @@ export const units = [
   },
   {
     id: 'routing', title: 'Choosing which resources to use', term: 'Sparse computation',
-    scene: 'A workshop employs eight specialists. A dispatcher sends each job to the specialist it needs. The payroll covers the whole team even when one person handles a particular job.',
+    scene: 'A workshop employs eight specialists. A dispatcher sends each job to the specialist it needs. All eight remain available even when only one person is working on the current job.',
     example: 'For one task, 1 of 8 specialists is active. That is one eighth of the team. The other seven remain available for other tasks. If every job goes to the same person, a queue can build up.',
-    bridge: 'Some models contain several groups of weights called experts. A router chooses a subset for each token. Stored capacity and the work used for one token answer different questions.',
+    bridge: 'Some models contain several groups of weights called experts. A router chooses a subset for each token. A layer with eight experts may store all eight sets of weights while using just one set to process this token. The router and the rest of the model also do work.',
     papers: ['switch','deepseekv3','engram','kimi25','glm5'],
     checks: [
       ['A dispatcher chooses 2 of 10 specialists for one job. What fraction is active for that job?', ['50%','20%','80%'], 1, 'Divide the active count by the total count.', '2 ÷ 10 = 0.2, or 20%.'],
@@ -85,13 +85,13 @@ export const units = [
     papers: ['rag','react','engram','gpt3'],
     checks: [
       ['Which document is the best starting point for today’s stock on hand?', ['The latest reconciled inventory record.','A year-old sales brochure.','A generic description of the warehouse.'], 0, 'Consider the date and the exact question.', 'The reconciled record addresses the current quantity. Check its date and any subsequent movements.'],
-      ['A model retrieves the correct invoice and reports “50 tonnes.” The invoice says “50 bags.” Which check catches the error?', ['Increasing the font size.','Matching both the value and the unit to the source.','Counting the words in the answer.'], 1, 'The digits agree. What else carries meaning?', 'The number describes different units. Inspect the unit in the original and use a documented conversion if one is needed.']
+      ['A model retrieves the correct invoice and reports “50 tonnes.” The invoice says “50 bags.” Which check catches the error?', ['Increasing the font size.','Matching both the value and the unit to the source.','Counting the words in the answer.'], 1, 'The digits agree. What else carries meaning?', '“50 bags” counts packages. “50 tonnes” measures mass. To convert one to the other, you would also need the mass of each bag.']
     ]
   },
   {
     id: 'actions', title: 'How software checks its work', term: 'Action and observation',
     scene: 'You ask a colleague to reserve a room. Making the request is one step. Reading the booking confirmation tells you which room and time were actually reserved.',
-    example: 'Ask for Room B at 10. The booking system reports that it is occupied. You try Room C and receive a confirmation. The observation changes the next action.',
+    example: 'Ask for Room B at 10. The booking system reports that it is occupied. You try Room C and receive a confirmation. Learning that Room B is occupied gives you a concrete reason to try Room C.',
     bridge: 'An AI agent can call a tool, inspect the returned information and choose its next step. Independent tasks can run together. A decision that depends on their results must wait.',
     papers: ['react','kimi25','glm5','deepseekr1','cot'],
     checks: [

@@ -1,9 +1,9 @@
 {
-  "reviewed": "2026-11-20",
+  "reviewed": "2026-11-25",
   "lessons": [
     {
       "id": "transformer",
-      "title": "How attention connects a sequence",
+      "title": "How a word draws on the rest of a sentence",
       "terms": [
         "attention",
         "transformer",
@@ -12,23 +12,23 @@
       "goals": [
         "Explain attention using a sentence.",
         "Distinguish parallel training from sequential generation.",
-        "Keep the original translation result in scope."
+        "Identify which task the authors tested and what they measured."
       ],
       "questions": [
         {
           "id": "concept",
           "kind": "Choose & explain",
-          "prompt": "What is the main architectural change in this paper?",
+          "prompt": "How does the Transformer combine information from different words in a sentence?",
           "options": [
-            "Replacing all learned weights with a dictionary.",
-            "Using attention to connect sequence positions without recurrence in the core architecture.",
-            "Generating every output token simultaneously in all tasks."
+            "It gives each word a fixed representation from a dictionary.",
+            "Attention assigns weights to other positions and combines information from them.",
+            "It passes information along the sentence one word at a time through a recurrent layer."
           ],
           "correct": 1,
           "hints": [
             "Focus on how positions exchange information, not on whether the model learns weights."
           ],
-          "answer": "Attention combines representations from relevant positions. The architecture removes recurrence from its core sequence processing; autoregressive generation still uses earlier outputs.",
+          "answer": "In the encoder, a word can receive information directly from any input position in the same attention layer. The encoder can therefore compute all positions in parallel. When the decoder generates a translation, each new token still depends on the tokens already generated.",
           "checklist": []
         },
         {
@@ -53,11 +53,11 @@
         {
           "id": "reflect",
           "kind": "Read critically",
-          "prompt": "Does success on translation in this paper prove that attention makes every factual answer reliable? Explain.",
+          "prompt": "The original evaluation measured translation quality. If your goal is to answer factual questions about a manual, what would you test next?",
           "hints": [
             "Separate the evaluated task from a universal claim."
           ],
-          "answer": "No. The paper evaluates translation under particular conditions. Factual reliability on other tasks requires separate tests and evidence. An architectural contribution is not proof of universal correctness.",
+          "answer": "Choose questions whose answers can be checked against the manual. Include questions the manual leaves unanswered. Measure how often the model gives the supported answer or correctly says that the information is missing.",
           "checklist": [
             "Name the evaluated task.",
             "Require evidence for broader claims."
@@ -67,14 +67,14 @@
     },
     {
       "id": "bert",
-      "title": "Learning representations from both directions",
+      "title": "Using the words on both sides of a missing word",
       "terms": [
         "pretraining",
         "finetuning",
         "context"
       ],
       "goals": [
-        "Explain masked-word learning.",
+        "Explain what BERT predicts when part of a sentence is hidden.",
         "Separate pre-training from fine-tuning.",
         "Distinguish BERT from a next-token generator."
       ],
@@ -84,9 +84,9 @@
           "kind": "Choose & explain",
           "prompt": "Which description best fits BERT’s pre-training?",
           "options": [
-            "Learn contextual representations using masked-word prediction and another sentence-level objective.",
-            "Look up every answer in a live database.",
-            "Use only previous tokens to generate the next token."
+            "Predict hidden tokens from surrounding words and judge whether one sentence follows another.",
+            "Predict the next token using only the words to its left.",
+            "Predict a category supplied by a human for every training sentence."
           ],
           "correct": 0,
           "hints": [
@@ -117,7 +117,7 @@
         {
           "id": "reflect",
           "kind": "Read critically",
-          "prompt": "Why is it misleading to describe the original BERT as the same kind of next-token chat generator as GPT?",
+          "prompt": "Cover a word halfway through a sentence. Which words may BERT use to recover it? Which would a next-token model have seen when originally predicting it?",
           "hints": [
             "Compare the training objective and use of context."
           ],
@@ -131,7 +131,7 @@
     },
     {
       "id": "scaling",
-      "title": "Reading scaling curves without overclaiming",
+      "title": "What a scaling curve can predict",
       "terms": [
         "loss",
         "parameters",
@@ -140,7 +140,7 @@
       "goals": [
         "Identify what a scaling curve measures.",
         "Explain resource-allocation tradeoffs.",
-        "Separate prediction loss from task reliability."
+        "Explain why lower average prediction loss can coexist with a wrong answer on a particular task."
       ],
       "questions": [
         {
@@ -148,9 +148,9 @@
           "kind": "Choose & explain",
           "prompt": "What do the scaling laws describe most directly?",
           "options": [
-            "Guaranteed truthfulness at a chosen parameter count.",
-            "Exact launch dates for future models.",
-            "Empirical relationships between loss and resources in the studied setup."
+            "The percentage of factually accurate answers at a given model size.",
+            "The response time users should expect from a deployed model.",
+            "How prediction loss changed with model size, training data and computation in the experiments."
           ],
           "correct": 2,
           "hints": [
@@ -203,8 +203,8 @@
       ],
       "goals": [
         "Distinguish zero-, one- and few-shot prompting.",
-        "Explain in-context adaptation.",
-        "Read benchmark limitations."
+        "Show where the example answers appear in a few-shot prompt.",
+        "Check whether test items may have appeared in the training data."
       ],
       "questions": [
         {
@@ -245,7 +245,7 @@
         {
           "id": "reflect",
           "kind": "Read critically",
-          "prompt": "If an evaluation item was present in training data, what concern does that create?",
+          "prompt": "A model answers a test question correctly. You later find the identical question and answer in its training data. How does that change your interpretation of the result?",
           "hints": [
             "Ask whether the test measures generalization to unseen material."
           ],
@@ -267,14 +267,14 @@
       ],
       "goals": [
         "Separate retrieval and generation.",
-        "Trace evidence through a document task.",
-        "Identify two different failure points."
+        "Match a number in a generated answer to the source passage that supports it.",
+        "Tell whether the search missed a passage or the model misread a passage it received."
       ],
       "questions": [
         {
           "id": "concept",
           "kind": "Choose & explain",
-          "prompt": "What does the retriever contribute to RAG?",
+          "prompt": "A user asks for a delivery date. Before the model writes an answer, what can the retriever supply?",
           "options": [
             "A guarantee that the final answer is true.",
             "Relevant external passages supplied to the generator.",
@@ -341,7 +341,7 @@
           "prompt": "Which quantities does LoRA primarily train?",
           "options": [
             "A full replacement for every base weight.",
-            "A live search index only.",
+            "The stored weights of every model layer plus the adapter matrices.",
             "Small low-rank update matrices while base weights stay frozen."
           ],
           "correct": 2,
@@ -373,11 +373,11 @@
         {
           "id": "reflect",
           "kind": "Read critically",
-          "prompt": "Does a 98.4% reduction in trainable entries in that example imply the whole system uses 98.4% less memory?",
+          "prompt": "The LoRA example needs 98.4% fewer trainable entries. What additional information would you need to estimate total memory in bytes?",
           "hints": [
-            "Trainable updates and total memory have different denominators."
+            "The 98.4% compares counts of trainable entries. What else occupies memory during training?"
           ],
-          "answer": "No. Base weights, activations and other runtime or training state also occupy memory. The example counts update entries for one matrix; it is not a measured system-wide saving.",
+          "answer": "Count the stored base weights as well as the adapters, intermediate activations, gradients and optimizer state. For each, check how many values are stored and how many bytes each takes. A percentage for one matrix cannot supply that total.",
           "checklist": [
             "Name other memory components.",
             "Keep the example’s scope clear."
@@ -387,7 +387,7 @@
     },
     {
       "id": "switch",
-      "title": "More capacity through selective experts",
+      "title": "Why a model stores more experts than it uses for one token",
       "terms": [
         "moe",
         "active",
@@ -395,7 +395,7 @@
       ],
       "goals": [
         "Explain top-1 expert routing.",
-        "Separate total and active capacity.",
+        "Count all stored experts, then count how many process a single token.",
         "Recognize routing and communication costs."
       ],
       "questions": [
@@ -406,7 +406,7 @@
           "options": [
             "It is routed to one selected feed-forward expert.",
             "Every expert always processes it.",
-            "No learned computation is used."
+            "Every token in a sentence must go to the same expert."
           ],
           "correct": 0,
           "hints": [
@@ -468,9 +468,9 @@
           "kind": "Choose & explain",
           "prompt": "Which sequence matches the simplified InstructGPT pipeline?",
           "options": [
-            "Train a model, then permanently remove all mistakes.",
-            "Demonstrations → preference/reward modeling → reinforcement learning.",
-            "Search the web → compress files → rank chips."
+            "Collect preference rankings first, then train exclusively on the highest-ranked answers.",
+            "Train on example answers, learn a reward from human comparisons, then use that reward to tune the model.",
+            "Train only to predict the next token in unlabelled text."
           ],
           "correct": 1,
           "hints": [
@@ -503,7 +503,7 @@
           "kind": "Read critically",
           "prompt": "Why can optimizing human preference fail to eliminate hallucinations?",
           "hints": [
-            "The training signal is a proxy supplied by imperfect judgments."
+            "Imagine a reviewer who prefers the clearer answer but overlooks an incorrect date. What has the model been rewarded for?"
           ],
           "answer": "Raters may miss factual errors or prefer persuasive answers. A preference-trained model can therefore still produce unsupported claims. Evaluate factual reliability directly.",
           "checklist": [
@@ -524,7 +524,7 @@
       "goals": [
         "Explain the memory hierarchy.",
         "Distinguish exact and approximate attention.",
-        "Question setup-specific speedups."
+        "Identify the GPU and sequence length used to measure the speedup."
       ],
       "questions": [
         {
@@ -532,8 +532,8 @@
           "kind": "Choose & explain",
           "prompt": "What is FlashAttention’s central efficiency idea?",
           "options": [
-            "Replace attention with a random answer.",
-            "Use fewer output words regardless of the task.",
+            "Drop token pairs with small attention weights.",
+            "Approximate the attention matrix with fewer independent rows.",
             "Reorganize exact attention to reduce costly memory transfers."
           ],
           "correct": 2,
@@ -546,16 +546,16 @@
         {
           "id": "apply",
           "kind": "Apply the idea",
-          "prompt": "You can keep a small working set on a fast desk, while the archive room is slow to visit. Explain how this analogy relates to tiled attention.",
+          "prompt": "A GPU has a small, fast on-chip memory and a larger main memory. Why can processing the attention matrix in blocks save time?",
           "hints": [
             "Minimize trips to slow storage while reusing a small block."
           ],
           "steps": [
-            "Bring a block into fast memory and reuse it while computing.",
+            "Load a block of queries, keys or values into on-chip memory and reuse it for several calculations.",
             "Avoid repeatedly writing and reading large intermediate attention data in slower memory.",
-            "The analogy explains data movement; it does not provide a speedup number for your GPU."
+            "To estimate the time saved, compare both implementations on the same GPU with the same sequence length."
           ],
-          "answer": "Bring a block into fast memory and reuse it while computing. Avoid repeatedly writing and reading large intermediate attention data in slower memory. The analogy explains data movement; it does not provide a speedup number for your GPU.",
+          "answer": "Load a block of queries, keys or values into on-chip memory and reuse it for several calculations. Avoid repeatedly writing and reading large intermediate attention data in slower memory. To estimate the time saved, compare both implementations on the same GPU with the same sequence length.",
           "checklist": [
             "Describe block reuse.",
             "Explain reduced transfers.",
@@ -565,7 +565,7 @@
         {
           "id": "reflect",
           "kind": "Read critically",
-          "prompt": "Why is “same arithmetic task” compatible with “faster execution”?",
+          "prompt": "If both methods compute the same attention output, where can the time saving come from?",
           "hints": [
             "Runtime includes moving data, not just arithmetic."
           ],
@@ -579,7 +579,7 @@
     },
     {
       "id": "cot",
-      "title": "Why intermediate examples can change an answer",
+      "title": "What changes when a prompt includes worked examples?",
       "terms": [
         "prompt",
         "reasoning",
@@ -597,12 +597,12 @@
           "prompt": "What did the original chain-of-thought prompting study add to demonstrations?",
           "options": [
             "Intermediate reasoning steps between question and answer.",
-            "A guaranteed proof checker.",
+            "Only the final answers, with the worked steps removed.",
             "A new weight update for every question."
           ],
           "correct": 0,
           "hints": [
-            "The intervention is in the example prompt."
+            "Look at what is written between the question and the final answer in each demonstration."
           ],
           "answer": "The demonstrations include intermediate steps. The paper reports task-dependent gains, especially for sufficiently large models; the steps are not a correctness guarantee.",
           "checklist": []
@@ -660,9 +660,9 @@
           "kind": "Choose & explain",
           "prompt": "What is the central allocation question in Chinchilla?",
           "options": [
-            "Which name makes a model sound largest?",
+            "How much of a fixed budget to spend on serving requests after training.",
             "How to split a fixed training budget between parameters and training tokens.",
-            "How to guarantee every task improves with more parameters."
+            "How many examples to include in a deployed model’s prompt."
           ],
           "correct": 1,
           "hints": [
@@ -722,10 +722,10 @@
         {
           "id": "concept",
           "kind": "Choose & explain",
-          "prompt": "What closes the loop after a ReAct-style tool action?",
+          "prompt": "After a ReAct assistant calls a tool, what information can it use to choose its next action?",
           "options": [
             "The model’s confidence alone.",
-            "A permanent ban on revising the plan.",
+            "Only the original plan, written before the tool returned.",
             "An observation from the environment that informs the next step."
           ],
           "correct": 2,
@@ -761,7 +761,7 @@
           "hints": [
             "A statement about an action is not the action’s observed result."
           ],
-          "answer": "Evidence from the saved artifact is missing. Open the actual report and validate the requested changes and important figures before treating the task as complete.",
+          "answer": "Open the saved report and check the exact figures or passages the assistant claims to have changed. A confirmation in the chat alone tells you what the assistant said it did.",
           "checklist": [
             "Inspect the artifact.",
             "Validate the intended change."
@@ -771,7 +771,7 @@
     },
     {
       "id": "speculative",
-      "title": "Draft quickly, verify carefully",
+      "title": "How a smaller model can speed up text generation",
       "terms": [
         "inference",
         "latency",
@@ -780,7 +780,7 @@
       "goals": [
         "Separate draft and target models.",
         "Explain why acceptance matters.",
-        "Keep distributional guarantees distinct from truth."
+        "Explain why sampling the same way as the target model can still produce a factual error."
       ],
       "questions": [
         {
@@ -794,7 +794,7 @@
           ],
           "correct": 0,
           "hints": [
-            "The draft proposes; it does not have final authority."
+            "The small model proposes several tokens. Which model determines their acceptance probabilities?"
           ],
           "answer": "The algorithm verifies draft proposals with the target model and uses an acceptance/correction rule. Under its assumptions it preserves the target sampling distribution.",
           "checklist": []
@@ -821,11 +821,11 @@
         {
           "id": "reflect",
           "kind": "Read critically",
-          "prompt": "Does preserving a target distribution guarantee factual correctness?",
+          "prompt": "Suppose the target model gives a wrong place name a 10% probability as its next token. With exact speculative decoding, what happens to that probability?",
           "hints": [
             "Distribution matching and knowledge accuracy are different claims."
           ],
-          "answer": "No. It preserves the target model’s sampling behavior under the algorithm’s assumptions, including its potential errors. Factual correctness needs separate evaluation.",
+          "answer": "It stays at 10% under the same context and sampling settings. Verification here means checking the sampling rule against the target model. Neither model has looked up the place name in a reliable source.",
           "checklist": [
             "Separate sampling and truth.",
             "Retain the algorithm’s assumptions."
@@ -835,14 +835,14 @@
     },
     {
       "id": "vllm",
-      "title": "Managing the memory of conversations",
+      "title": "Allocating memory as each answer grows",
       "terms": [
         "kvcache",
         "throughput",
         "memory"
       ],
       "goals": [
-        "Explain fragmented cache storage.",
+        "Explain why reserving the maximum cache size for every request can waste memory.",
         "Separate throughput and latency.",
         "Inspect workload-dependent results."
       ],
@@ -854,11 +854,11 @@
           "options": [
             "The model’s training labels.",
             "Key-value cache blocks used while serving requests.",
-            "The user’s bookmarks in a PDF."
+            "Storage for the model’s original training documents."
           ],
           "correct": 1,
           "hints": [
-            "The “pages” are a memory-management analogy."
+            "During generation, the server saves earlier tokens’ attention keys and values so it can reuse them."
           ],
           "answer": "PagedAttention stores KV-cache blocks in non-contiguous physical memory, reducing waste and supporting sharing in suitable cases. vLLM is the serving system built around it.",
           "checklist": []
@@ -922,7 +922,7 @@
           ],
           "correct": 2,
           "hints": [
-            "One part reduces representation size; the other reduces trainable updates."
+            "Which weights occupy four bits each, and which weights change during fine-tuning?"
           ],
           "answer": "QLoRA combines a 4-bit frozen base with low-rank adapters and memory-saving techniques. Quantized base storage is only part of the fine-tuning memory budget.",
           "checklist": []
@@ -949,11 +949,11 @@
         {
           "id": "reflect",
           "kind": "Read critically",
-          "prompt": "Does a 4× reduction in raw weight bytes guarantee 4× faster fine-tuning?",
+          "prompt": "The stored weights fit in a quarter of the space. What would you time to find out whether fine-tuning actually runs faster?",
           "hints": [
             "Memory size and runtime are different measurements."
           ],
-          "answer": "No. Runtime depends on hardware support, dequantization, arithmetic, data movement and the rest of training. Measure the full setup rather than inferring speed from bits.",
+          "answer": "Time training on the same hardware with a comparable batch and sequence length. Include conversion from 4-bit storage, forward and backward calculations, and parameter updates. Memory capacity and elapsed time measure different things.",
           "checklist": [
             "Separate bytes from time.",
             "Name implementation-dependent costs."
@@ -963,7 +963,7 @@
     },
     {
       "id": "dpo",
-      "title": "Learning directly from preferred pairs",
+      "title": "Learning from two answers to the same question",
       "terms": [
         "rlhf",
         "posttraining",
@@ -986,7 +986,7 @@
           ],
           "correct": 0,
           "hints": [
-            "The objective is reformulated, not the need for data."
+            "DPO still uses human comparisons. Which training stage can it skip?"
           ],
           "answer": "DPO directly optimizes a preference-based objective using preferred and rejected responses, without the separate reward-model training and standard RL loop of the compared approach.",
           "checklist": []
@@ -1034,7 +1034,7 @@
         "memory"
       ],
       "goals": [
-        "Explain grouped query and KV heads.",
+        "Describe which attention heads share their keys and values.",
         "Calculate a simple head-count ratio.",
         "Recognize a quality/speed tradeoff."
       ],
@@ -1042,11 +1042,11 @@
         {
           "id": "concept",
           "kind": "Choose & explain",
-          "prompt": "How are heads arranged in grouped-query attention?",
+          "prompt": "In grouped-query attention, which information can several query heads reuse?",
           "options": [
-            "Every query must have entirely separate KV heads.",
-            "Groups of query heads share fewer key-value heads.",
-            "All attention and all cache are removed."
+            "A separate set of keys and values for each query head.",
+            "A set of keys and values shared by the query heads in the same group.",
+            "The same query vector for every token position."
           ],
           "correct": 1,
           "hints": [
@@ -1084,7 +1084,7 @@
           "answer": "More sharing can reduce cache requirements and help serving, while changing model quality and requiring adaptation. Compare quality and speed under matched conditions.",
           "checklist": [
             "Name both benefit and possible cost.",
-            "Check the uptraining/evaluation setup."
+            "Check how much extra training the converted model received and which tests measured quality."
           ]
         }
       ]
@@ -1099,7 +1099,7 @@
       ],
       "goals": [
         "Describe input-dependent state updates.",
-        "Interpret sequence-length scaling.",
+        "Predict how the number of operations changes when a sequence doubles in length.",
         "Separate efficiency from universal quality."
       ],
       "questions": [
@@ -1109,14 +1109,14 @@
           "prompt": "What is central to Mamba’s sequence model?",
           "options": [
             "A separate full attention map for every stored document.",
-            "A guarantee of unlimited perfect memory.",
+            "Keeping every earlier token in a full key-value cache.",
             "Input-dependent state-space updates that select what to retain or forget."
           ],
           "correct": 2,
           "hints": [
             "A state carries information forward and its updates depend on the input."
           ],
-          "answer": "Mamba uses selective state-space updates with a hardware-aware algorithm. Its efficiency claims concern a particular sequence-modeling design and workload.",
+          "answer": "Mamba uses selective state-space updates with a hardware-aware algorithm. As tokens arrive, the model updates a state vector. The current input helps determine which parts of that state to retain or update.",
           "checklist": []
         },
         {
@@ -1164,16 +1164,16 @@
       "goals": [
         "Identify several interacting design choices.",
         "Separate an ablation from a system comparison.",
-        "Read cost figures with their scope."
+        "List which training runs and other expenses the reported cost includes."
       ],
       "questions": [
         {
           "id": "concept",
           "kind": "Choose & explain",
-          "prompt": "Which interpretation best matches the report?",
+          "prompt": "DeepSeek-V3 changes several parts of the system at once. What can its overall score tell you?",
           "options": [
             "A combination of architecture, low-precision training and systems choices.",
-            "Proof that one isolated trick caused every gain.",
+            "The exact score increase attributable to routing alone.",
             "An audited total cost for all organizational research."
           ],
           "correct": 0,
@@ -1227,18 +1227,18 @@
       ],
       "goals": [
         "Distinguish R1-Zero from R1.",
-        "Explain distillation into a student.",
+        "Explain what training data a smaller model can get from a larger one.",
         "Evaluate reasoning transfer on new tasks."
       ],
       "questions": [
         {
           "id": "concept",
           "kind": "Choose & explain",
-          "prompt": "Which statement preserves the report’s distinction?",
+          "prompt": "How did the authors train R1-Zero and R1 differently?",
           "options": [
             "R1 and R1-Zero are identical pipelines.",
             "R1-Zero explores RL without preliminary supervised fine-tuning; R1 adds a multi-stage pipeline including cold-start data.",
-            "Every reasoning model was trained with no data."
+            "R1 and R1-Zero both start with the same supervised demonstrations."
           ],
           "correct": 1,
           "hints": [
@@ -1283,7 +1283,7 @@
     },
     {
       "id": "engram",
-      "title": "Adding a lookup-based memory route",
+      "title": "Looking up information about recurring token sequences",
       "terms": [
         "moe",
         "memory",
@@ -1292,7 +1292,7 @@
       "goals": [
         "Separate lookup from neural computation.",
         "Explain capacity allocation.",
-        "Avoid treating a research module as a universal deployed feature."
+        "Check which released models have documentation confirming that they use Engram."
       ],
       "questions": [
         {
@@ -1301,7 +1301,7 @@
           "prompt": "What extra route does Engram investigate?",
           "options": [
             "Replacing all reasoning with an ordinary chat history.",
-            "Turning every token into an image.",
+            "Retrieving pages from an external document index at answer time.",
             "Conditional lookup memory for recurring local patterns alongside neural computation."
           ],
           "correct": 2,
@@ -1333,11 +1333,11 @@
         {
           "id": "reflect",
           "kind": "Read critically",
-          "prompt": "Does a favorable controlled Engram experiment prove that every released model from the same lab uses it?",
+          "prompt": "You want to know whether a particular released model uses Engram. What evidence would establish that?",
           "hints": [
             "A research result and a deployment disclosure are different evidence."
           ],
-          "answer": "No. The experiment supports claims about its studied design and settings. A particular released model’s architecture needs its own disclosure or evidence.",
+          "answer": "Look for an architecture description or released implementation for the named model that explicitly includes Engram. The research experiment tells you how its authors tested the module; by itself it gives no inventory of the lab’s deployed models.",
           "checklist": [
             "Limit the experimental claim.",
             "Require model-specific evidence."
@@ -1354,7 +1354,7 @@
         "harness"
       ],
       "goals": [
-        "Separate multimodal perception from orchestration.",
+        "Distinguish interpreting a picture from assigning work to several agents.",
         "Identify parallelizable tasks.",
         "Count total work as well as elapsed time."
       ],
@@ -1397,11 +1397,11 @@
         {
           "id": "reflect",
           "kind": "Read critically",
-          "prompt": "If elapsed time falls by half, must total model-token cost also fall by half?",
+          "prompt": "Two agents each use 3,000 tokens and finish in parallel. What would you count to compare elapsed time and token cost with one agent working alone?",
           "hints": [
             "Time and total work are different quantities."
           ],
-          "answer": "No. Concurrent workers can finish sooner while consuming the same or more total tokens, including coordination and retries. Inspect both wall-clock time and total resource budgets.",
+          "answer": "Time the whole task from start to the checked result. For cost, add the 6,000 tokens across both agents plus any coordination and retries, pricing input and output separately where applicable. Compare with the same measurements for the single-agent run.",
           "checklist": [
             "Separate elapsed time and work.",
             "Include coordination overhead."
@@ -1411,7 +1411,7 @@
     },
     {
       "id": "glm5",
-      "title": "Models inside an engineering system",
+      "title": "How to test whether an assistant finished an engineering task",
       "terms": [
         "agent",
         "posttraining",
@@ -1426,11 +1426,11 @@
         {
           "id": "concept",
           "kind": "Choose & explain",
-          "prompt": "What combination does the GLM-5 report connect?",
+          "prompt": "Which two design choices does the GLM-5 report discuss for training systems that handle longer interactions?",
           "options": [
-            "Only a new interface color.",
+            "A larger tokenizer vocabulary and an external search engine.",
             "Sparse attention and reinforcement-learning infrastructure for complex interactions.",
-            "Proof that software needs no tests or review."
+            "Only the length of the prompt, with the attention and training setup unchanged."
           ],
           "correct": 1,
           "hints": [
@@ -1465,7 +1465,7 @@
           "hints": [
             "Consider different tools, environments, budgets and acceptance criteria."
           ],
-          "answer": "Your project may have different dependencies, tools, task lengths and correctness requirements. Reproduce representative tasks with a matched harness and explicit acceptance checks before generalizing.",
+          "answer": "Your project may have different dependencies, tools, task lengths and correctness requirements. Run the assistant on a few typical tasks in your project, using the tools it will actually have. Decide in advance which observable result counts as success.",
           "checklist": [
             "Name changed conditions.",
             "Require local representative evaluation."
@@ -1492,7 +1492,7 @@
           "kind": "Choose & explain",
           "prompt": "Across which dimension does Attention Residuals introduce learned selection?",
           "options": [
-            "Only the calendar dates of training runs.",
+            "The outputs of several attention heads within one layer.",
             "Only the words within a single input sentence.",
             "Previous layer outputs across network depth."
           ],
@@ -1506,16 +1506,16 @@
         {
           "id": "apply",
           "kind": "Apply the idea",
-          "prompt": "Explain the difference between “which earlier word matters?” and “which earlier layer output matters?” using a document-analysis analogy.",
+          "prompt": "Trace the word “pump” through two diagrams. In one, an arrow connects “pump” to another word. In the other, an arrow at “pump” connects layer 3 to layer 8. What does each arrow connect?",
           "hints": [
             "One axis is positions in the document; the other is stages of processing."
           ],
           "steps": [
             "Token attention relates positions in the sequence, like linking a pronoun to an earlier noun.",
             "Depth-wise selection concerns representations produced at different processing layers.",
-            "The analogy separates axes; it is not a literal description of layer meanings."
+            "You can mark the first arrow across columns for token position and the second across rows for layer number."
           ],
-          "answer": "Token attention relates positions in the sequence, like linking a pronoun to an earlier noun. Depth-wise selection concerns representations produced at different processing layers. The analogy separates axes; it is not a literal description of layer meanings.",
+          "answer": "Token attention relates positions in the sequence, like linking a pronoun to an earlier noun. Depth-wise selection concerns representations produced at different processing layers. You can mark the first arrow across columns for token position and the second across rows for layer number.",
           "checklist": [
             "Separate sequence and depth.",
             "Give one illustration of each.",
@@ -1539,7 +1539,7 @@
     },
     {
       "id": "gemini4neon",
-      "title": "Budget the space for an answer",
+      "title": "How much space remains for the answer?",
       "terms": [
         "token",
         "context",
@@ -1557,7 +1557,7 @@
           "prompt": "Which quantities share the combined context window?",
           "options": [
             "Input and output tokens.",
-            "The number of users and the number of servers.",
+            "Input tokens only, regardless of the length of the answer.",
             "Only the tokens in the final answer."
           ],
           "correct": 0,
@@ -1602,7 +1602,7 @@
     },
     {
       "id": "claudefable52",
-      "title": "Read the test setup behind the score",
+      "title": "How a context-budget reminder changed one benchmark score",
       "terms": [
         "harness",
         "context",
@@ -1619,7 +1619,7 @@
           "kind": "Choose & explain",
           "prompt": "What changed in the second ProgramBench setup?",
           "options": [
-            "The model became Mythos.",
+            "The evaluators switched from Fable to Mythos.",
             "The harness displayed the remaining context budget.",
             "The team removed all the hidden tests."
           ],
@@ -1665,7 +1665,7 @@
     },
     {
       "id": "gpt62",
-      "title": "Spot selection bias in a model evaluation",
+      "title": "Whose errors were counted in this evaluation?",
       "terms": [
         "benchmark",
         "verification",
@@ -1673,14 +1673,14 @@
       ],
       "goals": [
         "Identify which conversations entered the evaluation.",
-        "Distinguish recurrence from general factuality.",
+        "Tell whether the same mistake recurred and whether the new response contains any major factual error.",
         "Choose a sample for a wider estimate."
       ],
       "questions": [
         {
           "id": "concept",
           "kind": "Choose & explain",
-          "prompt": "Which cases supplied the reported-error evaluation?",
+          "prompt": "How did the evaluators choose conversations for this test of factual errors?",
           "options": [
             "A random sample of every chat.",
             "Only error-free conversations.",
@@ -1690,7 +1690,7 @@
           "hints": [
             "Ask how a conversation first qualified."
           ],
-          "answer": "The case-selection process emphasizes issues people noticed and reported.",
+          "answer": "The sample includes conversations in which a user noticed a factual problem and reported it. To estimate an error rate across all conversations, the sample must also cover ordinary conversations without a report.",
           "checklist": []
         },
         {
@@ -1730,7 +1730,7 @@
     {
       "id": "essentials",
       "title": "Start with the big ideas",
-      "description": "A beginner route from attention to prompting, evidence and tool use.",
+      "description": "Start with how models use words in context. Then examine how they use examples, documents and tools.",
       "ids": [
         "transformer",
         "bert",
@@ -1756,7 +1756,7 @@
     },
     {
       "id": "efficiency",
-      "title": "Why models become faster and cheaper",
+      "title": "How researchers reduce memory use and computation",
       "description": "Experts, memory, hardware and alternative sequence designs.",
       "ids": [
         "switch",
@@ -1770,7 +1770,7 @@
     },
     {
       "id": "frontier",
-      "title": "Read the 2026 frontier critically",
+      "title": "Methods proposed in 2026",
       "description": "Memory, parallel agents, engineering systems and depth-wise attention.",
       "ids": [
         "engram",

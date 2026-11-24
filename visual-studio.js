@@ -1,3 +1,4 @@
+import {figureText} from './figure-locale.js?v=readingedit1';
 const teal='#176c74', orange='#bc562b', grey='#53636f',grid='#d9e1e3';
 function projection(yaw,pitch,scale,centerY) {
   const a=yaw*Math.PI/180,b=pitch*Math.PI/180;
@@ -88,7 +89,7 @@ export function vectorPlot(camera,pitch,theta,radius) {
   return {bounds:bounds(extent),drawing,values:[['Angle θ',theta+'°'],['Dot product',(radius*Math.cos(a)).toFixed(3)],['Cosine',Math.cos(a).toFixed(3)]],label:'Two vectors sharing an origin in three-dimensional coordinates. Each grid interval represents one unit.'};
 }
 export function frame(result) {
-  return '<svg class="method-space" viewBox="'+result.bounds+'" role="img" aria-label="'+result.label+'"><g font-family="Arial,sans-serif" font-size="13">'+result.drawing+'</g></svg>';
+  return '<svg class="method-space" viewBox="'+result.bounds+'" role="img" aria-label="'+figureText(result.label)+'"><g font-family="Arial,sans-serif" font-size="13">'+result.drawing+'</g></svg>';
 }
 export function visualPreview(topic) {
   return frame(topic==='vectors'?vectorPlot(-27,25,57,2):lossPlot(-29,29,.18,6));

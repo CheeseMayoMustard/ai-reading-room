@@ -1,20 +1,20 @@
-import {conceptFigure} from './concept-figures.js?v=paperstudio1';
+import {conceptFigure} from './concept-figures.js?v=readingedit1';
 export const mathNotes = {
-  transformer: ['Attention(Q,K,V) = softmax(QKᵀ / √dₖ)V', 'Q and K have one row per token and dₖ columns. QKᵀ forms a token-by-token score matrix. Apply softmax to each row, then multiply by V.'],
-  bert: ['L = −∑ᵢ log pθ(xᵢ | visible context)', 'For the masked-language objective, sum over selected prediction positions. The context can include tokens on both sides.'],
-  scaling: ['L(C) ≈ L∞ + aC⁻ᵅ', 'An illustrative power-law fit to loss versus compute C. The constants and valid range come from measurements.'],
-  gpt3: ['p(x₁,…,xₙ) = ∏ᵢ p(xᵢ | x₁,…,xᵢ₋₁)', 'The chain rule factorizes a sequence probability. A causal language model estimates these conditional probabilities.'],
-  lora: ['W′ = W + (α/r)BA', 'For W ∈ ℝᵈˣᵏ, use B ∈ ℝᵈˣʳ and A ∈ ℝʳˣᵏ. Freeze W and train A and B. The update has rank at most r.'],
-  qlora: ['y ≈ dequantize(W₄bit)x + (α/r)BAx', 'A schematic forward pass combining a quantized frozen base with trainable low-rank adapters. Quantization metadata and training state require additional memory.'],
-  rag: ['p(y | x) ≈ ∑z∈retrieved pη(z | x)pθ(y | x,z)', 'A sequence-level view of combining a retriever and generator over selected passages z. The original paper also studies a token-level formulation.'],
-  mamba: ['hₜ = Āₜhₜ₋₁ + B̄ₜxₜ,  yₜ = Cₜhₜ', 'A schematic selective-state recurrence. Input-dependent quantities govern what is retained and read out. The scalar dynamics lab illustrates the simpler constant-coefficient case.'],
-  flash: ['S = QKᵀ / √dₖ,  O = softmax(S)V', 'Exact attention remains the mathematical target. Tiling changes memory traffic and how the computation is executed.'],
-  gqa: ['KV cache bytes ∝ layers × tokens × KV heads × head dimension × precision', 'Also account for both keys and values, batch size and implementation overhead. Reducing KV heads changes one factor.'],
-  vllm: ['useful cache / allocated cache = utilization', 'Block allocation aims to reduce wasted cache capacity. Throughput and request latency still need separate measurement.'],
-  switch: ['y(x) = pᵢ(x)Eᵢ(x),  i = argmaxⱼ pⱼ(x)', 'A schematic top-1 routed expert layer. Shared computation, expert capacity constraints and balancing terms also matter.'],
-  instruct: ['maxθ E[rφ(x,y)] − β·KL(πθ || πref)', 'A simplified regularized reward objective. The reward model represents learned preferences, while the KL penalty discourages excessive drift.'],
-  dpo: ['L = −E log σ(β[log(πθ(yw)/πref(yw)) − log(πθ(yl)/πref(yl))])', 'Condition all response probabilities on the same prompt. yw is preferred and yl rejected. This is the pairwise preference objective.'],
-  attnres: ['hₗ = ∑ᵢ<ₗ αₗᵢvᵢ,  ∑ᵢ αₗᵢ = 1', 'A schematic weighted combination across earlier layer outputs. Read the paper for normalization, query construction and the block variant.']
+  transformer: ['Attention(Q,K,V) = softmax(QKᵀ / √dₖ)V', 'Take one row of Q, the query for a token. Its dot product with each key in K gives a score. Divide by √dₖ, where dₖ is the number of coordinates per key, then apply softmax so the weights sum to one. The output is the weighted sum of the value vectors in V.'],
+  bert: ['L = −∑ᵢ log pθ(xᵢ | visible context)', 'At each prediction position i, the model assigns the original token xᵢ a probability pθ. Assigning the correct token a lower probability gives a larger penalty, −log pθ. Add these penalties over the selected positions.'],
+  scaling: ['L(C) ≈ L∞ + aC⁻ᵅ', 'C is the amount of training computation. With positive a and α, increasing C reduces the fitted loss toward L∞. Estimate these constants from measured runs before using the curve to predict another run.'],
+  gpt3: ['p(x₁,…,xₙ) = ∏ᵢ p(xᵢ | x₁,…,xᵢ₋₁)', 'Multiply the probability of the first token by the probability of the second given the first, then by the probability of the third given the first two, and so on. Each factor uses only the preceding tokens.'],
+  lora: ['W′ = W + (α/r)BA', 'Keep the original d × k matrix W fixed. Train two smaller matrices, B of size d × r and A of size r × k. Their product has the same shape as W. The factor α/r sets how strongly the update changes W.'],
+  qlora: ['y ≈ dequantize(W₄bit)x + (α/r)BAx', 'The first term uses W stored at 4-bit precision and converted back to higher precision for the calculation. The second adds the trainable LoRA update. The 4-bit figure describes stored base weights, only one part of training memory.'],
+  rag: ['p(y | x) ≈ ∑z∈retrieved pη(z | x)pθ(y | x,z)', 'For a question x, the retriever assigns each candidate passage z a weight pη. The generator estimates the probability of answer y given that passage. Add the passage-specific estimates using the retrieval weights. This is the sequence-level version of RAG.'],
+  mamba: ['hₜ = Āₜhₜ₋₁ + B̄ₜxₜ,  yₜ = Cₜhₜ', 'At step t, h is the stored state and x is the current input. The first term carries information from the old state and the second adds information from x. Multiplying by C gives the output. In Mamba the update can change with the input.'],
+  flash: ['S = QKᵀ / √dₖ,  O = softmax(S)V', 'S contains the scores between queries and keys. FlashAttention computes the weighted sum O a block at a time, so the GPU can avoid writing the full score matrix to main memory. Rounding can differ between implementations.'],
+  gqa: ['KV cache bytes ∝ layers × tokens × KV heads × head dimension × precision', 'For each token and layer the cache stores a key and a value for each KV head. Precision here means bytes per stored number. With the other factors fixed, using half as many KV heads halves the space for these values.'],
+  vllm: ['useful cache / allocated cache = utilization', 'If a server reserves 100 cache slots but fills 60, utilization is 60%. Allocating space in smaller blocks can leave fewer slots unused. Check separately how many requests finish per second and how long each user waits.'],
+  switch: ['y(x) = pᵢ(x)Eᵢ(x),  i = argmaxⱼ pⱼ(x)', 'For input x, the router gives every expert a score p. Choose the expert i with the highest score, compute its output Eᵢ(x), then multiply by its routing weight pᵢ(x). This equation describes one expert layer.'],
+  instruct: ['maxθ E[rφ(x,y)] − β·KL(πθ || πref)', 'The first term rewards answers y that a preference model scores highly for a prompt x. The second penalizes large changes in the probabilities of answers compared with the reference policy. β controls the size of this penalty.'],
+  dpo: ['L = −E log σ(β[log(πθ(yw)/πref(yw)) − log(πθ(yl)/πref(yl))])', 'For the same prompt, compare a preferred answer yw with a rejected answer yl. The loss decreases as the new model gives the preferred answer higher odds relative to the rejected one, compared with the odds under the reference model. σ is the logistic function.'],
+  attnres: ['hₗ = ∑ᵢ<ₗ αₗᵢvᵢ,  ∑ᵢ αₗᵢ = 1', 'Hold the token position fixed. At layer ℓ, each earlier layer i supplies a vector vᵢ for that position. The α weights sum to one and specify how much each vector contributes. The paper also groups layers into blocks.']
 };
 export function mathCallout(id) {
   const note = mathNotes[id];

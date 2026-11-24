@@ -1,6 +1,6 @@
-import {teachingPlate} from './teaching-figures.js?v=paperstudio1';
-import {decisionLab, updateDecisionLab} from './decision-lab.js?v=paperstudio1';
-import {lessons} from './course-data.js?v=paperstudio1';
+import {teachingPlate} from './teaching-figures.js?v=readingedit1';
+import {decisionLab, updateDecisionLab} from './decision-lab.js?v=readingedit1';
+import {lessons} from './course-data.js?v=readingedit1';
 
 export function mountCourse(root) {
   const key = 'ai-room-intro-course-v1';
@@ -40,8 +40,8 @@ export function mountCourse(root) {
     const action = completed.size === lessons.length ? t('Review the course','复习课程') :
       started ? t('Resume lesson','继续第') + ' ' + (resume + 1) + t('',' 课') : t('Start with lesson one','从第一课开始');
     return `<div class="studio-lead"><div class="studio-intro"><small>${t('The beginner’s guide to AI','AI 入门指南')}</small>
-      <h1 tabindex="-1">${t('What makes one AI model better?','怎样判断一个 AI 模型更好？')}</h1>
-      <p>${t('Try comparing two models on a task you can measure. Then work through six short lessons to read a model release and judge the evidence yourself.', '先在一项可衡量的任务上比较两个模型，再通过六节短课学会阅读模型发布说明，自己判断证据是否充分。')}</p>
+      <h1 tabindex="-1">${t('Which AI model works better for your task?','怎样判断哪个 AI 模型更适合你的任务？')}</h1>
+      <p>${t('Suppose a new model is cheaper to run but makes more mistakes. Which would you choose? Try the cost comparison, then follow six lessons from training a model to reading its test results.', '假设新模型使用起来更便宜，却更容易答错，你会选哪个？先动手比较每个正确答案的成本，再用六节短课了解模型怎样训练、测试结果该怎样读。')}</p>
       <button class="course-primary" data-unit="${resume}">${action}</button>
       <button class="studio-case" data-case>${t('Read the model release case study','阅读模型发布案例')}</button></div>
       ${decisionLab(t, successes)}</div>

@@ -1,4 +1,4 @@
-import {seminar} from './seminar.js?v=paperstudio1';
+import {seminar} from './seminar.js?v=readingedit1';
 const escapeText = value => String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 export function setupFlashcards({data,get,set,render,open}) {
   let group = 'All', mode = 'all', position = 0, flipped = false;
@@ -13,9 +13,9 @@ export function setupFlashcards({data,get,set,render,open}) {
     const cards=deck();position=Math.min(position,Math.max(0,cards.length-1));
     const card=cards[position];
     const familiar=data.terms.filter(t=>ratings[t.id]==='familiar').length;
-    return '<div class="bs-section-head"><div><span class="section-label">Recall before revealing</span><h2>Build a working vocabulary.</h2><p>Explain the term aloud or on paper. Reveal the meaning, compare your explanation, then choose whether to revisit it.</p></div><span>'+familiar+' / '+data.terms.length+' marked familiar</span></div><div class="fc-controls"><label>Topic<select id="fc-group">'+['All',...groups].map(g=>'<option '+(g===group?'selected':'')+'>'+g+'</option>').join('')+'</select></label><label>Deck<select id="fc-mode"><option value="all" '+(mode==='all'?'selected':'')+'>All terms</option><option value="review" '+(mode==='review'?'selected':'')+'>Needs review</option></select></label><span>'+cards.length+' cards</span></div>'+
+    return '<div class="bs-section-head"><div><span class="section-label">Vocabulary practice</span><h2>Explain a term from memory</h2><p>Say what the term means and give an example. Then open the explanation and decide whether you want to practice it again.</p></div><span>'+familiar+' / '+data.terms.length+' marked familiar</span></div><div class="fc-controls"><label>Topic<select id="fc-group">'+['All',...groups].map(g=>'<option '+(g===group?'selected':'')+'>'+g+'</option>').join('')+'</select></label><label>Deck<select id="fc-mode"><option value="all" '+(mode==='all'?'selected':'')+'>All terms</option><option value="review" '+(mode==='review'?'selected':'')+'>Needs review</option></select></label><span>'+cards.length+' cards</span></div>'+
     (!card?'<div class="fc-card"><h3>You have reviewed this deck.</h3><p>Choose All terms to practice again, or select another topic.</p></div>':
-    '<section class="fc-card"><span class="section-label">'+escapeText(card.group)+' · '+(position+1)+' / '+cards.length+'</span><h3>'+escapeText(card.name)+'</h3>'+
+    '<section class="fc-card"><span class="section-label">'+'<span>'+escapeText(card.group)+'</span> · '+(position+1)+' / '+cards.length+'</span><h3>'+escapeText(card.name)+'</h3>'+
     (flipped?'<div class="fc-definition">'+seminar(card)+'</div>':'<p class="fc-prompt">What does it mean, and where would you use it?</p>')+
     '<button id="fc-flip" class="lp-primary" aria-expanded="'+flipped+'">'+(flipped?'Hide explanation':'Reveal explanation')+'</button>'+
     (flipped?'<div class="fc-ratings"><button id="fc-again">Revisit this</button><button id="fc-known">Feels familiar ✓</button><button id="fc-details">Full definition & source ↗</button></div>':'')+'</section><div class="fc-pagination"><button id="fc-prev" '+(position===0?'disabled':'')+'>← Previous</button><span>'+ (position+1)+' of '+cards.length+'</span><button id="fc-next" '+(position===cards.length-1?'disabled':'')+'>Next →</button></div>');

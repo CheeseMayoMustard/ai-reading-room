@@ -1,4 +1,4 @@
-import {movingPlate, moveMarker} from './teaching-figures.js?v=paperstudio1';
+import {movingPlate, moveMarker} from './teaching-figures.js?v=readingedit1';
 // Fixed spending and a shared 100-task workload keep the comparison interpretable.
 export function decisionLab(t, successes) {
   return `<section class="decision-lab" aria-labelledby="decision-title">
@@ -6,7 +6,7 @@ export function decisionLab(t, successes) {
     <p>${t('Two models each answer 100 questions. A costs $12 and gets 80 right. B costs $10. Change how many answers B gets right.', '两个模型各回答 100 道题。A 花费 12 美元，答对 80 道。B 花费 10 美元。试着改变 B 的答对题数。')}</p>
     <label for="trial-count">${t('Correct answers from B','B 答对的题数')} <strong data-count>${successes} / 100</strong></label>
     <input id="trial-count" type="range" min="25" max="100" step="1" value="${successes}">
-    ${movingPlate('cost',t('Model B’s cost falls as correct answers increase. The dashed reference is A at 15 cents.', 'B 的答对题数增加时，单位正确成本下降。虚线表示 A 的 15 美分。'),successes,1000/successes)}
+    ${movingPlate('cost',t('Model B spends $10 in every trial. As it gets more answers right, its cost per correct answer falls. Model A’s cost stays at 15 cents per correct answer.', 'B 每次测试都花 10 美元，答对越多，每答对一题的成本越低。A 每答对一题花 15 美分，图中的虚线表示这个基准。'),successes,1000/successes)}
     <div class="trial-prices">${['A','B'].map(id=>`<span>${t('Model','模型')} ${id} <strong data-price="${id}"></strong></span>`).join('')}</div><output data-verdict for="trial-count"></output>
     <details><summary>${t('See the calculation','查看计算过程')}</summary><p data-math></p></details></section>`;
 }

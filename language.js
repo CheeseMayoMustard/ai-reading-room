@@ -1,4 +1,8 @@
-import {paperZh} from './paper-zh.js?v=readerzh1';
+import {readerUiZh} from './reader-ui-zh.js?v=readingedit1';
+import {frontierZh} from './frontier-zh.js?v=readingedit1';
+import {studyZh} from './study-zh.js?v=readingedit1';
+import {conceptZh} from './concept-zh.js?v=readingedit1';
+import {paperZh} from './paper-zh.js?v=readingedit1';
 // Interface translations are local; personal notes and original paper text are never sent away.
 const zh = {'Workshop':'动手练习','Paper workshop':'论文练习',
 'Explore':'探索','AI basics':'AI 基础','Papers':'论文','Practice':'练习','AI frontier':'AI 前沿',
@@ -102,24 +106,90 @@ Object.assign(zh,paperZh,{
   "Model card": "模型卡",
   "System card": "系统卡"
 });
+Object.assign(zh, studyZh, conceptZh, frontierZh, readerUiZh);
 const attrZh={'Personal notes':'个人笔记','My explanation, questions and examples…':'写下我的理解、疑问或例子……','Search papers':'搜索论文','Search papers and ideas':'搜索论文和概念','Sort papers':'论文排序','Change reading theme':'切换阅读主题','Bookmark paper':'收藏论文','Previous page':'上一页','Next page':'下一页','Page number':'页码','Zoom out':'缩小','Zoom in':'放大','Expand paper to full screen':'将论文展开至全屏','Lesson narration':'课程语音（英语）','Answer narration':'答案语音（英语）','Narration speed':'语音速度','Featured starting points':'推荐起点','Knowledge bank sections':'知识库栏目'};
 const textOriginal=new WeakMap(), attrOriginal=new WeakMap();
 let language='en';try{language=localStorage.getItem('ai-room-language')==='zh'?'zh':'en'}catch{}
 let observer, queued=false, noticeDismissed=false;
-function convert(text){const m=text.match(/^(\s*)([\s\S]*?)(\s*)$/);if(!m)return text;let core=m[2],out=zh[core];if(!out){let a=core.match(/^All (\d+) concepts$/);if(a)out=`全部 ${a[1]} 个概念`;a=core.match(/^(\d+) papers$/);if(!out&&a)out=`${a[1]} 篇论文`;a=core.match(/^(\d+) \/ (\d+) read$/);if(!out&&a)out=`已读 ${a[1]} / ${a[2]} 篇`;a=core.match(/^Page (\d+) of (\d+) · Scroll to continue · Place saved$/);if(!out&&a)out=`第 ${a[1]} / ${a[2]} 页 · 向下滚动继续 · 位置已保存`;a=core.match(/^(\d+) cards$/);if(!out&&a)out=`${a[1]} 张卡片`;a=core.match(/^Notebook \((\d+)\)$/);if(!out&&a)out=`笔记本（${a[1]}）`;}return out?m[1]+out+m[3]:text}
-function isProtected(el){return !!el.closest('#literacy-course,.paper-workshop,script,style,textarea,input,[contenteditable],#stage,.textLayer,.pdf-page,.text-page,#notebook-content,#brief-notes,.user-note,.annotation-layer,#language-switch,#language-notice,svg')}
+const dynamicZh = [
+  [/^(\d+)\. (.+)$/, (i,title) => i+'. '+(zh[title] || title)],
+  [/^(\d+) of 20 questions answered correctly$/, n => `已答对 ${n} / 20 题`],
+  [/^Start from zero · Lesson (\d+) of 10$/, n => `基础课 · 第 ${n} 课，共 10 课`],
+  [/^Mixed practice · (\d+) of 5$/, n => `综合练习 · 第 ${n} 题，共 5 题`],
+  [/^(\d+) of 5 correct on the first try without help$/, n => `未看提示、首次答对 ${n} / 5 题`],
+  [/^Next · (.+) →$/, title => `下一课：${zh[title] || title} →`],
+  [/^Return to (.+) →$/, title => `返回《${title}》 →`],
+  [/^Learning guides reviewed ([\d-]+) · Original editorial exercises based on the linked papers\..*$/, date => `导读核对日期：${date}。练习和题解由本站编写。简化示例会在题中标明。`],
+  [/^(\d+) of (\d+)$/, (n,total) => `第 ${n} 张，共 ${total} 张`],
+  [/^(\d+) \/ (\d+) marked familiar$/, (n,total) => `已熟悉 ${n} / ${total} 个词条`],
+  [/^(.+) · (\d+) \/ (\d+)$/, (group,n,total) => `${zh[group] || group} · ${n} / ${total}`],
+  [/^\/ (\d+) understood$/, n => `/ ${n} 个词条已理解`],
+  [/^(\d+) definitions →$/, n => `${n} 个词条 →`],
+  [/^(\d+) terms$/, n => `${n} 个词条`],
+  [/^(\d+) \/ (\d+) answered · (\d+) correct$/, (n,total,correct) => `已答 ${n} / ${total} 题，答对 ${correct} 题`],
+  [/^Progress saved in this browser · Updated (\S+)$/, date => `进度保存在当前浏览器 · 更新于 ${date}`],
+  [/^≈ (.+) GiB · raw weights only$/, n => `约 ${n} GiB，仅计算模型权重`],
+  [/^illustrative total · (.+) per planned task$/, amount => `估算总额 · 平均每个计划任务 ${amount}`],
+  [/^(\d+) \/ (\d+) practiced$/, (n,total) => `已练习 ${n} / ${total} 篇`],
+  [/^(\d+) questions ready to review →$/, n => `复习到期的 ${n} 道题 →`],
+  [/^Review queue · (\d+)$/, n => `待复习 · ${n}`],
+  [/^(\d+) ready today$/, n => `今天可复习 ${n} 题`],
+  [/^(\d+) scheduled later · reminders appear here when you visit$/, n => `另有 ${n} 题安排在以后，可回到这里查看`],
+  [/^(\d{4}) · (.+) · (\d+)\/3 questions reviewed$/, (year,cat,n) => `${year} · ${zh[cat] || cat} · 已复习 ${n}/3 题`],
+  [/^(\d+)\/3 questions reviewed\. Returning later is part of the lesson\.$/, n => `已复习 ${n}/3 题。下次可以回来再试。`],
+  [/^(\d+) \/ (Choose & explain|Apply|Evaluate|Explain|Apply & calculate|Check the claim|[^/]+)$/, (n,kind) => `${n} / ${zh[kind] || kind}`],
+  [/^Previous attempts · (\d+)$/, n => `以往作答 · ${n}`],
+  [/^Reviewed · next (.+)$/, date => `已复习 · 下次 ${date}`],
+  [/^Explore the paper: (.+) →$/, title => `阅读论文《${title}》 →`],
+  [/^Read (.+) ↗$/, title => `阅读《${title}》 ↗`],
+  [/^All (\d+) concepts$/, n => `全部 ${n} 个概念`],
+  [/^(\d+) papers?$/, n => `${n} 篇论文`],
+  [/^(\d+) \/ (\d+) read$/, (n, total) => `已读 ${n} / ${total} 篇`],
+  [/^Page (\d+) of (\d+) · Scroll to continue · Place saved$/, (n,total) => `第 ${n} / ${total} 页 · 位置已保存`],
+  [/^(\d+) cards$/, n => `${n} 张卡片`],
+  [/^Notebook \((\d+)\)$/, n => `笔记本（${n}）`],
+  [/^(\d+) briefs$/, n => `${n} 项更新`],
+  [/^(\d+) papers · (\d+) release summaries$/, (n,m) => `${n} 篇论文与报告 · ${m} 项更新摘要`],
+  [/^Research paper · (\d+)$/, year => `研究论文 · ${year}`],
+  [/^Page (\d+)$/, n => `第 ${n} 页`],
+  [/^(Saved word|Highlight) · Page ([\d, ]+)$/, (kind,n) => `${zh[kind]} · 第 ${n} 页`],
+  [/^☆ Bookmark current page \((\d+)\)$/, n => `☆ 收藏当前页（第 ${n} 页）`],
+  [/^Preparing page (\d+) of (\d+)…$/, (n,total) => `正在整理第 ${n} 页，共 ${total} 页……`],
+  [/^Jump to annotation page (\d+)$/, n => `跳到批注所在的第 ${n} 页`],
+  [/^Bookmark label for page (\d+)$/, n => `第 ${n} 页的书签名称`],
+  [/^Note on ([\s\S]+)$/, excerpt => `这段原文的笔记：${excerpt}`],
+  [/^Reading theme: (light|sepia|dark)$/, theme => `阅读主题：${({light:'浅色',sepia:'护眼',dark:'深色'})[theme]}`],
+  [/^([^·]+) · (\d{4}-\d{2}-\d{2})$/, (kind,date) => `${zh[kind] || kind} · ${date}`]
+];
+function convert(text) {
+  const [, leading, core, trailing] = text.match(/^(\s*)([\s\S]*?)(\s*)$/);
+  let out = Object.hasOwn(zh,core) ? zh[core] : undefined;
+  if(!out && / [→↗]$/.test(core)){
+    const base=core.slice(0,-2);
+    if(Object.hasOwn(zh,base))out=zh[base]+core.slice(-2);
+  }
+  if (!out) {
+    for (const [pattern, translate] of dynamicZh) {
+      const match = core.match(pattern);
+      if (match) {out = translate(...match.slice(1)); break;}
+    }
+  }
+  return out ? leading + out + trailing : text;
+}
+export function readerText(text){return language==='zh'?convert(text):text}
+function isProtected(el){return !!el.closest('#literacy-course,.paper-workshop,script,style,[contenteditable],#stage,.textLayer,.pdf-page,.text-page,#notebook-content blockquote,.user-note,.annotation-layer,#language-switch,#language-notice,svg,[data-original]')}
 function visit(root){
  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;
  while(n=walker.nextNode()){
-  const el=n.parentElement;if(!el||isProtected(el))continue;
+  const el=n.parentElement;if(!el||isProtected(el)||el.closest('textarea,input,.lp-attempt-history div > p'))continue;
   let saved=textOriginal.get(n);if(!saved||(![saved.en,saved.zh].includes(n.nodeValue)))saved={en:n.nodeValue,zh:convert(n.nodeValue)};
   if(el.tagName==='OPTION'&&!el.hasAttribute('value'))el.setAttribute('value',saved.en.trim());
   textOriginal.set(n,saved);n.nodeValue=language==='zh'?saved.zh:saved.en;
  }
  const elements=[];if(root.nodeType===1)elements.push(root);if(root.querySelectorAll)elements.push(...root.querySelectorAll('[placeholder],[aria-label],[title]'));
- for(const el of elements){if(isProtected(el)&&el.id!=='notes')continue;let saved=attrOriginal.get(el)||{};for(const key of ['placeholder','aria-label','title']){const current=el.getAttribute(key);if(current==null)continue;let a=saved[key];if(!a||![a.en,a.zh].includes(current))a={en:current,zh:attrZh[current]||current};saved[key]=a;el.setAttribute(key,language==='zh'?a.zh:a.en)}attrOriginal.set(el,saved)}
+ for(const el of elements){if(isProtected(el)&&el.id!=='notes')continue;let saved=attrOriginal.get(el)||{};for(const key of ['placeholder','aria-label','title']){const current=el.getAttribute(key);if(current==null)continue;let a=saved[key];if(!a||![a.en,a.zh].includes(current))a={en:current,zh:attrZh[current]||convert(current)};saved[key]=a;el.setAttribute(key,language==='zh'?a.zh:a.en)}attrOriginal.set(el,saved)}
 }
 function apply(){queued=false;observer.disconnect();document.documentElement.lang=language==='zh'?'zh-Hans':'en';visit(document.body);const btn=document.getElementById('language-switch');btn.textContent=language==='zh'?'EN':'中文';btn.setAttribute('aria-label',language==='zh'?'Switch to English':'切换到中文');btn.setAttribute('title',language==='zh'?'Switch to English':'切换到中文');document.getElementById('language-notice').hidden=language!=='zh'||noticeDismissed;observer.observe(document.body,{subtree:true,childList:true,characterData:true})}
 function queue(){if(!queued){queued=true;requestAnimationFrame(apply)}}
-export function setupLanguage(){const right=document.querySelector('.header-right');const button=document.createElement('button');button.id='language-switch';button.type='button';right.prepend(button);const notice=document.createElement('div');notice.id='language-notice';notice.hidden=true;notice.setAttribute('role','note');notice.textContent='导读和关键词支持中英文切换。论文原文按来源语言显示，语音和部分延伸内容为英文。';const close=document.createElement('button');close.textContent='×';close.setAttribute('aria-label','关闭提示');close.onclick=()=>{noticeDismissed=true;notice.hidden=true};notice.append(close);document.body.append(notice);observer=new MutationObserver(queue);button.addEventListener('click',()=>{language=language==='en'?'zh':'en';try{localStorage.setItem('ai-room-language',language)}catch{}apply();document.dispatchEvent(new Event('room-language'))});apply()}
+export function setupLanguage(){const right=document.querySelector('.header-right');const button=document.createElement('button');button.id='language-switch';button.type='button';right.prepend(button);const notice=document.createElement('div');notice.id='language-notice';notice.hidden=true;notice.setAttribute('role','note');notice.textContent='中文模式会切换导读、练习和术语解释。论文与引文按原文显示，配音为英语。';const close=document.createElement('button');close.textContent='×';close.setAttribute('aria-label','关闭提示');close.onclick=()=>{noticeDismissed=true;notice.hidden=true};notice.append(close);document.body.append(notice);observer=new MutationObserver(queue);button.addEventListener('click',()=>{language=language==='en'?'zh':'en';try{localStorage.setItem('ai-room-language',language)}catch{}apply();document.dispatchEvent(new Event('room-language'))});apply()}
 setupLanguage();

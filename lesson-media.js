@@ -4,16 +4,16 @@ const clips = {
   loss:['gradient'],gradient:['gradient'],descent:['gradient'],rag:['rag']
 };
 const captions={
- 'ai-0':'Follow the bright reflection. A fixed brightness cutoff can flag it even when it is not a defect.',
- 'ai-1':'The engineer supplies measurements; labeled examples determine the tree’s decision splits.',
- 'ai-2':'Follow the signal through the layers. Training adjusts the features as well as the final decision.',
- 'llm-0':'Watch the candidate probabilities appear for the current context.',
- 'llm-1':'“Bolt” is one possible sample. A 60% probability does not mean it must always be chosen.',
- 'llm-2':'The new token changes the context, so the next probability distribution changes too.',
- tokens:'Watch the pieces appear, then their vocabulary IDs. This is an illustrative tokenizer, not a measured model output.',
- attention:'Scores become normalized weights. Those weights combine the values into one output.',
- gradient:'Follow the orange point. Each update reduces w by 40% on this particular quadratic.',
- rag:'Follow the unit “bags” from the retrieved record into the answer.'
+ 'ai-0':'Watch the reflection cross the brightness threshold. The rule flags the image even though the surface is intact.',
+ 'ai-1':'The engineer chooses which measurements to record. During training, the decision tree learns cutoffs for those measurements from the labelled examples.',
+ 'ai-2':'The network starts with pixels. During training its layers learn which combinations of pixel values help distinguish a defect.',
+ 'llm-0':'Each bar shows the probability of one possible continuation of “Tighten the …”.',
+ 'llm-1':'In this draw, the model selects “bolt”. Repeating the draw with the same probabilities could give “nut” instead.',
+ 'llm-2':'After “bolt” is added, the next prediction uses the longer phrase “Tighten the bolt”.',
+ tokens:'Each bracket encloses one token. The number below it identifies that token in this example vocabulary.',
+ attention:'Convert the scores to weights that add to one. Multiply each value by its weight and add the results.',
+ gradient:'Follow the orange point. On this curve, each step multiplies w by 0.6, bringing it closer to zero.',
+ rag:'Compare the answer with the retrieved inventory record. Both the number and the unit “bags” should match.'
 };
 export function lessonMedia(id,step){
  const key=clips[id]?.[step];if(!key)return '';

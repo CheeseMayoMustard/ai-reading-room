@@ -1,4 +1,4 @@
-import {activities,readingClues} from './paper-activities.js?v=modelcards1';
+import {activities,readingClues} from './paper-activities.js?v=readingedit1';
 
 const tr = value => {
   const [en, zh] = value.split('|');
@@ -76,16 +76,16 @@ export function mountWorkshop(root,id,{get,set,evidence,more}) {
     if(state.stage===0) {
       const tried=state.choice!==null;
       const right=state.choice===correct;
-      body='<h3 tabindex="-1">'+tr('Make a prediction|先做个预测')+'</h3><p class="ws-prompt">'+tr(prompt)+'</p><div class="ws-choices">'+options.map((opt,i)=>
+      body='<h3 tabindex="-1">'+tr('Choose an answer|选择答案')+'</h3><p class="ws-prompt">'+tr(prompt)+'</p><div class="ws-choices">'+options.map((opt,i)=>
         '<button data-choice="'+i+'" aria-pressed="'+(state.choice===i)+'"><span aria-hidden="true">'+String.fromCharCode(65+i)+'</span>'+tr(opt)+'</button>'
       ).join('')+'</div>';
-      if(tried)body+='<p role="status" class="ws-feedback">'+tr(right?'Yes. Now check how you got there.|答对了。接下来核对你的思路。':'Try again, or open the worked example.|可以再试一次，也可以查看解题过程。')+'</p>';
+      if(tried)body+='<p role="status" class="ws-feedback">'+tr(right?'Yes. Read the solution to check your reasoning.|答对了。可以打开解题过程，核对自己的思路。':'Try again, or open the worked example.|可以再试一次，也可以查看解题过程。')+'</p>';
       if(state.hint || (tried&&!right))body+='<p class="ws-hint">'+tr(hint)+'</p>';
       body+='<div class="ws-actions">'+(!state.hint&&(!tried||right)?action('hint','Give me a hint|给我一点提示'):'')+action('worked','Show worked example|查看解题过程',tried)+'</div>';
     } else if(state.stage===1) {
-      body='<h3 tabindex="-1">'+tr('Follow the reasoning|跟着思路走')+'</h3><p class="ws-solution"><strong>'+tr(options[correct])+'</strong></p><p>'+tr(worked)+'</p>'+experiment(id,state.input)+'<div class="ws-actions">'+action('verify','Find it in the paper|去论文里找依据',true)+action('retry','Try the question again|重做这道题')+'</div>';
+      body='<h3 tabindex="-1">'+tr('How to work it out|这道题怎样解')+'</h3><p class="ws-solution"><strong>'+tr(options[correct])+'</strong></p><p>'+tr(worked)+'</p>'+experiment(id,state.input)+'<div class="ws-actions">'+action('verify','Find it in the paper|去论文里找依据',true)+action('retry','Try the question again|重做这道题')+'</div>';
     } else {
-      body='<h3 tabindex="-1">'+tr('Find the evidence|找到原文依据')+'</h3><p>'+tr(cue)+'</p><details class="ws-clue"><summary>'+tr('Explain the terms on this page|解释本页术语')+'</summary><p>'+tr(readingClues[id])+'</p></details>'+action('page','Open PDF page '+page+'|跳到 PDF 第 '+page+' 页',true)+'<p class="ws-page-status" role="status"></p><label class="ws-reflection" for="ws-reflection">'+tr('How does the passage connect to your example?|这段原文和刚才的例子有什么联系？')+'</label><textarea id="ws-reflection" rows="3" placeholder="'+tr('One sentence in your own words…|用自己的话写一句……')+'">'+escaped(state.reflection)+'</textarea><small>'+tr('Saved in this browser and included in your journal export.|保存在此浏览器，也会包含在导出的阅读日志里。')+'</small><div class="ws-actions">'+action('worked','Worked example|解题过程')+action('more','More practice|更多练习')+'</div>';
+      body='<h3 tabindex="-1">'+tr('Find the evidence|找到原文依据')+'</h3><p>'+tr(cue)+'</p><details class="ws-clue"><summary>'+tr('Key terms in this passage|这段原文中的关键术语')+'</summary><p>'+tr(readingClues[id])+'</p></details>'+action('page','Open PDF page '+page+'|跳到 PDF 第 '+page+' 页',true)+'<p class="ws-page-status" role="status"></p><label class="ws-reflection" for="ws-reflection">'+tr('How does the passage connect to your example?|这段原文和刚才的例子有什么联系？')+'</label><textarea id="ws-reflection" rows="3" placeholder="'+tr('One sentence in your own words…|用自己的话写一句……')+'">'+escaped(state.reflection)+'</textarea><small>'+tr('Saved in this browser and included in your journal export.|保存在此浏览器，也会包含在导出的阅读日志里。')+'</small><div class="ws-actions">'+action('worked','Worked example|解题过程')+action('more','More practice|更多练习')+'</div>';
     }
     root.innerHTML='<section class="paper-workshop"><div class="ws-progress" aria-label="'+tr('Exercise progress|练习进度')+'">'+steps.map((label,i)=>'<span '+(state.stage===i?'aria-current="step"':'')+'>'+ (i+1)+' · '+tr(label)+'</span>').join('')+'</div>'+body+'</section>';
     root.querySelectorAll('[data-choice]').forEach(button=>button.onclick=()=>{state.choice=Number(button.dataset.choice);save();draw();root.querySelector('[data-choice="'+state.choice+'"]').focus({preventScroll:true})});

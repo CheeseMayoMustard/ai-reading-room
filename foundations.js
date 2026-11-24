@@ -1,5 +1,5 @@
-import {movingPlate, moveMarker, chartText as t} from './teaching-figures.js?v=paperstudio1';
-import { units } from './foundation-content.js?v=paperstudio1';
+import {movingPlate, moveMarker, chartText as t} from './teaching-figures.js?v=readingedit1';
+import { units } from './foundation-content.js?v=readingedit1';
 
 const escapeText = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const byId = new Map(units.map(unit => [unit.id, unit]));
@@ -63,7 +63,7 @@ export function foundations({shell, state, save, render, papers, showPaper, ente
   function related(paperId) {
     const topics = units.filter(unit => unit.papers.includes(paperId));
     if (!topics.length) return '';
-    return '<section class="fd-related"><span class="section-label">Before this paper</span><h3>Build the background</h3><p>Choose an idea to learn through an everyday example and two short problems.</p>' +
+    return '<section class="fd-related"><span class="section-label">Before this paper</span><h3>Background lessons for this paper</h3><p>Choose a topic below. Each lesson includes one worked example and two questions.</p>' +
       topics.map(unit => '<button class="lp-outline" data-foundation="'+unit.id+'" data-origin="'+paperId+'">'+escapeText(unit.term)+' →</button>').join(' ')+'</section>';
   }
   function check(unit, index) {
@@ -72,9 +72,9 @@ export function foundations({shell, state, save, render, papers, showPaper, ente
     const choice = choices.get(key);
     let feedback = '';
     if (choice !== undefined) {
-      feedback = choice === correct ? 'Correct. Can you explain your choice in your own words?' : 'Try another choice, or open the hint for a starting point.';
+      feedback = choice === correct ? 'Correct. Open the worked answer to compare your reasoning.' : 'Try again, or open the hint.';
     }
-    return '<section class="fd-check" data-check-key="'+key+'"><span class="section-label">'+(mix ? 'Recall challenge' : index ? 'Use it in a new situation' : 'Try the basic idea')+'</span><h3>'+escapeText(prompt)+'</h3><div class="fd-options" role="group" aria-label="Choose an answer">'+
+    return '<section class="fd-check" data-check-key="'+key+'"><span class="section-label">'+(mix ? 'Review question' : index ? 'Apply the idea' : 'First question')+'</span><h3>'+escapeText(prompt)+'</h3><div class="fd-options" role="group" aria-label="Choose an answer">'+
       options.map((option,i) => '<button data-fd-choice="'+i+'" aria-pressed="'+(choice===i)+'">'+escapeText(option)+'</button>').join('')+
       '</div><p class="fd-feedback" role="status">'+feedback+'</p><div class="fd-help"><button data-fd-hint aria-expanded="'+hints.has(key)+'">'+(hints.has(key)?'Hide hint':'Give me a hint')+'</button><button data-fd-answer aria-expanded="'+solutions.has(key)+'">'+(solutions.has(key)?'Hide answer':'Show worked answer')+'</button></div>'+
       (hints.has(key)?'<p class="fd-nudge">'+escapeText(hint)+'</p>':'')+
@@ -125,7 +125,7 @@ export function foundations({shell, state, save, render, papers, showPaper, ente
   function view() {
     const completed = Object.keys(progress()).length;
     if (mix && position === mix.length) {
-      return '<section class="fd-main"><span class="section-label">Mixed practice complete</span><h2>'+firstCorrect+' of 5 correct on the first try without help</h2><p>Choose a topic to revisit its example and reasoning.</p><div class="fd-links">'+mix.map(({unit}) => '<button class="lp-outline" data-fd-unit="'+unit.id+'">'+unit.term+'</button>').join('')+'</div><button class="lp-primary" data-fd-mix>Try five more →</button></section>';
+      return '<section class="fd-main"><span class="section-label">Mixed practice complete</span><h2>'+firstCorrect+' of 5 correct on the first try without help</h2><p>Choose a topic to see the example and try its questions again.</p><div class="fd-links">'+mix.map(({unit}) => '<button class="lp-outline" data-fd-unit="'+unit.id+'">'+unit.term+'</button>').join('')+'</div><button class="lp-primary" data-fd-mix>Try five more →</button></section>';
     }
     if (mix) {
       const item = mix[position];
@@ -135,10 +135,10 @@ export function foundations({shell, state, save, render, papers, showPaper, ente
     const n = units.indexOf(selected);
     const relatedPapers = origin && selected.papers.includes(origin) ? [origin,...selected.papers.filter(id=>id!==origin)] : selected.papers;
     return '<section class="fd-main"><div class="fd-controls"><label>Choose a background lesson<select id="fd-topic">'+units.map((unit,i) => '<option value="'+unit.id+'" '+(unit===selected?'selected':'')+'>'+(i+1)+'. '+escapeText(unit.title)+'</option>').join('')+'</select></label><div><span>'+completed+' of 20 questions answered correctly</span><button class="lp-outline" data-fd-mix>Try five mixed questions →</button></div></div>'+
-      '<div class="fd-intro"><span class="section-label">Start from zero · Lesson '+(n+1)+' of 10</span><h2>'+escapeText(selected.title)+'</h2><p>'+escapeText(selected.scene)+'</p><div class="fd-worked"><strong>A worked example</strong><p>'+escapeText(selected.example)+'</p>'+lab()+'</div><h3>Where you see this in AI</h3><p>'+escapeText(selected.bridge)+'</p></div>'+
+      '<div class="fd-intro"><span class="section-label">Start from zero · Lesson '+(n+1)+' of 10</span><h2>'+escapeText(selected.title)+'</h2><p>'+escapeText(selected.scene)+'</p><div class="fd-worked"><strong>A worked example</strong><p>'+escapeText(selected.example)+'</p>'+lab()+'</div><h3>How AI systems use this idea</h3><p>'+escapeText(selected.bridge)+'</p></div>'+
       selected.checks.map((_,i) => check(selected,i)).join('')+'<div class="fd-controls"><button class="lp-outline" data-fd-unit="'+selected.id+'">Practice this lesson again</button>'+
       (n<units.length-1?'<button class="lp-primary" data-fd-unit="'+units[n+1].id+'">Next · '+escapeText(units[n+1].term)+' →</button>':'<button class="lp-primary" data-fd-mix>Try mixed practice →</button>')+'</div>'+
-      '<div class="fd-related"><span class="section-label">Connect it to a paper</span><div class="fd-links">'+relatedPapers.map(id => '<button class="lp-outline" data-fd-paper="'+id+'">'+(origin===id?'Return to ':'')+escapeText(papers.find(p=>p.id===id).title)+' →</button>').join('')+'</div></div></section>';
+      '<div class="fd-related"><span class="section-label">Papers that use this idea</span><div class="fd-links">'+relatedPapers.map(id => '<button class="lp-outline" data-fd-paper="'+id+'">'+(origin===id?'Return to ':'')+escapeText(papers.find(p=>p.id===id).title)+' →</button>').join('')+'</div></div></section>';
   }
   function bind() {
     shell.querySelectorAll('[data-foundation]').forEach(b => b.onclick=()=>start(b.dataset.foundation,b.dataset.origin));

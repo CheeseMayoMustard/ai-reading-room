@@ -1,10 +1,11 @@
+import {figureText} from './figure-locale.js?v=readingedit1';
 // Browser-drawn plots share the axes, type and palette of the Matplotlib plates.
 // Keeping the data marks in SVG allows sliders to update without fetching frames.
 const ink='#182933', grey='#53636f', grid='#d9e1e3';
 export const colors={green:'#176c74',orange:'#bc562b',gray:grey};
-const text=(x,y,content,attr='')=>`<text x="${x}" y="${y}" ${attr}>${content}</text>`;
+const text=(x,y,content,attr='')=>`<text x="${x}" y="${y}" ${attr}>${figureText(content)}</text>`;
 const line=(x1,y1,x2,y2,stroke=grid,width=1,extra='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${width}" ${extra}/>`;
-const figure=(w,h,content,label)=>`<svg class="method-plot" viewBox="0 0 ${w} ${h}" role="img" aria-label="${label}"><g font-family="Arial,sans-serif" font-size="14" fill="${ink}">${content}</g></svg>`;
+const figure=(w,h,content,label)=>`<svg class="method-plot" viewBox="0 0 ${w} ${h}" role="img" aria-label="${figureText(label)}"><g font-family="Arial,sans-serif" font-size="14" fill="${ink}">${content}</g></svg>`;
 const format=n=>Math.abs(n)>=10000?(n/1e6).toFixed(2)+'M':Number(n.toFixed(2)).toString();
 function ticks(min,max,count=4) {
   const unit=(max-min)/count, mag=10**Math.floor(Math.log10(unit));
@@ -97,7 +98,8 @@ export function processTrace(id,steps){
   lanes.forEach((name,i)=>{content+=text(px(i),17,name,'text-anchor="middle" font-size="13"')});
   const traces=[],labels=[];
   steps.forEach((s,i)=>{
-    const lines=wrap(s,lanes.length===1?47:35),row=23+lines.length*15,cy=y+row/2,cx=px(sequence[i]);
+    const displayed = String(figureText(s));
+    const lines = /[\u3400-\u9fff]/.test(displayed) ? displayed.match(/.{1,16}/gu) : wrap(displayed,lanes.length===1?47:35),row=23+lines.length*15,cy=y+row/2,cx=px(sequence[i]);
     traces.push([cx,cy]); labels.push([cx,cy,lines,labelX,i]);
     y+=row;
   });
@@ -107,5 +109,5 @@ export function processTrace(id,steps){
     content+=line(cx+6,cy,tx-8,cy,grid,.9)+`<circle cx="${cx}" cy="${cy}" r="5.3" fill="${i===last?colors.orange:colors.green}" stroke="white" stroke-width="1.4"/>`;
     lines.forEach((s,j)=>{content+=text(tx,cy+5+(j-(lines.length-1)/2)*16,s)});
   }
-  return figure(460,y,content,steps.join('. '));
+  return figure(460,y,content,steps.map(figureText).join(' · '));
 }

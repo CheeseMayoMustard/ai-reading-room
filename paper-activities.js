@@ -19,10 +19,10 @@ export const activities = {
     'The sample lets you test what happens on previously reported cases. To estimate an error rate across all exams, you would also need a representative sample of exams. OpenAI makes the same distinction for its evaluation of user-reported factual errors.|这个样本可以用来测试被投诉的题复核后会怎样。若要估算全部试卷的错误率，还要抽取有代表性的试卷样本。OpenAI 在用户报告事实错误的评测中作了相同区分。',
     73,'Look at Figure 25 and read the paragraph below it. Identify how a conversation first became eligible for this test. Use the PDF reader’s page number.|看图 25 和图下的段落。找出对话最初为什么会进入这项测试。这里使用 PDF 阅读器的页码。'],
   transformer: [
-    'A sensor reports 10 °C. A second reports 0 °C. Give the first reading 80% of your attention and the second 20%. What temperature do you pass along?|两个传感器分别测得 10 °C 和 0 °C。给第一个读数 80% 的注意力，第二个 20%。你会传递什么温度？',
+    'A sensor reports 10 °C. A second reports 0 °C. Use weights of 0.8 and 0.2 for the two readings. What is their weighted average?|两个传感器分别测得 10 °C 和 0 °C，对应权重为 0.8 和 0.2。加权平均温度是多少？',
     ['5 °C','8 °C','10 °C'],1,
     'Multiply each reading by its share before adding.|先把每个读数乘以它的权重，再相加。',
-    '0.8 × 10 + 0.2 × 0 = 8 °C. The weights tell you how much to take from each value. In the paper, the values are vectors, so the same calculation runs on each coordinate.|0.8 × 10 + 0.2 × 0 = 8 °C。权重决定每个值贡献多少。论文里的值是向量，每个坐标都做同样的计算。',
+    '0.8 × 10 + 0.2 × 0 = 8 °C. The weights tell you how much to take from each value. An attention head makes the same kind of weighted sum. Each value is a vector, so it repeats this calculation for each coordinate.|0.8 × 10 + 0.2 × 0 = 8 °C。权重决定每个值贡献多少。注意力头也做这样的加权求和。因为每个值都是向量，所以要对每个坐标分别计算。',
     4,'Figure 2, left. Trace the arrow from SoftMax into the last MatMul. The weights you just used enter here and combine the values V.|图 2 左侧。沿 SoftMax 的箭头找到最后一个 MatMul。你刚使用的权重就在这里与数值 V 相乘。'],
   bert: [
     'Read “I sat on the bank and watched the water.” Cover the words after “bank”. Which clue do you regain when you uncover them?|读 “I sat on the bank and watched the water.” 先遮住 bank 后面的词。揭开后，哪个词帮助你判断 bank 的含义？',
@@ -38,10 +38,10 @@ export const activities = {
   scaling: [
     'Imagine a fitted curve L = C⁻⁰·⁰⁵ for a toy training run. Compute budget C doubles. What does the curve predict for loss L?|假设一次教学实验拟合出 L = C⁻⁰·⁰⁵。计算预算 C 翻倍，损失 L 会怎样？',
     ['Falls by half|减半','Falls by about 3.4%|下降约 3.4%','Doubles|翻倍'],1,'Divide the new loss by the old loss. The C terms cancel.|用新损失除以旧损失，C 会约掉。',
-    'The ratio is 2⁻⁰·⁰⁵ ≈ 0.966. A straight trend on logarithmic axes can mean a small gain for a large increase in compute. This exponent is illustrative.|比例是 2⁻⁰·⁰⁵ ≈ 0.966。双对数坐标中的直线可能意味着算力大增，损失只小幅下降。这里的指数仅供演示。',
+    'The ratio is 2⁻⁰·⁰⁵ ≈ 0.966. The predicted loss is 96.6% of its old value, a decrease of about 3.4%. The exponent here is an example.|比例是 2⁻⁰·⁰⁵ ≈ 0.966。新的预测损失是原先的 96.6%，即约下降了 3.4%。这里的指数是教学示例。',
     4,'In the summary of scaling laws, locate the power laws for loss. Identify the input that changes in each relationship.|在缩放定律总结中找到描述损失的幂律，辨认每个关系中改变的自变量。'],
   chinchilla: [
-    'Your toy training budget pays for model size × words seen. At the same budget, you double model size. How many words can you process?|在简化模型中，训练成本正比于模型大小乘以读过的词数。预算不变，模型大小翻倍，还能处理多少词？',
+    'In this example, training cost is proportional to the number of parameters times the number of training tokens. If the cost stays fixed and the parameter count doubles, how does the token count change?|在这个简化例子中，训练成本正比于参数量乘以训练词元数。总成本不变，参数量翻倍，训练词元数会怎样变化？',
     ['Twice as many|两倍','The same|相同','Half as many|一半'],2,'Try a budget of 100, starting with 10 × 10.|可以用 100 的预算，从 10 × 10 开始算。',
     '10 × 10 and 20 × 5 cost the same in this example. A bigger model sees less data. The paper tests which balance gives the best loss for a fixed budget.|10 × 10 与 20 × 5 在这里成本相同。更大的模型只能读更少的数据。论文研究固定预算下哪种配比的损失最低。',
     1,'Read the abstract’s comparison between Chinchilla and Gopher. Which model trained on more tokens?|读摘要里 Chinchilla 与 Gopher 的比较。哪个模型训练时读过更多词元？'],
@@ -59,7 +59,7 @@ export const activities = {
     'For a delivery question, a reviewer chose answer A over B. You want to apply DPO. Which training signal do you already have?|对同一道配送问题，评审选了 A，放弃了 B。若采用 DPO，你已经具备哪种训练信号？',
     ['A delivery-time measurement|一个配送耗时测量值','A score for every possible reply|所有可能回答的分数','A preferred and a rejected answer|一对选中与落选的回答'],2,
     'Ask what information a comparison actually supplies.|想想两者比较实际提供了什么信息。',
-    'The pair supplies a relative preference. DPO directly changes the policy’s relative likelihood of the two replies, using a reference policy as an anchor.|这对样本提供相对偏好。DPO 以参考策略为基准，直接调整策略对两个回答的相对倾向。',
+    'A over B tells you which answer the reviewer preferred for this prompt. DPO trains the model to favor A over B more strongly than a fixed reference model does.|“A 优于 B”说明了评审对这道题的偏好。DPO 比较模型和固定参考模型给这两个答案的概率比，使模型相对更偏向 A。',
     2,'Compare the two paths in Figure 1. Find where the preference pairs enter the DPO path.|比较图 1 的两条路径，找出偏好样本对从哪里进入 DPO 路径。'],
   rag: [
     'A customer asks how many bags are in stock today. You find the current stock ledger and last year’s price list. Which passage should accompany the question?|顾客问今天还有几袋库存。你找到了当前库存台账和去年的价目表。应把哪段资料放进问题？',
@@ -68,8 +68,8 @@ export const activities = {
     2,'Figure 1. Follow a retrieved document from the index to the generator. Where would the stock record enter?|图 1。沿着检索文档从索引走到生成器，库存记录会从哪里进入？'],
   react: [
     'A train timetable tool returns “no service Tuesday”. Your travel assistant had planned a Tuesday trip. What should enter its next decision?|时刻表工具返回“周二停运”，旅行助手原本计划周二出发。下一步决策应该用到什么？',
-    ['Just the original itinerary|仅用最初行程','The tool result, then consider another day|使用工具结果，再考虑改期','A guessed departure time|猜一个发车时间'],1,'An action produces an observation that the assistant can use.|行动带来观察结果，助手可以利用它。',
-    'A search action produced a new observation. Using it to revise the plan closes the loop between reasoning, acting and observing.|检索带来新观察。用它调整计划，便把推理、行动和观察连成了循环。',
+    ['Just the original itinerary|仅用最初行程','The tool result, then consider another day|使用工具结果，再考虑改期','A guessed departure time|猜一个发车时间'],1,'What did the timetable tell the assistant that it did not know when planning the trip?|与最初制订计划时相比，助手从时刻表中得到了什么新信息？',
+    'The assistant now knows that the planned train will not run. The timetable result becomes part of its next input, so it can search for a different service.|助手现在知道原定车次停运了。系统把时刻表结果加入下一次输入，助手便能据此查询别的车次。',
     2,'In Figure 1, find an Action followed by an Observation. What information becomes available only after the action?|在图 1 找到相邻的 Action 与 Observation。哪条信息要等行动后才出现？'],
   lora: [
     'A 100 × 100 weight table has 10,000 entries. Freeze it and learn two smaller tables of shapes 100 × 2 and 2 × 100. How many entries do you train?|一个 100 × 100 权重表有一万个元素。冻结它，另训练 100 × 2 与 2 × 100 两个小表。需要训练多少个元素？',
@@ -87,25 +87,25 @@ export const activities = {
     'Accumulate a block before fetching another. FlashAttention uses a more involved running calculation for softmax. Tiling avoids writing and rereading the full attention matrix while preserving exact attention up to numerical precision.|每读一块就累计一次。FlashAttention 用更复杂的递推处理 softmax，分块可以免去完整注意力矩阵的写回和重读，并在数值精度内保留精确注意力。',
     2,'Figure 1. Trace the movement between HBM and SRAM. Which memory is smaller and faster?|图 1。沿着 HBM 与 SRAM 之间的数据移动路线，看看哪种存储更小、更快。'],
   vllm: [
-    'You store a growing answer in blocks of four token slots. The answer now contains six tokens. How many blocks does it occupy?|把不断增长的回答存进每块有 4 个词元位置的内存块。现在有 6 个词元，需要几块？',
+    'Each cache block holds keys and values for four tokens. How many blocks do you need to cache six tokens?|每块缓存能容纳四个词元的键和值。要为六个词元保存键值缓存，至少需要几块？',
     ['1','2','6'],1,'Fill the first block, then place the remaining tokens.|先填满第一块，再放剩余词元。',
     'Four tokens fill block one. Two more occupy block two, leaving two spare slots there. PagedAttention maps logical blocks to physical memory as the answer grows.|前 4 个填满第一块，再用第二块放 2 个，还剩 2 个空位。PagedAttention 在回答增长时把逻辑块映射到物理内存块。',
     5,'Find Section 4.1. Locate “logical” and “physical” blocks and follow one mapping.|在第 4.1 节找到 logical 和 physical blocks，追踪一个映射。'],
   speculative: [
-    'A fast typist drafts “turn left now”. In a simplified greedy check, the trusted editor agrees with “turn” and “left” but predicts “here” next. Which draft prefix survives?|快速打字员草拟 turn left now。简化的贪心校验中，主模型认可 turn 和 left，但下一词预测为 here。保留哪段草稿？',
+    'A small model proposes “turn left now.” In this example, keep each word only if it is the larger model’s top choice. The larger model chooses “turn,” then “left,” then “here.” Which part of the draft is kept?|小模型先写出了 turn left now。本例中，只有大模型也把一个词列为首选时才保留它。大模型依次选出 turn、left、here。草稿中哪一段可以保留？',
     ['turn left|turn left','turn left now|turn left now','left now|left now'],0,
     'Read from the beginning and stop at the first disagreement.|从头读，在第一次分歧处停下。',
     'Keep “turn left”, then use “here” at the mismatch. Parallel verification can save expensive model calls. The paper uses a probability-based acceptance rule for sampling.|保留 turn left，在分歧处改用 here。并行验证有机会减少昂贵的模型调用。论文中采样使用基于概率的接受规则。',
     1,'Read the abstract and find which model proposes tokens and which verifies them.|读摘要，找出谁提出候选词元，谁进行验证。'],
   gqa: [
-    'Eight readers ask different questions. Give each group of four readers one shared set of reference notes. How many sets of notes do you store?|8 位读者提出不同问题，每 4 人一组共享一套资料。需要存几套资料？',
-    ['8','4','2'],2,'Count the groups, keeping the eight questions separate.|数有几组，八个问题仍各自独立。',
+    'An attention layer has eight query heads. Every group of four shares one set of keys and values. How many sets does the model cache?|一个注意力层有八个查询头，每四个共用一套键和值。模型需要缓存几套键和值？',
+    ['8','4','2'],2,'Divide the number of heads by the number in each group.|用查询头总数除以每组的查询头数。',
     '8 ÷ 4 = 2 sets. In grouped-query attention, query heads remain distinct while heads in a group share keys and values. This reduces stored key/value data.|8 ÷ 4 = 2 套。分组查询注意力中，查询头各自独立，组内共享键和值，从而减少键值缓存。',
     2,'Figure 2. Count the key/value heads under the grouped-query drawing and compare it with the multi-head drawing.|图 2。数一数分组查询示意图里的键值头，再与多头注意力图比较。'],
   switch: [
-    'A workshop has eight specialists. A dispatcher sends each job to one specialist. How many specialists work on a single job in this simplified system?|车间有 8 位专家，调度员把每项任务交给其中一位。简化系统中一项任务会动用几位专家？',
+    'A Switch layer has eight expert networks. For a given token, its router picks expert 3. How many experts process this token in that layer?|一个 Switch 层有八个专家网络。对某个词元，路由器选了专家 3。在这一层里，实际处理它的专家有几个？',
     ['1','4','8'],0,'Count the chosen route for one job.|只看一项任务选中的路线。',
-    'One specialist handles this job. Switch uses a router to select one expert for each token at a Switch layer. Other network operations still run.|这项任务只由一位处理。Switch 层的路由器为每个词元挑选一位专家；网络中的其他运算仍会执行。',
+    'Only expert 3 processes this token in this layer. A different token could go to a different expert. The rest of the network still runs.|这个词元在这一层只由专家 3 处理。下一个词元可能分给其他专家。模型其余部分仍要运行。',
     5,'In Figure 2, look for the router. Trace one token along its selected expert path.|在图 2 找到路由器，跟踪一个词元进入选中的专家。'],
   mamba: [
     'A log contains “SAVE 7”, then a hundred routine readings. You must report the saved number. Which update rule helps?|日志中出现“保存 7”，之后有一百条常规读数。你最终要报告保存的数，哪种更新规则有帮助？',
@@ -138,13 +138,13 @@ export const activities = {
   engram: [
     'A frequently repeated phrase has a stored representation. If you can look it up by a short key, which operation can you avoid repeating from scratch?|一个常见短语已经有存好的表示。如果用短键即可查到，可以省去反复执行哪类工作？',
     ['Reconstructing the same familiar pattern|重新构造同一个常见模式','All reasoning on the current question|当前问题的全部推理','Reading the current input|读取当前输入'],0,
-    'Think of retrieving a familiar part number from an index.|可以类比从索引中查找熟悉的零件编号。',
+    'If two occurrences map to the same table entry, what information can they reuse?|同一串词元两次指向同一个表项时，哪部分信息可以复用？',
     'Lookup can supply a reusable representation for a familiar pattern. The model still combines it with the surrounding context. Engram explores conditional memory alongside neural computation.|查表可以为熟悉的模式提供可复用的表示。模型仍需结合上下文处理。Engram 探索在神经网络计算旁引入条件记忆。',
     1,'Find “lookup” in the abstract. Identify the kind of pattern the authors propose retrieving.|在摘要中找到 lookup，辨认作者提议检索哪类模式。'],
   attnres: [
-    'Three earlier processing layers report signals of 2, 6 and 10. The current layer gives them weights 0.25, 0.50 and 0.25. What blended signal arrives?|三个较早的处理层给出的信号是 2、6、10。当前层分别给它们权重 0.25、0.50、0.25。混合后得到多少？',
+    'Three earlier processing layers report signals of 2, 6 and 10. The current layer gives them weights 0.25, 0.50 and 0.25. What is the weighted sum?|模型较早的三层分别输出 2、6、10，当前层给它们的权重分别是 0.25、0.50、0.25。加权和是多少？',
     ['18','6','9'],1,'Multiply each earlier signal by its weight.|把每个较早的信号乘以它的权重。',
-    '0.25 × 2 + 0.5 × 6 + 0.25 × 10 = 6. Here attention chooses among earlier layers. The axis you are mixing across is network depth.|0.25 × 2 + 0.5 × 6 + 0.25 × 10 = 6。这里注意力在较早的层之间分配，混合所沿的维度是网络深度。',
+    '0.25 × 2 + 0.5 × 6 + 0.25 × 10 = 6. Here attention chooses among earlier layers. The three numbers come from different layers at the same token position.|0.25 × 2 + 0.5 × 6 + 0.25 × 10 = 6。这里是在各层之间分配注意力，三个数来自同一词元位置在不同层的输出。',
     4,'In Section 3.1, find the weighted combination of previous layer outputs. Identify what its index runs over.|在第 3.1 节找到此前各层输出的加权组合，确认求和下标遍历什么。']
 };
 

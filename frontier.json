@@ -183,11 +183,11 @@
       "id": "engram-2026",
       "date": "2026-01-12",
       "company": "DeepSeek",
-      "title": "Engram: lookup as a modeling primitive",
+      "title": "Engram looks up recurring patterns",
       "branch": "Efficiency",
-      "what": "The authors introduce conditional memory alongside conditional computation, and test how to allocate capacity between them.",
-      "why": "Some recurring patterns may be cheaper to look up than repeatedly reconstruct through neural computation.",
-      "limit": "Controlled research results do not establish that memory lookup replaces reasoning or that every released model uses this module.",
+      "what": "DeepSeek tests a model that can look up a learned vector for a familiar sequence of tokens. The authors vary how much of the model they devote to lookup.",
+      "why": "A lookup could save some of the work of computing a representation of the same phrase each time it occurs.",
+      "limit": "The paper tests a research design. It leaves open which released products, if any, use it.",
       "sources": [
         "engram",
         "engram-repo"
@@ -198,11 +198,11 @@
       "id": "kimi25-2026",
       "date": "2026-02-02",
       "company": "Moonshot",
-      "title": "Kimi K2.5: visual agents and parallel work",
+      "title": "Kimi K2.5 divides work among agents",
       "branch": "Agents",
-      "what": "The report combines text-vision training with Agent Swarm, which decomposes some tasks into concurrent subtasks.",
-      "why": "Progress can come from coordinating work as well as improving an individual model.",
-      "limit": "Parallel speedups depend on task independence, resources and the chosen baseline.",
+      "what": "Moonshot describes training K2.5 on text and images. Its Agent Swarm system splits some requests into subtasks that can run at the same time.",
+      "why": "For example, several agents could each inspect a different document before one combines their findings. This can shorten the time a reader waits.",
+      "limit": "Time savings depend on how much work can run independently, how many resources are available and what the authors compare it with.",
       "sources": [
         "k25"
       ],
@@ -212,11 +212,11 @@
       "id": "glm5-2026",
       "date": "2026-02-17",
       "company": "GLM / Z.ai",
-      "title": "GLM-5: training for agentic engineering",
+      "title": "How GLM-5 trains for multi-step software tasks",
       "branch": "Reasoning",
-      "what": "The report describes sparse attention and asynchronous reinforcement learning for complex interactions. The model announcement preceded the paper on 12 February.",
-      "why": "The training infrastructure and task environment become part of the explanation for better agents.",
-      "limit": "Paper and release dates differ; benchmark performance does not guarantee unattended project completion.",
+      "what": "The team describes sparse attention, which limits which positions a token attends to, and a training setup that lets different tasks produce feedback at different times.",
+      "why": "A model that edits software needs feedback on what its edits actually did. The environment used during training determines which outcomes it can learn from.",
+      "limit": "The team announced the model on 12 February and published the paper on 17 February. Its tests cover selected tasks. Completing an entire project without supervision is a separate test.",
       "sources": [
         "glm5",
         "glm-launch"
@@ -227,11 +227,11 @@
       "id": "attnres-2026",
       "date": "2026-03-16",
       "company": "Moonshot",
-      "title": "Attention Residuals: selection across depth",
+      "title": "Attention Residuals lets a layer weight earlier layers",
       "branch": "Efficiency",
-      "what": "AttnRes replaces uniform accumulation of earlier layer outputs with learned attention across depth; a block variant reduces overhead.",
-      "why": "Attention can help choose earlier representations across layers as well as across words.",
-      "limit": "This is distinct from token attention. Scaling findings depend on the architectures and experiments tested.",
+      "what": "In a standard residual connection, a layer adds its update to the running total. Moonshot tests a method that learns how much to use from each earlier layer. A second version groups layers to reduce the extra work.",
+      "why": "For a single token, the model can draw more heavily on an earlier stage of processing. The choice here is between layers of the network.",
+      "limit": "The measured benefits depend on the architectures and sizes tested in the paper.",
       "sources": [
         "attnres"
       ],
@@ -241,11 +241,11 @@
       "id": "kimi3-2026",
       "date": "2026-07-16",
       "company": "Moonshot",
-      "title": "Kimi K3: connecting architecture to agents",
+      "title": "Which research ideas appear in Kimi K3?",
       "branch": "Agents",
-      "what": "Moonshot describes K3 as combining KDA, Attention Residuals, sparse experts and native vision, with a million-token context window.",
-      "why": "This is a documented connection from architecture research to a released model, rather than a guessed family tree.",
-      "limit": "Open weights have a specific license. Context capacity and vendor demonstrations do not guarantee reliable use of every token.",
+      "what": "Moonshot says K3 combines several techniques, including Attention Residuals and a network that activates only some of its submodules for each token. It also describes image input and a million-token context window.",
+      "why": "Moonshot explicitly names Attention Residuals in its description of K3. That gives readers a specific link between a research paper and a released model.",
+      "limit": "Check the license before reusing the weights. To evaluate long documents, test whether the model can find and use the passages your task requires.",
       "sources": [
         "k3",
         "k3-blog"
@@ -256,11 +256,11 @@
       "id": "glmflash-2026",
       "date": "2026-08-27",
       "company": "GLM / Z.ai",
-      "title": "GLM-5.3-Flash: hybrid attention and multimodality",
+      "title": "How GLM-5.3-Flash reduces the work per token",
       "branch": "Efficiency",
-      "what": "The official article describes linear plus sparse attention, native multimodal training and a smaller active parameter budget.",
-      "why": "Useful capability can improve through selective computation and cache efficiency, alongside scale.",
-      "limit": "The reported efficiency comparisons use specific baselines and configurations; they are not a universal speed ranking.",
+      "what": "Z.ai describes combining linear and sparse attention, training on multiple kinds of input, and activating fewer parameters for each token.",
+      "why": "A model can keep many parameters available while using only a fraction of them for a particular input. That can reduce the work per token.",
+      "limit": "The speed comparisons apply to the hardware, settings and comparison models in the article.",
       "sources": [
         "glm-flash"
       ],
@@ -270,11 +270,11 @@
       "id": "fable-2026",
       "date": "2026-09-15",
       "company": "Anthropic",
-      "title": "Fable 5.1 / Mythos 5.1: capability and deployment",
+      "title": "Fable 5.1 and Mythos 5.1 use different deployment settings",
       "branch": "Reasoning",
-      "what": "Anthropic describes the same underlying model with different safeguards and access arrangements, alongside coding and research evaluations.",
-      "why": "Deployment policy and tool access can affect usable capability even when model weights are shared.",
-      "limit": "These are company evaluations. Different harnesses, effort settings and safeguard interventions affect comparisons.",
+      "what": "Anthropic describes two deployments of the same underlying model. The safeguards and access rules differ. The company also reports coding and research tests.",
+      "why": "When a system restricts the tools a model can use, it changes which tasks a user can complete with it.",
+      "limit": "Compare the tools, safeguards and amount of computation allowed in each company test before comparing the scores.",
       "sources": [
         "a-fable"
       ],
@@ -284,11 +284,11 @@
       "id": "bioscience-2026",
       "date": "2026-09-17",
       "company": "Anthropic",
-      "title": "Claude-assisted biomolecular model optimization",
+      "title": "Researchers use Claude to speed up modeling software",
       "branch": "Agents",
-      "what": "Anthropic reports accelerating and reducing the memory use of existing biomolecular models with human supervision.",
-      "why": "AI may improve the scientific tools used by researchers, as well as help read or write research.",
-      "limit": "Compute improvements and in-silico results are not evidence of a clinically validated discovery. Precision and hardware settings matter.",
+      "what": "Anthropic reports that, under human supervision, Claude helped existing biomolecular modeling software run faster and use less memory.",
+      "why": "Speeding up the software can let researchers run the same calculation more often with a given computing budget.",
+      "limit": "These measurements concern software performance. Their interpretation depends on the hardware and numerical precision used.",
       "sources": [
         "a-bio"
       ],
@@ -298,11 +298,11 @@
       "id": "glm-infra-2026",
       "date": "2026-09-17",
       "company": "GLM / Z.ai",
-      "title": "An agent helps build inference infrastructure",
+      "title": "GLM helps engineers change the software that runs models",
       "branch": "Agents",
-      "what": "Z.ai describes using GLM in a feedback loop to adapt and optimize serving infrastructure.",
-      "why": "Agents that improve software infrastructure can indirectly make later AI use more efficient.",
-      "limit": "This is a company engineering case study. It does not establish autonomous, open-ended recursive self-improvement.",
+      "what": "Z.ai describes engineers using GLM to change the software that serves model requests and evaluating those changes.",
+      "why": "If a software change shortens the time needed to answer a request, later users can benefit even with the same model weights.",
+      "limit": "The case study describes work on a particular system. How much human oversight other projects need remains an open question.",
       "sources": [
         "glm-infra"
       ],
@@ -312,11 +312,11 @@
       "id": "openai-cost-2026",
       "date": "2026-09-22",
       "company": "OpenAI",
-      "title": "GPT-6 Sol / Luna: capability at different costs",
+      "title": "GPT-6 Sol and Luna reuse parts of repeated requests",
       "branch": "Efficiency",
-      "what": "OpenAI emphasizes cheaper inference, context caching and models aimed at different workload budgets.",
-      "why": "Cost per useful completed task matters alongside peak capability; reusable context can reduce repeated processing.",
-      "limit": "Token-price changes are different from total workflow savings. Reported comparisons depend on settings and tools.",
+      "what": "OpenAI describes models for different budgets and a cache that can reuse computation when requests begin with the same context.",
+      "why": "Consider a reader asking ten questions about one document. Processing its repeated text can account for a substantial part of the cost.",
+      "limit": "To estimate the cost of a finished task, count input, output, tool calls and retries under the settings you expect to use.",
       "sources": [
         "o-cost"
       ],
@@ -326,11 +326,11 @@
       "id": "sol61-2026",
       "date": "2026-09-29",
       "company": "OpenAI",
-      "title": "GPT-6.1 Sol: models inside agent workflows",
+      "title": "GPT-6.1 Sol uses tools during multi-step tasks",
       "branch": "Agents",
-      "what": "The release and documentation emphasize coding, professional work and tool-based execution.",
-      "why": "The practical unit of progress increasingly includes the model, its tools and the system that manages its work.",
-      "limit": "A product release does not disclose every architectural or training detail, and evaluations are not guarantees.",
+      "what": "OpenAI describes using Sol for coding and other professional tasks that involve calling tools.",
+      "why": "For a coding task, the result depends both on the edit a model proposes and on whether the surrounding software lets it run tests and inspect the outcome.",
+      "limit": "The release gives examples of performance. It leaves some details of the model and its training undisclosed.",
       "sources": [
         "o-sol"
       ],
@@ -340,11 +340,11 @@
       "id": "haiku-2026",
       "date": "2026-10-07",
       "company": "Anthropic",
-      "title": "Haiku 5.5: economical helpers for larger workflows",
+      "title": "Haiku 5.5 as a lower-cost helper model",
       "branch": "Efficiency",
-      "what": "Anthropic positions Haiku 5.5 for high-volume tasks, summaries, browser work and subagent roles, with adjustable effort.",
-      "why": "A smaller helper can handle bounded work while a stronger model coordinates a complex task.",
-      "limit": "Small-model capability and cost claims remain workload-dependent. Cheap calls can still accumulate in long agent runs.",
+      "what": "Anthropic presents Haiku 5.5 for repeated tasks such as summarizing documents. It also describes using it as a helper for another model and adjusting how much effort it spends on a request.",
+      "why": "For example, a lower-cost model could summarize each report before another model compares the summaries.",
+      "limit": "Check the quality of the summaries and count all the calls. Many inexpensive requests can still add up to a large bill.",
       "sources": [
         "a-haiku"
       ],
@@ -354,11 +354,11 @@
       "id": "alignment-2026",
       "date": "2026-10-09",
       "company": "Anthropic",
-      "title": "Official reporting on unintended agent actions",
+      "title": "When agents take actions users did not intend",
       "branch": "Reasoning",
-      "what": "Anthropic reports unwanted actions observed in evaluations and internal use, beyond its launch system cards.",
-      "why": "Agent progress includes staying within instructions and permissions, not only completing more steps.",
-      "limit": "This is evidence about observed failure cases, not an estimate of typical failure rates.",
+      "what": "Anthropic describes unwanted actions it observed during testing and internal use.",
+      "why": "An agent can finish a task yet exceed the permission the user gave it. An evaluation can check these two outcomes separately.",
+      "limit": "The examples document ways the system failed. Estimating how often this happens requires knowing how representative the tested tasks were.",
       "sources": [
         "a-safety"
       ],
@@ -368,11 +368,11 @@
       "id": "deepseek-oct-2026",
       "date": "2026-10-17",
       "company": "DeepSeek",
-      "title": "V4.1-Flash update and Search / Fetch",
+      "title": "DeepSeek adds search and page retrieval to its API",
       "branch": "Agents",
-      "what": "After September’s native-vision V4.1-Flash release, the October update reports shorter runtimes and outputs, and opens an in-house Search / Fetch API.",
-      "why": "Search, visual input and lower execution costs expand the ingredients available for end-to-end agents.",
-      "limit": "These are vendor-reported results. Benchmark versions and agent frameworks vary, so scores should not be pooled into one league table.",
+      "what": "After releasing a model with image input in September, DeepSeek reported shorter outputs and run times in October. It also made its Search and Fetch tools available through an API.",
+      "why": "An application can now search for a document and fetch its contents before asking the model a question about it.",
+      "limit": "DeepSeek reports these results for its own tests. To compare another system, use the same tasks, test version and tools.",
       "sources": [
         "d-log"
       ],
@@ -382,11 +382,11 @@
       "id": "kimi31-2026",
       "date": "2026-10-23",
       "company": "Moonshot",
-      "title": "K3.1 Pro: longer work and a faster serving option",
+      "title": "Kimi K3.1 Pro adds a faster option in Kimi Code",
       "branch": "Agents",
-      "what": "Kimi Code’s release notes report K3.1 Pro, a million-token context window, and a Highspeed variant.",
-      "why": "Moonshot is pursuing both long-task capability and the speed of delivering it.",
-      "limit": "The release notes establish availability and vendor claims, not independent validation or an open-weight release for this variant.",
+      "what": "The Kimi Code release notes describe K3.1 Pro, its million-token context window and a Highspeed option.",
+      "why": "For a large codebase, two practical questions are how much code fits in one request and how long the developer waits for the answer.",
+      "limit": "The release notes describe the service. Independent performance tests and the terms for obtaining model weights require separate evidence.",
       "sources": [
         "k31",
         "k31-blog"
@@ -397,11 +397,11 @@
       "id": "zcode-oct-2026",
       "date": "2026-10-23",
       "company": "GLM / Z.ai",
-      "title": "ZCode: the agent environment keeps evolving",
+      "title": "ZCode updates how it handles documents and sessions",
       "branch": "Agents",
-      "what": "Official release notes describe document/session handling, plugins and reliability fixes in the work environment.",
-      "why": "The surrounding application affects whether model capability turns into dependable deliverables.",
-      "limit": "This is a product and reliability update, not evidence of a new model architecture.",
+      "what": "Z.ai lists changes to documents, sessions and plugins in ZCode, along with reliability fixes.",
+      "why": "An application that keeps track of the right document across steps can make an existing model more useful to its users.",
+      "limit": "The release notes describe application changes. They do not identify a change to the underlying model architecture.",
       "sources": [
         "zcode"
       ],
@@ -411,11 +411,11 @@
       "id": "openai-oct-2026",
       "date": "2026-10-30",
       "company": "OpenAI",
-      "title": "October: caching, Terra and specialized research",
+      "title": "OpenAI adds longer caching and new model options",
       "branch": "Agents",
-      "what": "Official documentation records 12-hour prompt caching on 20 October, GPT-6.1 Terra on 26 October, and GPT-6 Rosalind for approved research users on 30 October.",
-      "why": "General models, infrastructure efficiency and specialized research tools are developing together.",
-      "limit": "Access restrictions apply; a specialist release does not imply validated scientific outcomes.",
+      "what": "OpenAI lists 12-hour prompt caching on 20 October, GPT-6.1 Terra on 26 October and GPT-6 Rosalind for approved research users on 30 October.",
+      "why": "Extending the cache changes how long an application can reuse work between requests. Rosalind changes which model approved researchers can use.",
+      "limit": "The notes establish when these features became available. Scientific usefulness requires testing on specific research tasks.",
       "sources": [
         "o-log"
       ],
@@ -425,11 +425,11 @@
       "id": "astra-sol-nov17",
       "date": "2026-11-17",
       "company": "OpenAI",
-      "title": "GPT-6.2 Astra and Sol in the API",
+      "title": "How many tokens do GPT-6.2 Astra and Sol use per task?",
       "branch": "Efficiency",
-      "what": "OpenAI reports stronger results on demanding tasks with fewer output tokens than the preceding models. Both models accept text and image inputs and return text.",
-      "why": "A model that completes a task with fewer generated tokens can reduce one component of the cost of running it.",
-      "limit": "Real cost depends on input and output prices, retries, and the fraction of tasks completed successfully. The release reports the provider’s comparisons.",
+      "what": "OpenAI reports better results on demanding tasks while generating fewer tokens than the preceding models. Both models accept text and images and return text.",
+      "why": "When output is billed per token, a shorter successful answer can reduce the output portion of the bill.",
+      "limit": "To compare total cost, include input charges and failed attempts. The performance comparison here comes from OpenAI.",
       "sources": [
         "openai-nov17",
         "gpt62"
@@ -440,11 +440,11 @@
       "id": "claudefable52-report",
       "date": "2026-11-09",
       "company": "Anthropic",
-      "title": "Claude Fable 5.2 & Claude Mythos 5.2",
+      "title": "What changes when Fable can see how much context is left?",
       "branch": "Agents",
-      "what": "Anthropic documents two deployment configurations and tests how Fable performs when its working environment shows the remaining context budget.",
-      "why": "The comparison helps isolate the contribution of the environment to a measured score.",
-      "limit": "The reported gain applies to this benchmark and these settings.",
+      "what": "Anthropic describes two deployment configurations. In one experiment, it tests Fable with and without a message showing how much context space remains.",
+      "why": "If the model stays the same and the score changes, information supplied by the environment can help explain the difference.",
+      "limit": "The measured difference applies to the benchmark and settings in the system card.",
       "sources": [
         "claudefable52"
       ],
@@ -454,11 +454,11 @@
       "id": "gemini4neon-report",
       "date": "2026-11-18",
       "company": "Google DeepMind",
-      "title": "Gemini 4 Neon",
+      "title": "How much room does Gemini 4 Neon leave for an answer?",
       "branch": "Efficiency",
-      "what": "DeepMind describes Neon as an adaptation of Gemini 4 Carbon and documents its input types, combined input/output window and output limits.",
-      "why": "A shared window makes reserving space for an answer an explicit part of planning a long-document task.",
-      "limit": "Whether the relevant evidence can be recovered correctly requires a task-level evaluation.",
+      "what": "DeepMind describes Neon as an adaptation of Gemini 4 Carbon. Its model card lists supported inputs, a shared limit for input and output, and a separate output limit.",
+      "why": "For a long document, count the tokens in the question and document, then reserve space for the answer within the shared limit.",
+      "limit": "A document can fit in the window while the model still misses the passage that answers your question. Test that with a question whose answer you know.",
       "sources": [
         "gemini4neon"
       ],
@@ -468,17 +468,17 @@
   "companies": [
     {
       "name": "Anthropic",
-      "focus": "Agents, scientific tools and cost-aware model tiers",
+      "focus": "Using different models for different steps",
       "evidence": [
         "haiku-2026",
         "bioscience-2026",
         "alignment-2026"
       ],
-      "forecast": "Likely to expand workflows in which strong models coordinate cheaper helpers, with more scientific tooling and explicit deployment controls.",
+      "forecast": "Anthropic may give a larger model more ways to assign small tasks to cheaper models. Its reports also suggest continued work on research tools and controls over agent actions.",
       "confidence": "Medium-high",
-      "why": "The selected releases already combine helper models, research case studies and published agent failure analysis.",
-      "watch": "Look for externally reproduced scientific results and lower cost per completed task, with measured permission compliance.",
-      "counter": "If safeguards, verification costs or task failures dominate savings, broader autonomy may arrive more slowly.",
+      "why": "The Haiku announcement describes helper tasks. Separate reports describe research software and cases where agents exceeded the intended scope.",
+      "watch": "Can independent teams reproduce the reported research results? When helper models are added, does the cost of a correctly completed task fall, and do the agents stay within their permissions?",
+      "counter": "If supervising the helpers or correcting their errors costs more than the helpers save, there is less reason to delegate more work to them.",
       "sources": [
         "a-haiku",
         "a-bio",
@@ -487,17 +487,17 @@
     },
     {
       "name": "OpenAI",
-      "focus": "An integrated model, runtime and specialist-tool stack",
+      "focus": "Tools and reusable context for longer tasks",
       "evidence": [
         "sol61-2026",
         "openai-cost-2026",
         "openai-oct-2026"
       ],
-      "forecast": "Likely to keep packaging long-running work with tools, context reuse and multiple model tiers, while extending selected specialist research workflows.",
+      "forecast": "OpenAI may make it easier to continue a task across several tool calls, reuse earlier computation and choose a model for a particular job.",
       "confidence": "Medium-high",
-      "why": "The official releases pair models with caching and agent infrastructure, while Rosalind targets approved life-science research.",
-      "watch": "Track reliable end-to-end completion, context reuse in real workloads and reproducible specialist evaluations.",
-      "counter": "If verification and orchestration overhead stay high, faster tokens may not translate into cheaper finished work.",
+      "why": "The announcements describe caching and tool use alongside several model options. The Rosalind release describes access for approved researchers.",
+      "watch": "Test how often a system finishes the whole job correctly. For repeated requests, measure how much computation it can actually reuse.",
+      "counter": "If coordinating tools and checking their results takes substantial time, generating tokens faster may have little effect on the total cost.",
       "sources": [
         "o-sol",
         "o-cost",
@@ -506,17 +506,17 @@
     },
     {
       "name": "Moonshot",
-      "focus": "Architecture innovation plus multimodal long-horizon agents",
+      "focus": "Processing longer documents and mixed inputs",
       "evidence": [
         "attnres-2026",
         "kimi3-2026",
         "kimi31-2026"
       ],
-      "forecast": "Likely to keep improving the efficiency of long-context, multimodal agent work through attention, sparse computation and serving changes.",
+      "forecast": "Moonshot may continue testing ways to process long sequences of text and images more efficiently, both inside the model and in the software that runs it.",
       "confidence": "Medium",
-      "why": "K3 explicitly connects KDA and AttnRes to its architecture; the October release adds a faster serving option.",
-      "watch": "Look for technical reports, reproducible long-context tests and cost measurements on multi-step work.",
-      "counter": "Routing, communication and long-context verification may erode theoretical gains. Future weight availability and licenses remain separate questions.",
+      "why": "K3 names specific attention methods in its architecture. The October Kimi Code release adds a faster way to run K3.1 Pro.",
+      "watch": "Compare accuracy, time and total cost on the same long-document task, especially when the model has to find facts in several different places.",
+      "counter": "Savings inside the model can shrink once devices exchange data and readers check the answer against a long source document.",
       "sources": [
         "attnres",
         "k3",
@@ -525,16 +525,16 @@
     },
     {
       "name": "DeepSeek",
-      "focus": "Selective memory / computation and economical agent execution",
+      "focus": "Reducing repeated computation and adding search",
       "evidence": [
         "engram-2026",
         "deepseek-oct-2026"
       ],
-      "forecast": "Likely to continue exploring efficient memory and computation, while making search and tool-based workflows cheaper and more integrated.",
+      "forecast": "DeepSeek may keep testing when a model can look up a stored representation and when it needs to compute one. Its product updates also suggest further work on search tools.",
       "confidence": "Medium",
-      "why": "Engram explores an additional efficiency axis; the October release combines execution improvements with a search API.",
-      "watch": "Look for controlled ablations, production memory measurements and comparable cost-per-task results.",
-      "counter": "A promising research module may not transfer to every deployed model or workload; quality can fall when context selection misses evidence.",
+      "why": "The Engram paper tests lookup during model computation. A separate product announcement makes search and page retrieval available to applications.",
+      "watch": "Look for a test that adds or removes the lookup component while keeping other settings fixed. Compare memory use, answer quality and cost per completed task.",
+      "counter": "A lookup method that saves computation in a research test may offer little benefit for the requests people send in production.",
       "sources": [
         "engram",
         "engram-repo",
@@ -543,17 +543,17 @@
     },
     {
       "name": "GLM / Z.ai",
-      "focus": "Agent training environments, hybrid attention and deployment engineering",
+      "focus": "Training agents on tasks with checkable results",
       "evidence": [
         "glm5-2026",
         "glmflash-2026",
         "glm-infra-2026"
       ],
-      "forecast": "Likely to invest in verifiable long-task training environments and efficient multimodal deployment, with agents assisting infrastructure engineering.",
+      "forecast": "Z.ai may build more training tasks in which an agent makes a series of changes and receives feedback on the result. Its engineering reports also point to work on the software that runs models.",
       "confidence": "Medium",
-      "why": "GLM-5 emphasizes asynchronous RL; later official material combines hybrid attention with an agent-assisted serving case study.",
-      "watch": "Track independent long-task evaluations, reproducible accelerator performance and stronger verification of agent-generated changes.",
-      "counter": "Training-environment shortcuts and brittle software integration could limit gains outside the reported settings.",
+      "why": "The GLM-5 report describes training with feedback. Later articles discuss more efficient attention and the use of GLM to help engineers change model-serving software.",
+      "watch": "Can another team reproduce the speed measurements on the same hardware? Do changes proposed by the agent pass independent software tests?",
+      "counter": "An agent may learn to pass a training check without solving the underlying task. Tests on unfamiliar projects would show whether that is happening.",
       "sources": [
         "glm5",
         "glm-flash",
@@ -564,8 +564,8 @@
   "branches": [
     {
       "id": "understanding",
-      "name": "Learning reusable representations",
-      "question": "How does one model learn knowledge that transfers?",
+      "name": "Using one trained model for several tasks",
+      "question": "How can patterns learned from one set of examples help a model handle a new task?",
       "color": "#476b93",
       "steps": [
         "bert",
@@ -576,8 +576,8 @@
     },
     {
       "id": "reasoning",
-      "name": "Reasoning & learning from feedback",
-      "question": "How does the model improve its decisions and behavior?",
+      "name": "Reasoning and feedback",
+      "question": "How can examples, prompts and feedback change the steps a model takes to answer a question?",
       "color": "#866340",
       "steps": [
         "cot",
@@ -590,8 +590,8 @@
     },
     {
       "id": "efficiency",
-      "name": "Efficient computation & memory",
-      "question": "How do we do more useful work with the same resources?",
+      "name": "Computation and memory",
+      "question": "Which calculations can a system skip or reuse, and how does that affect its answers?",
       "color": "#3a7359",
       "steps": [
         "lora",
@@ -607,8 +607,8 @@
     },
     {
       "id": "agents",
-      "name": "Tools, vision & extended work",
-      "question": "How does a model act, inspect results and keep going?",
+      "name": "Tools, images and multi-step tasks",
+      "question": "How can a system get information, act on it and check the result before continuing?",
       "color": "#8e5c80",
       "steps": [
         "rag",
