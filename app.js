@@ -5,7 +5,7 @@ import {conceptFigure,bindFigures} from './concept-figures.js?v=readingedit1';
 import * as pdfjs from './vendor/pdf.min.mjs';
 import {setupNotebook} from './notebook.js?v=spacecase1';
 import {setupCitationReader} from './citation-reader.js?v=readingedit1';
-import {setupOverview} from './overview.js?v=retro1';
+import {setupOverview} from './overview.js?v=chips1';
 import {readings,drawRevisit,revisitText} from './retrospectives.js?v=retro1';
 let overview;
 let citationReader;

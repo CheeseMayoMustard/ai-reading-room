@@ -1,8 +1,8 @@
 import {frontierZh} from './frontier-zh.js?v=readingedit1';
 import {teachingPlate, chartText} from './teaching-figures.js?v=readingedit1';
-import {setupExplore} from './explore.js?v=retro1';
+import {setupExplore} from './explore.js?v=chips1';
 import {setupLearning} from './learning.js?v=readingedit1';
-import {setupBasics} from './basics.js?v=spacecase1';
+import {setupBasics} from './basics.js?v=chips1';
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 export async function setupOverview({papers,readPaper,refreshReader,onOverview,get,set}){
  const $=s=>document.querySelector(s);const data=await fetch('./frontier.json?v=readingedit1').then(r=>{if(!r.ok)throw Error('Overview unavailable');return r.json()});let tab='tree',year=2026,company='All',format='All',search='',demo='attention',step=0;const updateById=new Map(data.updates.map(u=>[u.id,u]));
@@ -74,14 +74,14 @@ export async function setupOverview({papers,readPaper,refreshReader,onOverview,g
   if(!['explore','basics','library','learn','overview'].includes(view))return;
   event.preventDefault();
   const dest=url.pathname+url.search+url.hash;
-  if(url.searchParams.get('case')==='spatial'||new URLSearchParams(location.search).get('case')==='spatial'){
+  if(['spatial','chips'].includes(url.searchParams.get('case'))||['spatial','chips'].includes(new URLSearchParams(location.search).get('case'))){
     if(location.href!==url.href)history.pushState(null,'',dest);
   } else history.replaceState(null,'',dest);
   followURL(url);
  });
  window.addEventListener('popstate',()=>{
    const url=new URL(location.href);
-   if(url.searchParams.get('case')==='spatial'||(!document.querySelector('#explore').hidden&&document.querySelector('.spatial-case'))){
+   if(['spatial','chips'].includes(url.searchParams.get('case'))||(!document.querySelector('#explore').hidden&&document.querySelector('.spatial-case,.cl-lab'))){
      if(!url.searchParams.has('view'))url.searchParams.set('view','explore');
      followURL(url);
    }
