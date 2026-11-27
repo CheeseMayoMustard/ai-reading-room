@@ -1,9 +1,11 @@
 import {mountCourse} from './course.js?v=spacecase1';
+import {readings,revisitURL,revisitText} from './retrospectives.js?v=retro1';
 const arrow='<span aria-hidden="true" class="editorial-arrow">↗</span>';
 export function setupExplore({papers,conceptCount,onShow}){
  const shell=document.createElement('main');shell.id='explore';shell.className='explore-page';shell.hidden=true;document.body.append(shell);
  shell.innerHTML=`
  <section id="literacy-course"></section>
+ <section class="rv-shelf" data-original aria-labelledby="rv-heading"></section>
  <section class="editorial-section" aria-labelledby="featured-title">
   <div class="editorial-section-head"><div><span class="editorial-kicker">AI BASICS</span><h2 id="featured-title">Three questions about language models</h2></div><a href="?view=basics&study=terms">All ${conceptCount} concepts ${arrow}</a></div>
   <div class="story-grid">
@@ -21,6 +23,8 @@ export function setupExplore({papers,conceptCount,onShow}){
  };
  function setFigureLanguage() {
    const chinese = document.documentElement.lang.startsWith('zh');
+   const t=revisitText;
+   shell.querySelector('.rv-shelf').innerHTML=`<h2 id="rv-heading">${t('Read the classics through today’s models','用今天的模型重读经典论文')}</h2><p>${t('Why does DeepSeek compress long documents? What can examples in a Claude prompt teach it? Pick a paper to compare an original experiment with a later model.','DeepSeek 为什么要压缩长文？给 Claude 几个示例，它能从中学到什么？选一篇论文，把作者当年的实验和今天的做法放在一起看。')}</p><nav class="rv-shelf-links" aria-labelledby="rv-heading">${Object.entries(readings).map(([id,r])=>`<a href="${revisitURL(id)}">${r.year} · ${r.name}</a>`).join('')}</nav>`;
    shell.querySelectorAll('[data-figure]').forEach(img => {
      const key = img.dataset.figure;
      img.src = 'media/figures/' + key + '-' + (chinese ? 'zh' : 'en') + '.svg';

@@ -1,6 +1,6 @@
 import {frontierZh} from './frontier-zh.js?v=readingedit1';
 import {teachingPlate, chartText} from './teaching-figures.js?v=readingedit1';
-import {setupExplore} from './explore.js?v=spacecase1';
+import {setupExplore} from './explore.js?v=retro1';
 import {setupLearning} from './learning.js?v=readingedit1';
 import {setupBasics} from './basics.js?v=spacecase1';
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
@@ -11,7 +11,7 @@ export async function setupOverview({papers,readPaper,refreshReader,onOverview,g
  function links(ids){return ids.map(id=>{let s=data.sources[id];return `<a class="ov-source" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)} ↗<small>${esc(s.kind)} · ${s.date}</small></a>`}).join('')}
  let basics,learning,explore;function activate(id){nav.querySelectorAll('button').forEach(b=>{b.classList.toggle('active',b.id===id);if(b.id===id)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')})}
  function show(){explore?.hide();learning?.hide();basics?.hide();activate('nav-overview');onOverview();shell.hidden=false;document.body.classList.add('overview-mode');$('#nav-overview').classList.add('active');$('#nav-library').classList.remove('active');const url=new URL(location.href);url.searchParams.set('view','overview');history.replaceState(null,'',url.pathname+url.search+'#overview');render()}
- function reader(id,targetPage){explore?.hide();learning?.hide();basics?.hide();activate('nav-library');detail.hidden=true;shell.hidden=true;document.body.classList.remove('overview-mode');$('#nav-overview').classList.remove('active');$('#nav-library').classList.add('active');const url=new URL(location.href);url.searchParams.set('view','library');for(const key of ['term','study','track','unit','model','case','part','page'])url.searchParams.delete(key);url.searchParams.delete('lesson');url.searchParams.delete('step');history.replaceState(null,'',url.pathname+url.search+(id?'#'+id:''));if(id)readPaper(id,targetPage);else requestAnimationFrame(refreshReader)}
+ function reader(id,targetPage,lens=null){explore?.hide();learning?.hide();basics?.hide();activate('nav-library');detail.hidden=true;shell.hidden=true;document.body.classList.remove('overview-mode');$('#nav-overview').classList.remove('active');$('#nav-library').classList.add('active');const url=new URL(location.href);url.searchParams.set('view','library');for(const key of ['term','study','track','unit','model','case','part','page'])url.searchParams.delete(key);url.searchParams.delete('lesson');url.searchParams.delete('step');if(lens==='revisit')url.searchParams.set('lens','revisit');else url.searchParams.delete('lens');if(Number.isInteger(targetPage)&&targetPage>0)url.searchParams.set('page',targetPage);history.replaceState(null,'',url.pathname+url.search+(id?'#'+id:''));if(id)readPaper(id,targetPage,lens);else requestAnimationFrame(refreshReader)}
  $('#nav-overview').onclick=show;$('#nav-library').onclick=()=>reader();
  function heading(){return `<div class="ov-heading"><div><div class="eyebrow">RESEARCH TIMELINE · REVIEWED 20 NOV 2026</div><h1>How language models<br><em>have changed</em></h1><p>Start with the 2017 Transformer paper. Follow a question about training, efficiency or tool use to later work, then open the source to see what the authors found.</p></div><div class="ov-stamp"><strong>2017 → 2026</strong><span>${papers.length} papers · ${data.updates.length} release summaries<br>Google DeepMind · Anthropic · OpenAI<br>Moonshot · DeepSeek · GLM / Z.ai</span><button id="export-overview">Download the research guide ↓</button></div></div><div class="ov-tabs">${[['tree','Development tree'],['updates','2026 developments'],['demos','Try the ideas'],['outlook','Directions & forecasts'],['sources','Sources']].map(([id,label])=>`<button data-overview-tab="${id}" class="${tab===id?'active':''}" aria-pressed="${tab===id}">${label}</button>`).join('')}</div>`}
  function milestone(id){let p=papers.find(p=>p.id===id),u=updateById.get(id);if(p)return {year:p.year,title:p.title,summary:p.hook,kind:'Paper',company:''};return {year:u.date.slice(0,4),title:u.title,summary:u.company+' · '+u.date,kind:data.sources[u.sources[0]].kind,company:u.company}}
@@ -63,7 +63,7 @@ export async function setupOverview({papers,readPaper,refreshReader,onOverview,g
   const view=url.searchParams.get('view');
   if(view==='explore')explore.show();
   if(view==='overview')show();
-  if(view==='library')reader(url.hash.slice(1)||undefined,Number(url.searchParams.get('page')));
+  if(view==='library')reader(url.hash.slice(1)||undefined,Number(url.searchParams.get('page')),url.searchParams.get('lens'));
   if(view==='learn')learning.show(url.searchParams.get('lesson'),url.searchParams.get('step'));
   if(view==='basics'){basics.show();if(url.searchParams.get('term'))basics.open(url.searchParams.get('term'));else basics.switchTab(url.searchParams.get('study')||'start')}
  }

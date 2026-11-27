@@ -1,0 +1,18 @@
+.rv-shelf{background:var(--pale);color:var(--ink);padding:clamp(28px,5vw,70px) max(6vw,calc((100vw - 1360px)/2));border-top:1px solid var(--line)}
+.rv-shelf h2{font:700 clamp(1.8rem,3.5vw,3.4rem)/1.13 var(--display);margin:0;letter-spacing:-.035em;max-width:22em}
+.rv-shelf p{font-size:1.05rem;line-height:1.65;max-width:62ch;color:var(--muted);margin:.8rem 0 1.2rem}
+.rv-shelf-links{display:flex;gap:.5rem;flex-wrap:wrap}.rv-shelf-links a{padding:.6rem .85rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:650;text-decoration:none;border-radius:4px}.rv-shelf-links a:hover{border-color:var(--ink)}
+#revisit-toggle{display:block;margin:12px 18px 0;padding:.55rem .85rem;color:var(--ink);background:var(--pale);line-height:1.4;font-family:inherit;font-size:.95rem;font-weight:650;border:1px solid var(--line);border-radius:4px;text-align:start;cursor:pointer}
+#revisit-toggle[aria-pressed=true]{border-inline-start:3px solid var(--green)}#revisit-toggle[hidden]{display:none}
+.rv-article{font-size:1rem;line-height:1.65;color:var(--ink)}
+#companion-body .rv-article h3{font-size:clamp(1.45rem,2vw,2rem);line-height:1.24;margin:.3rem 0 1rem}
+#companion-body .rv-article h4,.rv-picker summary{font-size:1rem;font-weight:700;line-height:1.5;margin:1.35rem 0 .4rem}
+#companion-body .rv-article p{margin:.35rem 0 .8rem;line-height:1.65}
+.rv-kicker,.rv-check small{color:var(--muted);font-size:.86rem;font-weight:650}.rv-article button,.rv-article a{font:inherit;color:var(--green);text-underline-offset:.18em}
+.rv-page{background:none;border:0;padding:0;text-decoration:underline;cursor:pointer;text-align:start}.rv-status{display:block;color:var(--muted);font-size:.9rem}
+.rv-interpret{margin:1.2rem 0;border-inline-start:3px solid var(--green);padding:.6rem 1rem;background:var(--pale)}#companion-body .rv-interpret h4{margin-top:0}#companion-body .rv-interpret p{margin-bottom:0}
+.rv-check,.rv-picker{padding:.7rem 0;border-block-start:1px solid var(--line)}.rv-check summary,.rv-picker summary{cursor:pointer;font-weight:650}.rv-check small{display:block;font-weight:600;margin-bottom:.3rem}.rv-article footer a,.rv-picker a{display:block;margin:.35rem 0}.rv-picker{margin-top:1.25rem}.rv-picker summary{margin:0}
+
+.rv-plot{display:block;background:#fff;width:100%;height:auto;margin:.9rem 0;border:1px solid var(--line);border-radius:5px}
+.rv-check summary{list-style:none}.rv-check summary::-webkit-details-marker{display:none}
+.rv-check summary small::before{content:'＋ ';color:var(--green)}.rv-check[open] summary small::before{content:'− '}
