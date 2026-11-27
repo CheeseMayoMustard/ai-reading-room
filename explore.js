@@ -1,4 +1,4 @@
-import {mountCourse} from './course.js?v=readingedit1';
+import {mountCourse} from './course.js?v=spacecase1';
 const arrow='<span aria-hidden="true" class="editorial-arrow">↗</span>';
 export function setupExplore({papers,conceptCount,onShow}){
  const shell=document.createElement('main');shell.id='explore';shell.className='explore-page';shell.hidden=true;document.body.append(shell);
@@ -30,6 +30,6 @@ export function setupExplore({papers,conceptCount,onShow}){
  document.addEventListener('room-language', setFigureLanguage);
  setFigureLanguage();
  const showCourse = mountCourse(shell.querySelector("#literacy-course"));
- function show(){onShow();showCourse();shell.hidden=false;document.body.classList.add('overview-mode');shell.scrollTop=0;history.replaceState(null,'','?view=explore');}
+ function show(){onShow();shell.hidden=false;showCourse();document.body.classList.add('overview-mode');shell.scrollTop=0;if(new URLSearchParams(location.search).get('case')!=='spatial')history.replaceState(null,'','?view=explore');}
  return {show,hide:()=>{shell.hidden=true}};
 }

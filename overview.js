@@ -1,8 +1,8 @@
 import {frontierZh} from './frontier-zh.js?v=readingedit1';
 import {teachingPlate, chartText} from './teaching-figures.js?v=readingedit1';
-import {setupExplore} from './explore.js?v=readingedit1';
+import {setupExplore} from './explore.js?v=spacecase1';
 import {setupLearning} from './learning.js?v=readingedit1';
-import {setupBasics} from './basics.js?v=readingedit1';
+import {setupBasics} from './basics.js?v=spacecase1';
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 export async function setupOverview({papers,readPaper,refreshReader,onOverview,get,set}){
  const $=s=>document.querySelector(s);const data=await fetch('./frontier.json?v=readingedit1').then(r=>{if(!r.ok)throw Error('Overview unavailable');return r.json()});let tab='tree',year=2026,company='All',format='All',search='',demo='attention',step=0;const updateById=new Map(data.updates.map(u=>[u.id,u]));
@@ -11,7 +11,7 @@ export async function setupOverview({papers,readPaper,refreshReader,onOverview,g
  function links(ids){return ids.map(id=>{let s=data.sources[id];return `<a class="ov-source" href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)} ↗<small>${esc(s.kind)} · ${s.date}</small></a>`}).join('')}
  let basics,learning,explore;function activate(id){nav.querySelectorAll('button').forEach(b=>{b.classList.toggle('active',b.id===id);if(b.id===id)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')})}
  function show(){explore?.hide();learning?.hide();basics?.hide();activate('nav-overview');onOverview();shell.hidden=false;document.body.classList.add('overview-mode');$('#nav-overview').classList.add('active');$('#nav-library').classList.remove('active');const url=new URL(location.href);url.searchParams.set('view','overview');history.replaceState(null,'',url.pathname+url.search+'#overview');render()}
- function reader(id){explore?.hide();learning?.hide();basics?.hide();activate('nav-library');detail.hidden=true;shell.hidden=true;document.body.classList.remove('overview-mode');$('#nav-overview').classList.remove('active');$('#nav-library').classList.add('active');const url=new URL(location.href);url.searchParams.set('view','library');for(const key of ['term','study','track','unit','model'])url.searchParams.delete(key);url.searchParams.delete('lesson');url.searchParams.delete('step');history.replaceState(null,'',url.pathname+url.search+(id?'#'+id:''));if(id)readPaper(id);else requestAnimationFrame(refreshReader)}
+ function reader(id,targetPage){explore?.hide();learning?.hide();basics?.hide();activate('nav-library');detail.hidden=true;shell.hidden=true;document.body.classList.remove('overview-mode');$('#nav-overview').classList.remove('active');$('#nav-library').classList.add('active');const url=new URL(location.href);url.searchParams.set('view','library');for(const key of ['term','study','track','unit','model','case','part','page'])url.searchParams.delete(key);url.searchParams.delete('lesson');url.searchParams.delete('step');history.replaceState(null,'',url.pathname+url.search+(id?'#'+id:''));if(id)readPaper(id,targetPage);else requestAnimationFrame(refreshReader)}
  $('#nav-overview').onclick=show;$('#nav-library').onclick=()=>reader();
  function heading(){return `<div class="ov-heading"><div><div class="eyebrow">RESEARCH TIMELINE · REVIEWED 20 NOV 2026</div><h1>How language models<br><em>have changed</em></h1><p>Start with the 2017 Transformer paper. Follow a question about training, efficiency or tool use to later work, then open the source to see what the authors found.</p></div><div class="ov-stamp"><strong>2017 → 2026</strong><span>${papers.length} papers · ${data.updates.length} release summaries<br>Google DeepMind · Anthropic · OpenAI<br>Moonshot · DeepSeek · GLM / Z.ai</span><button id="export-overview">Download the research guide ↓</button></div></div><div class="ov-tabs">${[['tree','Development tree'],['updates','2026 developments'],['demos','Try the ideas'],['outlook','Directions & forecasts'],['sources','Sources']].map(([id,label])=>`<button data-overview-tab="${id}" class="${tab===id?'active':''}" aria-pressed="${tab===id}">${label}</button>`).join('')}</div>`}
  function milestone(id){let p=papers.find(p=>p.id===id),u=updateById.get(id);if(p)return {year:p.year,title:p.title,summary:p.hook,kind:'Paper',company:''};return {year:u.date.slice(0,4),title:u.title,summary:u.company+' · '+u.date,kind:data.sources[u.sources[0]].kind,company:u.company}}
@@ -56,20 +56,35 @@ export async function setupOverview({papers,readPaper,refreshReader,onOverview,g
  }
  basics=await setupBasics({get,set,papers,readPaper:reader,onShow:()=>{explore?.hide();learning?.hide();onOverview();shell.hidden=true;detail.hidden=true;activate('nav-basics')}});$('#nav-basics').onclick=basics.show;
  learning=await setupLearning({papers,get,set,readPaper:reader,openTerm:id=>{basics.show();basics.open(id)},openDemo:id=>{tab='demos';demo=id;show()},onShow:()=>{explore?.hide();basics.hide();onOverview();shell.hidden=true;detail.hidden=true;activate('nav-learning')}});$('#nav-learning').onclick=()=>learning.show();
- explore=setupExplore({papers,conceptCount:basics.count,onShow:()=>{learning?.hide();basics?.hide();onOverview();shell.hidden=true;detail.hidden=true;activate('nav-explore')}});$('#nav-explore').onclick=explore.show;
+ explore=setupExplore({papers,conceptCount:basics.count,onShow:()=>{learning?.hide();basics?.hide();onOverview();shell.hidden=true;detail.hidden=true;activate('nav-explore')}});$('#nav-explore').onclick=()=>{history.replaceState(null,'','?view=explore');explore.show()};
  // Keep internal editorial links in the same application, preserving the reader
  // and avoiding stale cached documents when moving between learning sections.
+ function followURL(url){
+  const view=url.searchParams.get('view');
+  if(view==='explore')explore.show();
+  if(view==='overview')show();
+  if(view==='library')reader(url.hash.slice(1)||undefined,Number(url.searchParams.get('page')));
+  if(view==='learn')learning.show(url.searchParams.get('lesson'),url.searchParams.get('step'));
+  if(view==='basics'){basics.show();if(url.searchParams.get('term'))basics.open(url.searchParams.get('term'));else basics.switchTab(url.searchParams.get('study')||'start')}
+ }
  document.addEventListener('click',event=>{
   const link=event.target.closest('a[href^="?"]');
   if(!link||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
   const url=new URL(link.href),view=url.searchParams.get('view');
   if(!['explore','basics','library','learn','overview'].includes(view))return;
-  event.preventDefault();history.replaceState(null,'',url.pathname+url.search+url.hash);
-  if(view==='explore')explore.show();
-  if(view==='overview')show();
-  if(view==='library')reader(url.hash.slice(1)||undefined);
-  if(view==='learn')learning.show(url.searchParams.get('lesson'));
-  if(view==='basics'){basics.show();if(url.searchParams.get('term'))basics.open(url.searchParams.get('term'));else basics.switchTab(url.searchParams.get('study')||'start')}
+  event.preventDefault();
+  const dest=url.pathname+url.search+url.hash;
+  if(url.searchParams.get('case')==='spatial'||new URLSearchParams(location.search).get('case')==='spatial'){
+    if(location.href!==url.href)history.pushState(null,'',dest);
+  } else history.replaceState(null,'',dest);
+  followURL(url);
+ });
+ window.addEventListener('popstate',()=>{
+   const url=new URL(location.href);
+   if(url.searchParams.get('case')==='spatial'||(!document.querySelector('#explore').hidden&&document.querySelector('.spatial-case'))){
+     if(!url.searchParams.has('view'))url.searchParams.set('view','explore');
+     followURL(url);
+   }
  });
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!detail.hidden){detail.hidden=true;e.preventDefault()}});if(new URLSearchParams(location.search).get('view')==='overview')show();else if(new URLSearchParams(location.search).get('view')==='basics')basics.show();else if(new URLSearchParams(location.search).get('view')==='learn')learning.show(new URLSearchParams(location.search).get('lesson'),new URLSearchParams(location.search).get('step'));else if(new URLSearchParams(location.search).get('view')==='explore'||(!location.search&&!location.hash))explore.show();return {show,reader,learn:learning.show,exportLearning:learning.exportState,importLearning:learning.importState,exportBasics:basics.exportState,importBasics:basics.importState,exportNotes:()=>Object.fromEntries(data.updates.map(u=>[u.id,get('brief-note-'+u.id)||''])),importNotes:notes=>{if(!notes||typeof notes!=='object')return;for(let u of data.updates){let text=notes[u.id];if(typeof text!=='string'||!text)continue;let old=get('brief-note-'+u.id)||'';if(!old)set('brief-note-'+u.id,text);else if(old!==text&&!old.includes(text))set('brief-note-'+u.id,old+'\n\n— Imported —\n'+text)}}};
 }

@@ -1,4 +1,4 @@
-import {readerText} from './language.js?v=readingedit1';
+import {readerText} from './language.js?v=spacecase1';
 import {conceptZh} from './concept-zh.js?v=readingedit1';
 import {nestedFields} from './field-board.js?v=readingedit1';
 import {setupFlashcards} from './flashcards.js?v=readingedit1';

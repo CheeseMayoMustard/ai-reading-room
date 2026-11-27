@@ -2,7 +2,7 @@ import {readerUiZh} from './reader-ui-zh.js?v=readingedit1';
 import {frontierZh} from './frontier-zh.js?v=readingedit1';
 import {studyZh} from './study-zh.js?v=readingedit1';
 import {conceptZh} from './concept-zh.js?v=readingedit1';
-import {paperZh} from './paper-zh.js?v=readingedit1';
+import {paperZh} from './paper-zh.js?v=spacecase1';
 // Interface translations are local; personal notes and original paper text are never sent away.
 const zh = {'Workshop':'动手练习','Paper workshop':'论文练习',
 'Explore':'探索','AI basics':'AI 基础','Papers':'论文','Practice':'练习','AI frontier':'AI 前沿',
@@ -109,7 +109,8 @@ Object.assign(zh,paperZh,{
 Object.assign(zh, studyZh, conceptZh, frontierZh, readerUiZh);
 const attrZh={'Personal notes':'个人笔记','My explanation, questions and examples…':'写下我的理解、疑问或例子……','Search papers':'搜索论文','Search papers and ideas':'搜索论文和概念','Sort papers':'论文排序','Change reading theme':'切换阅读主题','Bookmark paper':'收藏论文','Previous page':'上一页','Next page':'下一页','Page number':'页码','Zoom out':'缩小','Zoom in':'放大','Expand paper to full screen':'将论文展开至全屏','Lesson narration':'课程语音（英语）','Answer narration':'答案语音（英语）','Narration speed':'语音速度','Featured starting points':'推荐起点','Knowledge bank sections':'知识库栏目'};
 const textOriginal=new WeakMap(), attrOriginal=new WeakMap();
-let language='en';try{language=localStorage.getItem('ai-room-language')==='zh'?'zh':'en'}catch{}
+let language=navigator.language.toLowerCase().startsWith('zh')?'zh':'en';
+try{const savedLanguage=localStorage.getItem('ai-room-language');if(['zh','en'].includes(savedLanguage))language=savedLanguage}catch{}
 let observer, queued=false, noticeDismissed=false;
 const dynamicZh = [
   [/^(\d+)\. (.+)$/, (i,title) => i+'. '+(zh[title] || title)],

@@ -500,6 +500,32 @@
     ]
   },
   {
+    "id": "thinkinginspace",
+    "year": "2025",
+    "cat": "Applications",
+    "authors": "Yang et al.",
+    "idArxiv": "2412.14171",
+    "sourceUrl": "https://openaccess.thecvf.com/content/CVPR2025/html/Yang_Thinking_in_Space_How_Multimodal_Large_Language_Models_See_Remember_CVPR_2025_paper.html",
+    "tag": "Spatial reasoning",
+    "title": "Thinking in Space: How Multimodal Large Language Models See, Remember, and Recall Spaces",
+    "hook": "Can a model tell which way to turn after watching a room tour?",
+    "idea": "The authors showed models videos of real rooms, then asked about the objects and their positions. Naming the objects is only a first step. To give directions, a model must also work out where the observer stands and which way the observer faces.",
+    "analogy": "Stand in the doorway and face the window. A chair on your right stays in place when you turn around. From your new viewpoint, the chair is now on your left.",
+    "why": "One overall score can hide large differences among tasks. In this study Gemini 1.5 Pro scored close to the human group on estimating object size. The same model had a much larger gap on relative direction.",
+    "read": "On PDF page 5, find Table 1. Within the block marked VSI-Bench (tiny), compare the Human Level and Gemini-1.5 Pro rows for Obj. Size and Rel. Dir. Section 4.1 explains how the authors score each task.",
+    "question": "What additional experiment would you need before using these results to choose a robot for a real room?",
+    "terms": [
+      [
+        "Frame of reference",
+        "The position and orientation from which you describe a location."
+      ],
+      [
+        "Human baseline",
+        "The score of the people who took the test, under the conditions the researchers describe."
+      ]
+    ]
+  },
+  {
     "id": "engram",
     "year": "2026",
     "cat": "Efficiency",

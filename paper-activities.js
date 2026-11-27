@@ -1,5 +1,12 @@
 // Each exercise uses a small teaching example. Page numbers refer to the bundled PDFs.
 export const activities = {
+  thinkinginspace: [
+    'On relative direction, the human group scored 95.8 and Gemini 1.5 Pro scored 48.1. How large was the gap?|相对方向题上，人类得分为 95.8，Gemini 1.5 Pro 得分为 48.1。两者相差多少？',
+    ['1.8 points|1.8 分','47.7 points|47.7 分','95.8 points|95.8 分'],1,
+    'Both scores are on the same 100-point scale. Subtract the lower score from the higher one.|两项成绩都按百分制报告。用较高的成绩减去较低的成绩。',
+    '95.8 − 48.1 = 47.7 points. For object size, the gap was only 60.4 − 58.6 = 1.8 points. The choice of task changes the comparison.|95.8 − 48.1 = 47.7 分。同一项研究中，物体尺寸题只差 60.4 − 58.6 = 1.8 分。换一种任务，人与模型的差距就变了。',
+    5,'In Table 1, find the rows marked with a dagger (†). Read across Human Level and Gemini-1.5 Pro to the Rel. Dir. column. Then compare Obj. Size.|在表 1 找到带 † 的两行 Human Level 和 Gemini-1.5 Pro。先看 Rel. Dir.（相对方向），再看 Obj. Size（物体尺寸）。'
+  ],
   gemini4neon: [
     'Imagine a request with a shared budget of 1,000,000 tokens. Your documents and instructions already use 980,000. Allowing for no other overhead, how many tokens remain for the answer?|假设输入和输出共享 100 万词元。文档与指令已占用 98 万词元，忽略其他开销，最多还剩多少词元可用于回答？',
     ['20,000','64,000','1,000,000'],0,
@@ -149,6 +156,7 @@ export const activities = {
 };
 
 export const readingClues = {
+  thinkinginspace:'The dagger marks the 400-question subset. Relative direction uses multiple choice. Object size gives partial credit for estimates close to the measured size.|† 表示使用 400 道题的子集。相对方向采用选择题。物体尺寸采用数值估计，估计越接近实测值，得分越高。',
   gemini4neon:'Context window means the total token space available. Synchronous here means the client waits for a response in the same request.|上下文窗口指可用的词元总空间。这里的同步是指客户端在这次请求中等待回答。',
   claudefable52:'The harness runs the evaluation. Hidden tests check the submitted program’s behavior with cases the model cannot inspect beforehand.|测试框架负责运行评测。隐藏测试用模型事先看不到的用例检查所提交程序的行为。',
   gpt62:'Selection bias arises when the rule for choosing cases makes the sample differ systematically from the wider population.|当选取规则使样本与总体系统性不同时，就会产生选择偏差。',

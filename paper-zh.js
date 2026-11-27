@@ -1,5 +1,17 @@
 // Simplified Chinese for paper guides, glossaries and citation notes.
 export const paperZh = {
+  "Spatial reasoning": "空间推理",
+  "Thinking in Space: How Multimodal Large Language Models See, Remember, and Recall Spaces": "Thinking in Space：多模态大语言模型如何观察、记忆和回想空间",
+  "Can a model tell which way to turn after watching a room tour?": "看完一段室内视频，模型能判断该往哪个方向转吗？",
+  "The authors showed models videos of real rooms, then asked about the objects and their positions. Naming the objects is only a first step. To give directions, a model must also work out where the observer stands and which way the observer faces.": "作者让模型观看真实房间的视频，再回答有关物体及其位置的问题。认出物体只是第一步。要指出方向，模型还得知道观察者站在哪里、面朝哪里。",
+  "Stand in the doorway and face the window. A chair on your right stays in place when you turn around. From your new viewpoint, the chair is now on your left.": "站在门口，面向窗户。假设一把椅子在你右手边。原地转身后，椅子没动，却到了你的左手边。",
+  "One overall score can hide large differences among tasks. In this study Gemini 1.5 Pro scored close to the human group on estimating object size. The same model had a much larger gap on relative direction.": "同一个总分可能掩盖能力差异。在这项研究中，Gemini 1.5 Pro 估计物体尺寸的得分与人类受试者接近，但判断相对方向时差距很大。",
+  "On PDF page 5, find Table 1. Within the block marked VSI-Bench (tiny), compare the Human Level and Gemini-1.5 Pro rows for Obj. Size and Rel. Dir. Section 4.1 explains how the authors score each task.": "翻到 PDF 第 5 页的表 1。在 VSI-Bench (tiny) 这一组里，找到人类和 Gemini-1.5 Pro 两行，比较物体尺寸（Obj. Size）和相对方向（Rel. Dir.）两列。第 4.1 节说明评分方法。",
+  "What additional experiment would you need before using these results to choose a robot for a real room?": "如果要用这个结果为真实房间挑选机器人，你还需要做什么实验？",
+  "Frame of reference": "参照系",
+  "The position and orientation from which you describe a location.": "描述位置时所采用的原点和方向。",
+  "Human baseline": "人类基线",
+  "The score of the people who took the test, under the conditions the researchers describe.": "受试者在研究规定条件下取得的成绩。",
   "The Transformer": "Transformer 架构",
   "Start with the abstract and introduction. In Section 3, look at Figure 1 and the descriptions of attention and multi-head attention. Then inspect the translation results and conclusion.": "先读摘要和引言。接着看第 3 节的图 1，以及对注意力和多头注意力的说明。最后看翻译实验结果和结论。",
   "Attention": "注意力机制",

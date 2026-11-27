@@ -1,4 +1,4 @@
-import {activities,readingClues} from './paper-activities.js?v=readingedit1';
+import {activities,readingClues} from './paper-activities.js?v=spacecase1';
 
 const tr = value => {
   const [en, zh] = value.split('|');
@@ -88,6 +88,11 @@ export function mountWorkshop(root,id,{get,set,evidence,more}) {
       body='<h3 tabindex="-1">'+tr('Find the evidence|找到原文依据')+'</h3><p>'+tr(cue)+'</p><details class="ws-clue"><summary>'+tr('Key terms in this passage|这段原文中的关键术语')+'</summary><p>'+tr(readingClues[id])+'</p></details>'+action('page','Open PDF page '+page+'|跳到 PDF 第 '+page+' 页',true)+'<p class="ws-page-status" role="status"></p><label class="ws-reflection" for="ws-reflection">'+tr('How does the passage connect to your example?|这段原文和刚才的例子有什么联系？')+'</label><textarea id="ws-reflection" rows="3" placeholder="'+tr('One sentence in your own words…|用自己的话写一句……')+'">'+escaped(state.reflection)+'</textarea><small>'+tr('Saved in this browser and included in your journal export.|保存在此浏览器，也会包含在导出的阅读日志里。')+'</small><div class="ws-actions">'+action('worked','Worked example|解题过程')+action('more','More practice|更多练习')+'</div>';
     }
     root.innerHTML='<section class="paper-workshop"><div class="ws-progress" aria-label="'+tr('Exercise progress|练习进度')+'">'+steps.map((label,i)=>'<span '+(state.stage===i?'aria-current="step"':'')+'>'+ (i+1)+' · '+tr(label)+'</span>').join('')+'</div>'+body+'</section>';
+    if(id==='thinkinginspace'){
+      const link=document.createElement('a');link.className='ws-spatial-link';link.href='?view=explore&case=spatial&part=1';
+      link.textContent=tr('Try the interactive room lesson|进入互动空间推理课');
+      root.querySelector('.ws-progress').after(link);
+    }
     root.querySelectorAll('[data-choice]').forEach(button=>button.onclick=()=>{state.choice=Number(button.dataset.choice);save();draw();root.querySelector('[data-choice="'+state.choice+'"]').focus({preventScroll:true})});
     root.querySelectorAll('[data-work]').forEach(button=>button.onclick=async()=>{
       switch(button.dataset.work) {

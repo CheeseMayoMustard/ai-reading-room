@@ -1,6 +1,6 @@
 import {publicationUrl} from './publication.js?v=readingedit1';
-import {activities} from './paper-activities.js?v=readingedit1';
-import {workshopState} from './paper-workshop.js?v=readingedit1';
+import {activities} from './paper-activities.js?v=spacecase1';
+import {workshopState} from './paper-workshop.js?v=spacecase1';
 const esc=s=>String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 export function setupNotebook({getCurrent,getDoc,getPage,goToPage,get,set,onNotesChanged}){
  const $=s=>document.querySelector(s);const uid=()=>crypto.randomUUID();let section='annotations',draft=null,selectedId=null,notice='',aiText='',busy=false;
